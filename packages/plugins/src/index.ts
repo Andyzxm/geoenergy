@@ -1096,3 +1096,18 @@ export {
   type FlightModelConfig,
   type FlightStepResult,
 } from "./plugins/flight-simulator-physics";
+
+export {
+  GEOENERGY_CATALOG_PLUGIN_ID,
+  DEFAULT_GEOENERGY_CATALOG_LABELS,
+  addDataset as addGeoenergyDataset,
+  fetchGeoenergyCatalog,
+  geoenergyCatalogPlugin,
+  setGeoenergyCatalogLabels,
+  setGeoenergyCatalogUrl,
+  type GeoenergyCatalog,
+  type GeoenergyCatalogLabels,
+  type GeoenergyDataset,
+  type GeoenergyDatasetKind,
+  type GeoenergyGroup,
+} from "./plugins/geoenergy-catalog";

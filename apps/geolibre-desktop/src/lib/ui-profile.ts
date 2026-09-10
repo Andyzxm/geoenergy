@@ -188,6 +188,9 @@ export const DATA_SOURCE_CATALOG: readonly DataSourceCatalogEntry[] = [
  * for Beginners.
  */
 export const PLUGIN_TIERS: Record<string, ComplexityTier> = {
+  // Geoenergy edition: the dataset catalog is the point of the app, so it is
+  // visible at every experience level.
+  "geoenergy-catalog": "basic",
   "maplibre-layer-control": "basic",
   "maplibre-gl-basemap-control": "basic",
   "maplibre-gl-geo-editor": "basic",
@@ -210,7 +213,7 @@ export const PLUGIN_TIERS: Record<string, ComplexityTier> = {
   "maplibre-samgeo": "advanced",
   "maplibre-gl-usgs-lidar": "advanced",
   "maplibre-gl-overture-maps": "advanced",
-  "maplibre-gl-time-slider": "advanced",
+  "maplibre-gl-time-slider": "intermediate",
   "maplibre-gl-components": "advanced",
   "maplibre-gl-streetview": "advanced",
 };

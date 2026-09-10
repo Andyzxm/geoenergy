@@ -1,1 +1,5 @@
-null
+{
+  "enabled": true,
+  "level": "intermediate",
+  "lock": false
+}

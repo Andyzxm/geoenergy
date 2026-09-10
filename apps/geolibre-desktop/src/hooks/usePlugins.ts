@@ -1,3 +1,4 @@
+import { GEOENERGY_CATALOG_PLUGIN_ID, geoenergyCatalogPlugin } from "@geolibre/plugins";
 import {
   clearExternalNativePaintBridge,
   setExternalNativePaintBridge,
@@ -191,6 +192,7 @@ interface TauriRuntimeWindow extends Window {
 
 const manager = new PluginManager();
 manager.registerAll([
+  geoenergyCatalogPlugin,
   maplibreLayerControlPlugin,
   maplibreGeoEditorPlugin,
   maplibreAnnotationsPlugin,
@@ -792,6 +794,33 @@ export function bindTemporalLayer(
  *
  * @param mapControllerRef - Used to build the app API for activation.
  */
+/**
+ * Open the Geoenergy dataset catalog once per session.
+ *
+ * `activeByDefault` only marks a plugin active without calling `activate()`, so
+ * a panel plugin cannot use it — the panel would never register. This runs from
+ * the shell's restore effect instead, where a real app API exists, and latches
+ * so a project load or a map re-init (both of which re-run that effect) cannot
+ * reopen a panel the user has closed.
+ *
+ * @param api - The app API to activate the plugin against.
+ */
+export function activateGeoenergyCatalogOnce(api: ReturnType<typeof createAppAPI>): void {
+  if (geoenergyCatalogBootstrapped) return;
+  geoenergyCatalogBootstrapped = true;
+  if (manager.isActive(GEOENERGY_CATALOG_PLUGIN_ID)) return;
+  try {
+    manager.activate(GEOENERGY_CATALOG_PLUGIN_ID, api);
+  } catch (error) {
+    // Contained the way usePluginRegistry.toggle contains a throw: plugin
+    // controls are imperative code that would otherwise escape React's error
+    // boundaries and blank the app on startup.
+    reportPluginError(GEOENERGY_CATALOG_PLUGIN_ID, "toggle", error);
+  }
+}
+
+let geoenergyCatalogBootstrapped = false;
+
 export function activateTimeSliderForBinding(mapControllerRef?: RefObject<MapEngine | null>): void {
   if (manager.isActive(TIME_SLIDER_PLUGIN_ID)) return;
   const before = JSON.stringify(projectPluginStateSnapshot());

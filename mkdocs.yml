@@ -93,6 +93,7 @@ nav:
       - Plugin API: plugin-api.md
       - Collaboration: collaboration.md
       - UI Profiles: ui-profiles.md
+      - Geoenergy Catalog: geoenergy-catalog.md
       - Deployment Capabilities: deployment-capabilities.md
       - Internationalization: i18n.md
       - Python Package: python.md

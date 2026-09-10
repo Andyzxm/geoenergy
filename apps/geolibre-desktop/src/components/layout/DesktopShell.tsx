@@ -114,6 +114,7 @@ import {
 import { restoreLocalFileLayers } from "../../lib/restore-local-layers";
 import { listenForNativeProjectOpen } from "../../lib/native-project-open";
 import {
+  activateGeoenergyCatalogOnce,
   createAppAPI,
   getPluginManager,
   useExternalPluginsReady,
@@ -1250,6 +1251,15 @@ export function DesktopShell({
     });
     return () => setNonTiledRasterHandler(null);
   }, [t]);
+
+  // Geoenergy edition: open the dataset catalog on first paint. It is a right
+  // panel, not a map control, so it is deliberately NOT tied to the restore
+  // effect below: that one waits on a ready map engine, and a basemap that
+  // fails to load (an offline demo, a blocked tile host) would leave the app's
+  // front door closed. Latched inside, so closing the panel makes it stay shut.
+  useEffect(() => {
+    activateGeoenergyCatalogOnce(createAppAPI(mapControllerRef));
+  }, []);
 
   useEffect(() => {
     // Restoration should run only when a project is loaded (projectGeneration)

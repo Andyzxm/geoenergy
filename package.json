@@ -36,7 +36,9 @@
     "tauri:build:native-duckdb": "node scripts/tauri-build.mjs --native-duckdb",
     "tauri:build:mas": "node scripts/tauri-build.mjs --mas",
     "msix:build": "pwsh -NoProfile -ExecutionPolicy Bypass -File packaging/msix/build-msix.ps1",
-    "portable:build": "pwsh -NoProfile -ExecutionPolicy Bypass -File packaging/portable/build-portable.ps1"
+    "portable:build": "pwsh -NoProfile -ExecutionPolicy Bypass -File packaging/portable/build-portable.ps1",
+    "check:catalog": "node scripts/check-geoenergy-catalog.mjs",
+    "check:catalog:net": "node scripts/check-geoenergy-catalog.mjs --net"
   },
   "dependencies": {
     "patch-package": "^8.0.1"

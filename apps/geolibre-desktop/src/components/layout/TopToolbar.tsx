@@ -2126,7 +2126,9 @@ export function TopToolbar({
   // on iOS and Android too — where the app is named plain "GeoLibre" (the bundle
   // name from tauri.ios.conf.json, the home-screen icon, and the store listing),
   // so titling it "GeoLibre Desktop" there contradicts every other surface.
-  const appTitle = isTauri() && !isMobile() ? "GeoLibre Desktop" : "GeoLibre";
+  // Geoenergy edition wordmark. Upstream attribution stays in Help → About,
+  // which still names GeoLibre and carries its MIT notice.
+  const appTitle = isTauri() && !isMobile() ? "Geoenergy Desktop" : "Geoenergy";
   const renderToolbarLabel = (label: string) =>
     showLabels ? <span className="hidden sm:inline">{label}</span> : null;
   const chrome: ToolbarChrome = {
