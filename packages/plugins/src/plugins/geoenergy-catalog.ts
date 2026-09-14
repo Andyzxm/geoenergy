@@ -52,6 +52,12 @@ export interface GeoenergyGroup {
   id: string;
   label: string;
   description?: string;
+  /**
+   * CSS color for this group's rule and heading dot. Any CSS color works; the
+   * catalog ships `color-mix()`-free literals so the value can also be used in
+   * a border shorthand. Omit it and the group renders with the plain border.
+   */
+  accent?: string;
   datasets: GeoenergyDataset[];
 }
 
@@ -257,8 +263,19 @@ function element<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
-function buildCard(dataset: GeoenergyDataset, status: HTMLElement): HTMLElement {
+function buildCard(
+  dataset: GeoenergyDataset,
+  status: HTMLElement,
+  accent?: string,
+): HTMLElement {
   const card = element("div", CARD_STYLE);
+  if (accent) {
+    // Logical property, not border-left: the host mirrors its whole UI for
+    // right-to-left locales, and a physical edge would strand the rule on the
+    // wrong side of the card there.
+    card.style.borderInlineStartWidth = "3px";
+    card.style.borderInlineStartColor = accent;
+  }
 
   const title = element("div", "font-size:12px;font-weight:600;margin-bottom:2px;", dataset.title);
   card.append(title);
@@ -354,15 +371,20 @@ function buildPanel(container: HTMLElement): () => void {
       const hits = group.datasets.filter((dataset) => matches(dataset, query));
       if (!hits.length) continue;
       shown += hits.length;
-      list.append(
-        element(
-          "div",
-          "font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;" +
-            "color:hsl(var(--muted-foreground));margin:10px 0 6px;",
-          group.label,
-        ),
+      const heading = element(
+        "div",
+        "display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;" +
+          "text-transform:uppercase;letter-spacing:0.04em;" +
+          "color:hsl(var(--muted-foreground));margin:10px 0 6px;",
       );
-      for (const dataset of hits) list.append(buildCard(dataset, status));
+      if (group.accent) {
+        const dot = element("span", "width:7px;height:7px;border-radius:2px;flex:0 0 auto;");
+        dot.style.background = group.accent;
+        heading.append(dot);
+      }
+      heading.append(element("span", "", group.label));
+      list.append(heading);
+      for (const dataset of hits) list.append(buildCard(dataset, status, group.accent));
     }
     if (!total) status.textContent = labels.empty;
     else if (!shown) status.textContent = labels.noResults;

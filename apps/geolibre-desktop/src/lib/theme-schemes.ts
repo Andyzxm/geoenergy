@@ -17,7 +17,7 @@
  * without a `THEME_SCHEMES` entry is a compile error (the array is typed against
  * the derived id), so persisted values can't silently fall back to the default.
  */
-const PRESET_SCHEME_IDS = ["blue", "violet", "emerald", "rose", "amber"] as const;
+const PRESET_SCHEME_IDS = ["copper", "blue", "violet", "emerald", "rose", "amber"] as const;
 
 type PresetScheme = (typeof PRESET_SCHEME_IDS)[number];
 
@@ -30,7 +30,7 @@ export type ThemeScheme = PresetScheme | "custom";
  * ever changes to another preset, add a `[data-theme="<old default>"]` block in
  * `globals.css` for the now-non-default scheme (see `applyThemeScheme`).
  */
-export const DEFAULT_THEME_SCHEME: PresetScheme = "blue";
+export const DEFAULT_THEME_SCHEME: PresetScheme = "copper";
 
 /** Seed color for the custom picker before the user changes it (a teal-cyan). */
 export const DEFAULT_CUSTOM_COLOR = "#0ea5e9";
@@ -48,6 +48,11 @@ export interface ThemeSchemeOption {
  * separately (its swatch is the live picked color), so it is not listed here.
  */
 export const THEME_SCHEMES: readonly ThemeSchemeOption[] = [
+  {
+    id: "copper",
+    labelKey: "settings.appearance.scheme.copper",
+    swatch: "hsl(24 88% 40%)",
+  },
   {
     id: "blue",
     labelKey: "settings.appearance.scheme.blue",

@@ -86,7 +86,6 @@ import {
   Info,
   Keyboard,
   Link2,
-  Map,
   MapPin,
   MessageSquare,
   Moon,
@@ -112,6 +111,7 @@ import { useToolbarPanels } from "../../hooks/useToolbarPanels";
 import { useVectorTileGeometryBackfill } from "../../hooks/useVectorTileGeometryBackfill";
 import type { ThemeMode } from "../../hooks/useThemeMode";
 import { isMobile } from "../../lib/is-mobile";
+import { GeoenergyMark } from "./GeoenergyMark";
 import { isTauri } from "../../lib/tauri-io";
 import { isMaptoolkitBasemapActive } from "../../lib/maptoolkit-basemap";
 import { useDesktopSettingsStore } from "../../hooks/useDesktopSettings";
@@ -2150,7 +2150,7 @@ export function TopToolbar({
       )}
     >
       <span className="me-1 flex shrink-0 items-center gap-1.5 text-sm font-semibold text-primary md:me-2">
-        <Map className="h-4 w-4" />
+        <GeoenergyMark className="h-4 w-4" />
         {showProjectInfo ? <span className="hidden sm:inline">{appTitle}</span> : null}
       </span>
       {!viewer && isMenuVisible(uiProfile, "project") && (

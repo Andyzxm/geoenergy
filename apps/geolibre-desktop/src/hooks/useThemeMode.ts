@@ -4,7 +4,7 @@ export type ThemeMode = "light" | "dark";
 
 export function getInitialThemeMode(): ThemeMode {
   if (typeof window === "undefined") {
-    return "light";
+    return "dark";
   }
 
   // An explicit `?theme=dark` / `?theme=light` overrides the OS preference on
@@ -14,7 +14,11 @@ export function getInitialThemeMode(): ThemeMode {
     return themeParam;
   }
 
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // Geoenergy edition: dark is the default rather than the OS preference.
+  // Energy layers (transmission lines, plant points) read better on dark chrome,
+  // and the first impression is the point. `?theme=light` above still wins, and
+  // the toolbar toggle still switches at any time.
+  return "dark";
 }
 
 export function useThemeMode() {

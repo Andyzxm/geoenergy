@@ -28,6 +28,7 @@ build works at a domain root and under a GitHub Pages project path.
       "id": "generation",
       "label": "Generation",
       "description": "Optional, shown under the group heading.",
+      "accent": "hsl(24 88% 50%)",
       "datasets": [
         {
           "id": "eia-power-plants",
@@ -50,6 +51,10 @@ build works at a domain root and under a GitHub Pages project path.
 
 `id`, `title`, `kind`, and `url` are required; everything else is optional.
 `tags` are searched along with the title and description.
+
+A group's `accent` is any CSS color. It draws the dot beside the group heading
+and the rule on the inline-start edge of every card in that group, so a new group
+without one still renders correctly, just without the color coding.
 
 ### Dataset kinds
 

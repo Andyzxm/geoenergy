@@ -15,18 +15,34 @@
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Power_Plants_in_the_US/FeatureServer/0",
           "source": "EIA",
           "infoUrl": "https://atlas.eia.gov/",
-          "tags": ["generation", "plants", "capacity", "fuel", "points"],
+          "tags": [
+            "generation",
+            "plants",
+            "capacity",
+            "fuel",
+            "points"
+          ],
           "maxFeatures": 6000,
-          "bounds": [-179.0, 17.0, -65.0, 72.0]
+          "bounds": [
+            -179.0,
+            17.0,
+            -65.0,
+            72.0
+          ]
         },
         {
           "id": "eia-power-plants-hexbins",
           "title": "Power Plants by Hexagon Bin",
-          "description": "Plant counts and capacity aggregated to hexagons — a national overview that draws without loading every plant.",
+          "description": "Plant counts and capacity aggregated to hexagons \u2014 a national overview that draws without loading every plant.",
           "kind": "arcgis-feature",
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Aggregation_of_Power_Plants_in_the_U_S__by_hexagon_bins/FeatureServer/0",
           "source": "EIA",
-          "tags": ["generation", "aggregate", "hexbin", "density"],
+          "tags": [
+            "generation",
+            "aggregate",
+            "hexbin",
+            "density"
+          ],
           "maxFeatures": 4000
         },
         {
@@ -36,10 +52,17 @@
           "kind": "arcgis-feature",
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Surface_and_Underground_Coal_Mines_in_the_US/FeatureServer/0",
           "source": "EIA",
-          "tags": ["coal", "mining", "fossil", "appalachia", "points"],
+          "tags": [
+            "coal",
+            "mining",
+            "fossil",
+            "appalachia",
+            "points"
+          ],
           "maxFeatures": 4000
         }
-      ]
+      ],
+      "accent": "hsl(24 88% 50%)"
     },
     {
       "id": "delivery",
@@ -54,7 +77,13 @@
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/US_Electric_Power_Transmission_Lines/FeatureServer/0",
           "source": "EIA",
           "infoUrl": "https://atlas.eia.gov/",
-          "tags": ["transmission", "grid", "topology", "lines", "voltage"],
+          "tags": [
+            "transmission",
+            "grid",
+            "topology",
+            "lines",
+            "voltage"
+          ],
           "maxFeatures": 4000
         },
         {
@@ -64,10 +93,17 @@
           "kind": "arcgis-feature",
           "url": "https://services5.arcgis.com/HDRa0B57OVrv2E1q/ArcGIS/rest/services/Electric_Substations/FeatureServer/0",
           "source": "HIFLD",
-          "tags": ["substation", "grid", "nodes", "voltage", "points"],
+          "tags": [
+            "substation",
+            "grid",
+            "nodes",
+            "voltage",
+            "points"
+          ],
           "maxFeatures": 5000
         }
-      ]
+      ],
+      "accent": "hsl(43 89% 45%)"
     },
     {
       "id": "fuels",
@@ -81,7 +117,12 @@
           "kind": "arcgis-feature",
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Natural_Gas_Interstate_and_Intrastate_Pipelines_1/FeatureServer/0",
           "source": "EIA",
-          "tags": ["natural gas", "pipeline", "fuel", "lines"],
+          "tags": [
+            "natural gas",
+            "pipeline",
+            "fuel",
+            "lines"
+          ],
           "maxFeatures": 4000
         },
         {
@@ -91,7 +132,12 @@
           "kind": "arcgis-feature",
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Crude_Oil_Trunk_Pipelines_1/FeatureServer/0",
           "source": "EIA",
-          "tags": ["crude oil", "pipeline", "petroleum", "lines"],
+          "tags": [
+            "crude oil",
+            "pipeline",
+            "petroleum",
+            "lines"
+          ],
           "maxFeatures": 4000
         },
         {
@@ -101,15 +147,21 @@
           "kind": "arcgis-feature",
           "url": "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Petroleum_Products_Pipelines_1/FeatureServer/0",
           "source": "EIA",
-          "tags": ["petroleum", "pipeline", "refined products", "lines"],
+          "tags": [
+            "petroleum",
+            "pipeline",
+            "refined products",
+            "lines"
+          ],
           "maxFeatures": 4000
         }
-      ]
+      ],
+      "accent": "hsl(199 70% 45%)"
     },
     {
       "id": "reliability",
       "label": "Reliability and Vulnerability",
-      "description": "Outage history and social vulnerability. These entries point at files you publish alongside the app — see docs/geoenergy-catalog.md.",
+      "description": "Outage history and social vulnerability. These entries point at files you publish alongside the app \u2014 see docs/geoenergy-catalog.md.",
       "datasets": [
         {
           "id": "eaglei-county-outages",
@@ -120,9 +172,16 @@
           "source": "ORNL EAGLE-I",
           "infoUrl": "https://data.openei.org/",
           "vintage": "2014-2025",
-          "tags": ["outage", "eagle-i", "county", "reliability", "temporal"]
+          "tags": [
+            "outage",
+            "eagle-i",
+            "county",
+            "reliability",
+            "temporal"
+          ]
         }
-      ]
+      ],
+      "accent": "hsl(350 65% 52%)"
     }
   ]
 }

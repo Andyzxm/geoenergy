@@ -2138,6 +2138,7 @@
       "customColor": "Custom color",
       "customColorHex": "Custom color hex code",
       "scheme": {
+        "copper": "Copper",
         "blue": "Blue",
         "violet": "Violet",
         "emerald": "Emerald",

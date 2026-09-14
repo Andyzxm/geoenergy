@@ -9,8 +9,13 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
+    /* Geoenergy edition: a burnt copper replaces GeoLibre's blue as the base
+       accent. 40% L (not the 45% the palette started at) is what clears WCAG AA
+       for white label text on a primary fill: 4.65:1 at this lightness, 3.77:1
+       at 45%, and the smallest label on a primary button is 11px. GeoLibre's
+       blue is still selectable as the [data-theme="blue"] preset below. */
+    --primary: 24 88% 40%;
+    --primary-foreground: 0 0% 100%;
     /* Neutrals sit at ~16% saturation rather than the stock 40%, so the chrome
        reads as grey next to the map instead of tinting blue. --accent is one
        step darker than --muted so hover fills register on white surfaces. */
@@ -28,7 +33,7 @@
        boundary, so it is deliberately darker. See the note in .dark below. */
     --border: 220 15% 88%;
     --input: 220 13% 76%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 24 88% 40%;
     /* 0.375rem rather than shadcn's stock 0.5rem: a dense tool UI reads sharper,
        and the derived md/sm steps (calc -2px/-4px) stay positive. */
     --radius: 0.375rem;
@@ -74,8 +79,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 21% 15%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 28 90% 52%;
+    --primary-foreground: 26 83.3% 14.1%;
     --secondary: 220 18% 20%;
     --secondary-foreground: 210 40% 98%;
     --muted: 220 18% 20%;
@@ -103,7 +108,7 @@
        amber schemes below already pair ring with primary this way; emerald was
        the one exception and is brought into line there, since the lifted
        surfaces left its darker ring almost no headroom. */
-    --ring: 217.2 91.2% 59.8%;
+    --ring: 28 90% 52%;
   }
 
   /* Accent color schemes. Each scheme overrides only the accent-bearing tokens
@@ -111,6 +116,19 @@
      :root and .dark is left untouched. Selected via a `data-theme` attribute on
      <html> (see apps/.../lib/theme-schemes.ts). The default "blue" scheme needs
      no block here because it equals the base :root / .dark values above. */
+  /* GeoLibre's own blue, kept selectable now that copper is the base accent
+     (see the invariant on DEFAULT_THEME_SCHEME in lib/theme-schemes.ts). */
+  [data-theme="blue"] {
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 221.2 83.2% 53.3%;
+  }
+  [data-theme="blue"].dark {
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 217.2 91.2% 59.8%;
+  }
+
   [data-theme="violet"] {
     --primary: 262.1 83.3% 57.8%;
     --primary-foreground: 210 20% 98%;
