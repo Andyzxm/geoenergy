@@ -35,6 +35,14 @@ New files:
 - `docs/geoenergy-catalog.md` — how to add datasets and trim the interface.
 - `.github/workflows/geoenergy-pages.yml` — the fork's deploy.
 
+Upstream workflows removed, because they either target infrastructure this fork
+does not own (Cloudflare Workers, the download mirror, GHCR, npm, PyPI, the app
+stores) or need secrets only upstream holds. `pages.yml` is the one that matters:
+it also triggers on a push to `main` and also deploys to the `github-pages`
+environment, so leaving it in place would have it race `geoenergy-pages.yml` and
+publish GeoLibre's documentation site over the app. `ci.yml` and `test-build.yml`
+are kept.
+
 Upstream files touched, deliberately few, so merges stay cheap:
 
 - `packages/plugins/src/index.ts` — one export block.
