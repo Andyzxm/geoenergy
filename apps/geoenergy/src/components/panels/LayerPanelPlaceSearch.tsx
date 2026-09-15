@@ -545,7 +545,7 @@ export function LayerPanelPlaceSearch({
             // A failed import or primitive build must not leave the dropdown
             // open on a stale query with the old highlight already cleared —
             // settle below runs either way.
-            console.warn("[GeoLibre] place search could not draw on the globe", error);
+            console.warn("[Geoenergy] place search could not draw on the globe", error);
           }
         }
       }

@@ -330,7 +330,7 @@ export function restorePlanetaryComputerLayers(app: GeoLibreAppAPI): void {
           transientFailures.push(failure);
         }
         console.error(
-          `[GeoLibre] Failed to restore Planetary Computer layer "${layer?.name ?? "unknown"}"`,
+          `[Geoenergy] Failed to restore Planetary Computer layer "${layer?.name ?? "unknown"}"`,
           result.reason,
         );
       }
@@ -344,7 +344,7 @@ export function restorePlanetaryComputerLayers(app: GeoLibreAppAPI): void {
     if (invalidLayers.length > 0) {
       removeInvalidPlanetaryComputerStoreLayers(control, invalidLayers);
       console.warn(
-        "[GeoLibre] Some Planetary Computer layers had invalid saved " +
+        "[Geoenergy] Some Planetary Computer layers had invalid saved " +
           `metadata and were removed from the layer list: ${invalidLayers
             .map((layer) => layer.name)
             .join(", ")}`,
@@ -358,7 +358,7 @@ export function restorePlanetaryComputerLayers(app: GeoLibreAppAPI): void {
         }
       }
       console.warn(
-        "[GeoLibre] Some Planetary Computer layers could not be restored " +
+        "[Geoenergy] Some Planetary Computer layers could not be restored " +
           `and were kept in the layer list: ${transientFailures
             .map((layer) => layer.name)
             .join(", ")}`,
@@ -369,7 +369,7 @@ export function restorePlanetaryComputerLayers(app: GeoLibreAppAPI): void {
       emitPlanetaryComputerRestore(control);
     }
   })().catch((error) => {
-    console.error("[GeoLibre] Failed to restore Planetary Computer layers", error);
+    console.error("[Geoenergy] Failed to restore Planetary Computer layers", error);
   });
 }
 
@@ -624,7 +624,7 @@ function emitPlanetaryComputerRestore(control: PlanetaryComputerControl): void {
   const internals = control as unknown as PlanetaryComputerControlInternals;
   if (!internals._emit) {
     console.warn(
-      "[GeoLibre] Planetary Computer _emit not found; " +
+      "[Geoenergy] Planetary Computer _emit not found; " +
         "the restored panel state may not refresh. " +
         "Re-verify against maplibre-gl-planetary-computer internals.",
     );

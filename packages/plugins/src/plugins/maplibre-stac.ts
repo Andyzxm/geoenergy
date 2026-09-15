@@ -699,7 +699,7 @@ function rememberAssetAccess(layerId: string, access: StacAssetAccess | null): v
   if (!access) return;
   const layer = useAppStore.getState().layers.find((candidate) => candidate.id === layerId);
   if (!layer) {
-    console.warn("[GeoLibre] STAC asset access could not be stored: no layer", layerId);
+    console.warn("[Geoenergy] STAC asset access could not be stored: no layer", layerId);
     return;
   }
   useAppStore.getState().updateLayer(layerId, {

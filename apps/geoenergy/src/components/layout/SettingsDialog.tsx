@@ -754,7 +754,7 @@ export function SettingsDialog({
       })
       .catch((loadError: unknown) => {
         if (!cancelled) {
-          console.error("[GeoLibre] Failed to read the installed language pack", loadError);
+          console.error("[Geoenergy] Failed to read the installed language pack", loadError);
           setInstalledLanguagePack(null);
         }
       });

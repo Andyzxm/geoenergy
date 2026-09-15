@@ -204,11 +204,11 @@ export function openVectorLayerPanel(app: GeoLibreAppAPI): void {
         wireDesktopFilePicker(control, app);
         wireKmlFileImporter(control);
       } catch (error) {
-        console.error("[GeoLibre] Failed to open the vector layer panel", error);
+        console.error("[Geoenergy] Failed to open the vector layer panel", error);
       }
     }, 0);
   })().catch((error) => {
-    console.error("[GeoLibre] Failed to open the vector layer panel", error);
+    console.error("[Geoenergy] Failed to open the vector layer panel", error);
   });
 }
 
@@ -311,7 +311,7 @@ export function restoreVectorLayers(app: GeoLibreAppAPI): void {
       try {
         applyRestoredVectorPanelState(control, panelCollapsed);
       } catch (error) {
-        console.error("[GeoLibre] Failed to restore vector panel state", error);
+        console.error("[Geoenergy] Failed to restore vector panel state", error);
       }
 
       for (const info of control.getLayers()) {
@@ -374,7 +374,7 @@ export function restoreVectorLayers(app: GeoLibreAppAPI): void {
                   if (!file) {
                     // The file moved or was deleted since the project was saved.
                     console.info(
-                      `[GeoLibre] Vector layer "${layer.name}" could not be re-read from "${localPath}"; removing it.`,
+                      `[Geoenergy] Vector layer "${layer.name}" could not be re-read from "${localPath}"; removing it.`,
                     );
                     useAppStore.getState().removeLayer(layer.id);
                     return undefined;
@@ -396,7 +396,7 @@ export function restoreVectorLayers(app: GeoLibreAppAPI): void {
                 // own rejection. A file that cannot be read is genuinely gone,
                 // which is the one case that still drops the layer.
                 .catch((error) => {
-                  console.error(`[GeoLibre] Failed to read vector layer "${layer.name}"`, error);
+                  console.error(`[Geoenergy] Failed to read vector layer "${layer.name}"`, error);
                   useAppStore.getState().removeLayer(layer.id);
                 }),
             ),
@@ -427,7 +427,7 @@ export function restoreVectorLayers(app: GeoLibreAppAPI): void {
         // API today. Surface this through an in-app notification once one is
         // exposed to plugins.
         console.info(
-          `[GeoLibre] Vector layer "${layer.name}" came from a local file and cannot be restored from the saved project.`,
+          `[Geoenergy] Vector layer "${layer.name}" came from a local file and cannot be restored from the saved project.`,
         );
         // removeLayer fires the store subscriber synchronously; the
         // suspension guard keeps it from echoing back at the control.
@@ -459,7 +459,7 @@ export function restoreVectorLayers(app: GeoLibreAppAPI): void {
       }, 0);
     });
   })().catch((error) => {
-    console.error("[GeoLibre] Failed to restore vector layers", error);
+    console.error("[Geoenergy] Failed to restore vector layers", error);
   });
 }
 
@@ -522,7 +522,7 @@ export function replayVectorLayer(
       visible: effective.visible,
     })
     .catch((error) => {
-      console.error(`[GeoLibre] Failed to restore vector layer "${layer.name}"`, error);
+      console.error(`[Geoenergy] Failed to restore vector layer "${layer.name}"`, error);
       options.onError?.(error);
     });
 }
@@ -638,7 +638,7 @@ export async function materializeEmbeddableVectorLayers(
     if (entry.status === "fulfilled" && entry.value) {
       result.set(entry.value[0], entry.value[1]);
     } else if (entry.status === "rejected") {
-      console.error("[GeoLibre] Could not read data for a vector layer to embed it", entry.reason);
+      console.error("[Geoenergy] Could not read data for a vector layer to embed it", entry.reason);
     }
   }
   return result;
@@ -668,7 +668,7 @@ function readEmbeddedVectorGeoJSON(value: unknown): FeatureCollection | null {
   if (!Array.isArray(candidate.features)) return null;
   if (candidate.features.length > MAX_EMBEDDED_FEATURES) {
     console.warn(
-      `[GeoLibre] Ignoring embedded vector data with ${candidate.features.length} features (over the ${MAX_EMBEDDED_FEATURES} limit).`,
+      `[Geoenergy] Ignoring embedded vector data with ${candidate.features.length} features (over the ${MAX_EMBEDDED_FEATURES} limit).`,
     );
     return null;
   }
@@ -942,7 +942,7 @@ function applyRestoredVectorPanelState(control: VectorControl, panelCollapsed: b
       wireVectorCloseButton(control);
       applyVectorPanelClass(control);
     } catch (error) {
-      console.error("[GeoLibre] Failed to restore vector panel state", error);
+      console.error("[Geoenergy] Failed to restore vector panel state", error);
     }
   }, 0);
 }
@@ -1017,7 +1017,7 @@ function wireDesktopFilePicker(control: VectorControl, app: GeoLibreAppAPI): voi
         }
         await addPickedVectorFiles(control, picked);
       } catch (error) {
-        console.error("[GeoLibre] Failed to load vector files from the desktop picker", error);
+        console.error("[Geoenergy] Failed to load vector files from the desktop picker", error);
       }
     })();
   });

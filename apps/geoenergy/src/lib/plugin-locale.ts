@@ -47,7 +47,7 @@ export function createPluginLocaleApi(i18n: PluginLocaleI18n): PluginLocaleApi {
         try {
           listener(locale);
         } catch (error) {
-          console.error("[GeoLibre] A plugin onLocaleChange listener threw.", error);
+          console.error("[Geoenergy] A plugin onLocaleChange listener threw.", error);
         }
       };
       i18n.on("languageChanged", guarded);

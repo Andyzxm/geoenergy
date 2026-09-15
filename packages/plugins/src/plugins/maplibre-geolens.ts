@@ -743,7 +743,7 @@ function tileColumnsFor(
   if (wide && !wideDatasetsWarned.has(datasetKey)) {
     wideDatasetsWarned.add(datasetKey);
     console.info(
-      `[GeoLibre] GeoLens dataset "${label}" has ${fields.length} fields (over the ` +
+      `[Geoenergy] GeoLens dataset "${label}" has ${fields.length} fields (over the ` +
         `${MAX_GEOLENS_TILE_COLUMNS}-field tile budget), so its tiles carry only the ` +
         `attributes this layer styles or binds by. Below zoom 10 the rest are absent ` +
         `from popups and the Style panel; load the dataset as GeoJSON to work with all ` +

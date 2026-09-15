@@ -3608,7 +3608,7 @@ function setLayerZoomRange(
     // error on a GeoLibre-owned layer) so a real invariant violation is not
     // silently swallowed.
     if (map.getLayer(id)?.type !== "custom") {
-      console.warn("[GeoLibre] setLayerZoomRange failed for layer", id, error);
+      console.warn("[Geoenergy] setLayerZoomRange failed for layer", id, error);
     }
   }
 }

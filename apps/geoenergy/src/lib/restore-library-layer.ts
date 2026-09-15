@@ -127,6 +127,6 @@ export async function restoreLibraryLayer(
   try {
     await restore(app);
   } catch (error) {
-    console.error("[GeoLibre] Failed to restore a layer added from My Data", error);
+    console.error("[Geoenergy] Failed to restore a layer added from My Data", error);
   }
 }

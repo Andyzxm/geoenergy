@@ -346,11 +346,11 @@ export function openRasterLayerPanel(app: GeoLibreAppAPI): void {
         wireRasterBrowseButton(control);
         applyRasterPanelClass(control);
       } catch (error) {
-        console.error("[GeoLibre] Failed to open the raster layer panel", error);
+        console.error("[Geoenergy] Failed to open the raster layer panel", error);
       }
     }, 0);
   })().catch((error) => {
-    console.error("[GeoLibre] Failed to open the raster layer panel", error);
+    console.error("[Geoenergy] Failed to open the raster layer panel", error);
   });
 }
 
@@ -700,7 +700,7 @@ export function restoreRasterLayers(app: GeoLibreAppAPI): void {
       try {
         applyRestoredRasterPanelState(control, panelCollapsed);
       } catch (error) {
-        console.error("[GeoLibre] Failed to restore raster panel state", error);
+        console.error("[Geoenergy] Failed to restore raster panel state", error);
       }
 
       for (const info of control.getRasters()) {
@@ -731,7 +731,7 @@ export function restoreRasterLayers(app: GeoLibreAppAPI): void {
           // no toast/notification API today. Surface this through an in-app
           // notification once one is exposed to plugins.
           console.info(
-            `[GeoLibre] Raster layer "${layer.name}" came from a local file and cannot be restored from the saved project.`,
+            `[Geoenergy] Raster layer "${layer.name}" came from a local file and cannot be restored from the saved project.`,
           );
           // removeLayer fires the store subscriber synchronously; the
           // suspension guard keeps it from echoing back at the control.
@@ -765,7 +765,7 @@ export function restoreRasterLayers(app: GeoLibreAppAPI): void {
               zoomTo: false,
             })
             .catch((error) => {
-              console.error(`[GeoLibre] Failed to restore raster layer "${layer.name}"`, error);
+              console.error(`[Geoenergy] Failed to restore raster layer "${layer.name}"`, error);
             }),
         );
       }
@@ -791,7 +791,7 @@ export function restoreRasterLayers(app: GeoLibreAppAPI): void {
       }, 0);
     });
   })().catch((error) => {
-    console.error("[GeoLibre] Failed to restore raster layers", error);
+    console.error("[Geoenergy] Failed to restore raster layers", error);
   });
 }
 
@@ -827,7 +827,7 @@ async function readLocalRasterFiles(control: RasterControl): Promise<Map<string,
       rememberLocalRasterPath(layer.id, path);
     } catch (error) {
       console.warn(
-        `[GeoLibre] Could not re-read raster layer "${layer.name}" from "${path}".`,
+        `[Geoenergy] Could not re-read raster layer "${layer.name}" from "${path}".`,
         error,
       );
     }
@@ -919,7 +919,7 @@ async function configureLercWasmUrl(module: CogTilerModule): Promise<void> {
     module.configureLercDecoder({ wasmUrl });
   } catch (error) {
     console.warn(
-      "[GeoLibre] Could not resolve lerc's wasm URL; LERC nodata may decode as 0",
+      "[Geoenergy] Could not resolve lerc's wasm URL; LERC nodata may decode as 0",
       error,
     );
   }
@@ -1120,7 +1120,7 @@ function createRasterControl(RasterControlClass: RasterControlConstructor): Rast
           },
         }),
       )
-      .catch((error: unknown) => console.error("[GeoLibre] Non-tiled raster handler failed", error))
+      .catch((error: unknown) => console.error("[Geoenergy] Non-tiled raster handler failed", error))
       .finally(() => nonTiledInFlight.delete(layerId));
   });
   // syncRasterLayersToStore re-reads getState().collapsed when these fire.
@@ -1394,7 +1394,7 @@ function applyRestoredRasterPanelState(control: RasterControl, panelCollapsed: b
       wireRasterBrowseButton(control);
       applyRasterPanelClass(control);
     } catch (error) {
-      console.error("[GeoLibre] Failed to restore raster panel state", error);
+      console.error("[Geoenergy] Failed to restore raster panel state", error);
     }
   }, 0);
 }
@@ -1503,10 +1503,10 @@ async function openLocalRasterPicker(): Promise<void> {
           picked.file instanceof File
             ? picked.file.name
             : picked.path.split(/[\\/]/).pop() || picked.path;
-        console.error(`[GeoLibre] Failed to add the raster "${name}"`, error);
+        console.error(`[Geoenergy] Failed to add the raster "${name}"`, error);
       }
     }
   } catch (error) {
-    console.error("[GeoLibre] Failed to add a raster from the file picker", error);
+    console.error("[Geoenergy] Failed to add a raster from the file picker", error);
   }
 }

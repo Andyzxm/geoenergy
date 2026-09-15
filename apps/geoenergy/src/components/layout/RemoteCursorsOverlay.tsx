@@ -68,7 +68,7 @@ function safely(fn: () => void): void {
     fn();
   } catch (error) {
     if (import.meta.env.DEV) {
-      console.warn("[GeoLibre] collab presence overlay error", error);
+      console.warn("[Geoenergy] collab presence overlay error", error);
     }
   }
 }

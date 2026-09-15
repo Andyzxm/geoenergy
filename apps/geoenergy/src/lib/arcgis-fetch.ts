@@ -60,7 +60,7 @@ export function createArcGISRequest(
     const onAbort = () => {
       if (registered) {
         void invoke("cancel_arcgis_request", { requestId }).catch((error: unknown) => {
-          console.error("[GeoLibre] Failed to cancel native ArcGIS request", error);
+          console.error("[Geoenergy] Failed to cancel native ArcGIS request", error);
         });
       }
     };

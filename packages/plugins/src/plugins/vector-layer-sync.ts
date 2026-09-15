@@ -967,7 +967,7 @@ function vectorPanelCollapsedFromControl(control: VectorSyncableControl): boolea
   } catch (error) {
     // getState is optional, so only a throwing implementation lands here;
     // surface it instead of letting it look like the method being absent.
-    console.warn("[GeoLibre] vectorPanelCollapsedFromControl: getState threw", error);
+    console.warn("[Geoenergy] vectorPanelCollapsedFromControl: getState threw", error);
     return true;
   }
 }

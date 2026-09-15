@@ -299,11 +299,11 @@ export class CesiumControlHost {
     try {
       el = control.onAdd(this.facade as unknown as maplibregl.Map);
       if (!(el instanceof HTMLElement)) {
-        console.warn("[GeoLibre] control onAdd did not return a valid DOM element");
+        console.warn("[Geoenergy] control onAdd did not return a valid DOM element");
         return false;
       }
     } catch (error) {
-      console.warn("[GeoLibre] control could not mount on the globe", error);
+      console.warn("[Geoenergy] control could not mount on the globe", error);
       return false;
     }
     el.style.pointerEvents = "auto";
@@ -348,7 +348,7 @@ export class CesiumControlHost {
     try {
       control.onRemove(this.facade as unknown as maplibregl.Map);
     } catch (error) {
-      console.warn("[GeoLibre] control failed to unmount cleanly from the globe", error);
+      console.warn("[Geoenergy] control failed to unmount cleanly from the globe", error);
     } finally {
       if (el.parentElement) {
         el.parentElement.removeChild(el);

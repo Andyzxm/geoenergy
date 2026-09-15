@@ -139,21 +139,24 @@ export function StatusBar({
       <span className="shrink-0">Bearing: {mapView.bearing.toFixed(1)}°</span>
       <span className="shrink-0">Pitch: {mapView.pitch.toFixed(1)}°</span>
       {compact ? null : <span className="min-w-0 flex-1 truncate">BBox: {bboxText}</span>}
-      <button
-        type="button"
-        className={cn(
-          "inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground",
-          "ms-auto",
-          diagnosticsErrorCount > 0 && "text-red-700 dark:text-red-300",
-          diagnosticsErrorCount === 0 &&
-            diagnosticsWarningCount > 0 &&
-            "text-amber-700 dark:text-amber-300",
-        )}
-        onClick={onOpenDiagnostics}
-      >
-        <Bug className="h-3 w-3" />
-        {compact ? "Diag" : "Diagnostics"}: {diagnosticsCount}
-      </button>
+      {/* Warnings are routine here: a third-party service caps a query, a tile
+          host is briefly slow. A permanent bug icon on a published map reads as
+          "something is broken" to every visitor, so the badge appears only when
+          there is an actual error. The full log stays available in Help. */}
+      {diagnosticsErrorCount > 0 ? (
+        <button
+          type="button"
+          className={cn(
+            "inline-flex shrink-0 items-center gap-1 rounded px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground",
+            "ms-auto",
+            "text-red-700 dark:text-red-300",
+          )}
+          onClick={onOpenDiagnostics}
+        >
+          <Bug className="h-3 w-3" />
+          {compact ? "Diag" : "Diagnostics"}: {diagnosticsErrorCount}
+        </button>
+      ) : null}
     </footer>
   );
 }

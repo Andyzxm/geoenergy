@@ -1362,7 +1362,7 @@ export function StylePanel({
       })
       .catch((error) => {
         if (!cancelled) {
-          console.error("[GeoLibre] Could not read vector attribute values", error);
+          console.error("[Geoenergy] Could not read vector attribute values", error);
           setLoadedVectorPropertyValues(null);
           setVectorPropertyValuesUnavailable(true);
         }

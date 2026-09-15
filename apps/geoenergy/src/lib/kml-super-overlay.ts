@@ -206,7 +206,7 @@ async function archiveFor(id: string): Promise<SuperOverlayArchive | null> {
         const tiles = await resolver(id);
         if (tiles && tiles.length > 0) return storeArchive(id, tiles);
       } catch (error) {
-        console.warn(`[GeoLibre] Could not re-read the KML Super-Overlay from "${id}".`, error);
+        console.warn(`[Geoenergy] Could not re-read the KML Super-Overlay from "${id}".`, error);
       } finally {
         pendingResolutions.delete(id);
       }

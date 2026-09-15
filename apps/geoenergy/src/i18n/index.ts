@@ -75,7 +75,7 @@ async function applyPersistedLanguagePack(code: string): Promise<InstalledLangua
     // storage access). Boot awaits this via `i18nReady`, so an uncaught
     // rejection here would stop `main.tsx` before it renders — a blank app
     // merely because a language pack could not be read.
-    console.error("[GeoLibre] Could not read the installed language pack", error);
+    console.error("[Geoenergy] Could not read the installed language pack", error);
     return null;
   }
   if (!installed) return null;
@@ -93,7 +93,7 @@ async function applyPersistedLanguagePack(code: string): Promise<InstalledLangua
     applyLanguagePack(validated);
     return { ...installed, pack: validated };
   } catch (error) {
-    console.error("[GeoLibre] Ignoring an invalid persisted language pack", error);
+    console.error("[Geoenergy] Ignoring an invalid persisted language pack", error);
     await deleteInstalledLanguagePack(code).catch(() => {});
     return null;
   }
@@ -342,7 +342,7 @@ export const i18nReady: Promise<unknown> = (async () => {
       // rather than in a locale whose strings are absent, which would render
       // English fallback text while still applying the locale's `lang`/`dir`
       // (wrong RTL direction for e.g. Arabic). The user can switch once online.
-      console.error("[GeoLibre] Failed to load initial locale catalog; using English", error);
+      console.error("[Geoenergy] Failed to load initial locale catalog; using English", error);
       effectiveLanguage = DEFAULT_LANGUAGE;
     }
   }

@@ -1,6 +1,6 @@
 // Reads the deployment env the Docker entrypoint injects at container startup.
 //
-// `docker/entrypoint.sh` rewrites `geolibre-runtime-config.js` on every boot,
+// `docker/entrypoint.sh` rewrites `geoenergy-runtime-config.js` on every boot,
 // setting `window.__GEOLIBRE_DEPLOYMENT_ENV__` to a JSON object of
 // `VITE_*`-keyed values. `index.html` pulls that script in before the bundle, so
 // the values are on `window` by the time any module reads them. This is how an

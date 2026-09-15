@@ -1612,7 +1612,7 @@ export class CesiumLayerSync {
       this.applyAppearance(entry);
       if (cloud.truncated)
         console.info(
-          `[GeoLibre] "${
+          `[Geoenergy] "${
             entry.layer.name
           }" on the globe shows a ${cloud.count.toLocaleString()}-point preview of the point cloud`,
         );
@@ -1729,7 +1729,7 @@ export class CesiumLayerSync {
       const requireSecure = (url: string, what: string) => {
         if (allowsCredentials(url)) return;
         console.warn(
-          `[GeoLibre] skipping "${layer.name}" on the globe: ${what} cannot be sent over ${url}`,
+          `[Geoenergy] skipping "${layer.name}" on the globe: ${what} cannot be sent over ${url}`,
         );
         throw new Error("credentials require https");
       };
@@ -1826,7 +1826,7 @@ export class CesiumLayerSync {
             // globe-supported in the layer menu, so a mute skip looks like a
             // broken renderer.
             console.warn(
-              `[GeoLibre] skipping "${layer.name}" on the globe: unsupported WMTS tiling scheme "${schemeId}"`,
+              `[Geoenergy] skipping "${layer.name}" on the globe: unsupported WMTS tiling scheme "${schemeId}"`,
             );
             throw new Error(`unsupported WMTS tiling scheme "${schemeId}"`);
           }
@@ -2481,7 +2481,7 @@ export class CesiumLayerSync {
         // The styling language is compiled by Cesium, not by the translator,
         // so a shape that translates but does not compile (an unexpected
         // property name, a colour Cesium rejects) must not take the sync down.
-        console.warn("[GeoLibre] could not apply the 3D Tiles style", error);
+        console.warn("[Geoenergy] could not apply the 3D Tiles style", error);
         return;
       }
     }

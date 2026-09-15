@@ -935,7 +935,7 @@ export function createAppAPI(mapControllerRef?: RefObject<MapEngine | null>) {
         (typeof version !== "string" || !/^1\.\d/.test(version.trim()))
       ) {
         console.warn(
-          `[GeoLibre] addWmsLayer: unsupported WMS version "${String(
+          `[Geoenergy] addWmsLayer: unsupported WMS version "${String(
             version,
           )}"; using "${resolvedVersion}".`,
         );
@@ -1301,7 +1301,7 @@ export function createAppAPI(mapControllerRef?: RefObject<MapEngine | null>) {
       // forever.
       if (projection !== "globe" && projection !== "mercator") {
         console.warn(
-          `[GeoLibre] setMapProjection: ignoring unknown projection "${String(
+          `[Geoenergy] setMapProjection: ignoring unknown projection "${String(
             projection,
           )}" (expected "globe" or "mercator").`,
         );

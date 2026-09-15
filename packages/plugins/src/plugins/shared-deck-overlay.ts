@@ -128,7 +128,7 @@ async function runEnsureSharedDeckOverlay(app: GeoLibreAppAPI): Promise<MapboxOv
       app.removeMapControl(overlay);
     } catch (error) {
       // The old map may already be gone; surface anything unexpected.
-      console.debug("[GeoLibre] shared-deck-overlay: cleanup", error);
+      console.debug("[Geoenergy] shared-deck-overlay: cleanup", error);
     }
   }
   boundMap = map;
@@ -143,7 +143,7 @@ async function runEnsureSharedDeckOverlay(app: GeoLibreAppAPI): Promise<MapboxOv
       let root = layer;
       while (root?.parent) root = root.parent;
       if (root) loadErrors.set(root.id, error.message);
-      console.error("[GeoLibre] deck layer failed", error);
+      console.error("[Geoenergy] deck layer failed", error);
     },
     onDeviceInitialized: (initializedDevice: unknown) => {
       device = initializedDevice;
@@ -151,7 +151,7 @@ async function runEnsureSharedDeckOverlay(app: GeoLibreAppAPI): Promise<MapboxOv
         try {
           listener(initializedDevice);
         } catch (error) {
-          console.warn("[GeoLibre] shared-deck-overlay: device listener", error);
+          console.warn("[Geoenergy] shared-deck-overlay: device listener", error);
         }
       }
     },
@@ -201,7 +201,7 @@ export function onSharedDeckDevice(listener: DeviceListener): () => void {
     try {
       listener(device);
     } catch (error) {
-      console.warn("[GeoLibre] shared-deck-overlay: device listener", error);
+      console.warn("[Geoenergy] shared-deck-overlay: device listener", error);
     }
   }
   return () => {
@@ -253,7 +253,7 @@ function scheduleMountRetry(): void {
   if (mountRetries >= MAX_MOUNT_RETRIES) {
     mountGaveUp = true;
     console.warn(
-      "[GeoLibre] shared-deck-overlay: gave up mounting after repeated addMapControl failures.",
+      "[Geoenergy] shared-deck-overlay: gave up mounting after repeated addMapControl failures.",
     );
     return;
   }

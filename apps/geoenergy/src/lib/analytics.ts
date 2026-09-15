@@ -16,7 +16,7 @@
 //
 // Deliberately not wired into `docker/entrypoint.sh`: the container serves a
 // CSP whose script-src does not allow googletagmanager.com, so a runtime value
-// would be published into geolibre-runtime-config.js and then silently blocked
+// would be published into geoenergy-runtime-config.js and then silently blocked
 // by the browser. Reading through readDeploymentEnvValue keeps the usual
 // precedence if that ever changes.
 
@@ -80,7 +80,7 @@ export function resolveAnalyticsId(
   const id = value.toUpperCase();
   if (!MEASUREMENT_ID_PATTERN.test(id)) {
     console.error(
-      `[GeoLibre] Ignoring ${GA_MEASUREMENT_ID_ENV}: ${value} is not a GA4 measurement ID (G-…).`,
+      `[Geoenergy] Ignoring ${GA_MEASUREMENT_ID_ENV}: ${value} is not a GA4 measurement ID (G-…).`,
     );
     return undefined;
   }

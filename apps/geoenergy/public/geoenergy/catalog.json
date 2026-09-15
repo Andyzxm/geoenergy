@@ -22,7 +22,7 @@
             "fuel",
             "points"
           ],
-          "maxFeatures": 6000,
+          "maxFeatures": 2500,
           "bounds": [
             -179.0,
             17.0,
@@ -84,7 +84,7 @@
             "lines",
             "voltage"
           ],
-          "maxFeatures": 4000
+          "maxFeatures": 1500
         },
         {
           "id": "electric-substations",
@@ -114,10 +114,10 @@
         {
           "id": "osm-data-centers",
           "title": "Data Centers (in view)",
-          "description": "Data centers mapped in OpenStreetMap, queried live for whatever the map currently shows. Pan somewhere new and add it again to reload.",
+          "description": "Data centers mapped in OpenStreetMap, queried live for the visible map. Zoom to a metro area first: the query is bounded to the view.",
           "kind": "overpass",
           "url": "https://overpass-api.de/api/interpreter",
-          "query": "nwr[\"telecom\"=\"data_center\"]({{bbox}});nwr[\"building\"=\"data_center\"]({{bbox}});",
+          "query": "nwr[\"telecom\"=\"data_center\"]({{bbox}});nwr[\"building\"=\"data_center\"]({{bbox}});nwr[\"man_made\"=\"data_center\"]({{bbox}});",
           "source": "OpenStreetMap",
           "infoUrl": "https://wiki.openstreetmap.org/wiki/Tag:telecom%3Ddata_center",
           "vintage": "live",

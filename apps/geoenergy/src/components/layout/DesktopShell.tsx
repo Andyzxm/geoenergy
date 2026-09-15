@@ -770,7 +770,7 @@ export function DesktopShell({
         else stopListening = unlisten;
       })
       .catch((error: unknown) => {
-        console.error("[GeoLibre] Could not listen for opened project files", error);
+        console.error("[Geoenergy] Could not listen for opened project files", error);
       });
     return () => {
       disposed = true;
@@ -1192,7 +1192,7 @@ export function DesktopShell({
         try {
           bytes = await readBytes();
         } catch (error) {
-          console.error("[GeoLibre] Failed to read raster for conversion", error);
+          console.error("[Geoenergy] Failed to read raster for conversion", error);
           window.alert(
             bytesAreRemote
               ? t("raster.rasterDownloadFailed", { name })
@@ -1215,7 +1215,7 @@ export function DesktopShell({
         const samples = geoTiffSampleCount(info);
         if (exceedsBrowserCogConversionLimit(samples)) {
           console.warn(
-            `[GeoLibre] Skipping in-browser COG conversion for "${name}": ${samples.toLocaleString()} decoded samples exceed the safe memory limit.`,
+            `[Geoenergy] Skipping in-browser COG conversion for "${name}": ${samples.toLocaleString()} decoded samples exceed the safe memory limit.`,
           );
           window.alert(t("raster.cogConvertTooLarge", { name }));
           return;
@@ -1245,7 +1245,7 @@ export function DesktopShell({
         // layer (and its message) in place.
         dismiss();
       } catch (error) {
-        console.error("[GeoLibre] Failed to convert GeoTIFF to COG", error);
+        console.error("[Geoenergy] Failed to convert GeoTIFF to COG", error);
         window.alert(t("raster.cogConvertFailed", { name }));
       }
     });
@@ -1532,7 +1532,7 @@ export function DesktopShell({
         if (offRange) {
           nonGeographic.push(layerName);
           console.warn(
-            `[GeoLibre] "${layerName}" declares geographic coordinates but its values are out of range ` +
+            `[Geoenergy] "${layerName}" declares geographic coordinates but its values are out of range ` +
               `(max |x| ${Math.round(offRange.maxAbsX).toLocaleString()}, max |y| ${Math.round(
                 offRange.maxAbsY,
               ).toLocaleString()} ` +
@@ -1823,7 +1823,7 @@ export function DesktopShell({
             // Fire-and-forget here so drag feedback never waits on imports.
             if (event.payload.type === "enter") {
               void prepareRasterControl(createAppAPI(mapControllerRef)).catch((error) => {
-                console.warn("[GeoLibre] Could not prepare the raster drop handler", error);
+                console.warn("[Geoenergy] Could not prepare the raster drop handler", error);
               });
             }
             return;

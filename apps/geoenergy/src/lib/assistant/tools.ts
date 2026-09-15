@@ -78,10 +78,10 @@ async function loadModelToolDescriptors(): Promise<ModelToolDescriptor[]> {
     listWasmToolManifests(),
   ]);
   if (catalogResult.status === "rejected") {
-    console.warn("[GeoLibre] Assistant could not load the Whitebox catalog:", catalogResult.reason);
+    console.warn("[Geoenergy] Assistant could not load the Whitebox catalog:", catalogResult.reason);
   }
   if (wasmResult.status === "rejected") {
-    console.warn("[GeoLibre] Assistant could not enumerate WASM manifests:", wasmResult.reason);
+    console.warn("[Geoenergy] Assistant could not enumerate WASM manifests:", wasmResult.reason);
   }
   return buildModelToolCatalog(
     VECTOR_TOOLS,

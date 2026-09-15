@@ -23,7 +23,7 @@ if (typeof maplibregl.setRTLTextPlugin === "function") {
     // built. With lazy loading, dynamically added RTL labels can remain unshaped
     // because their bucket is not rebuilt after the plugin becomes available.
     maplibregl.setRTLTextPlugin(rtlTextPluginUrl, false).catch((error: unknown) => {
-      console.error("[GeoLibre] Failed to load RTL text plugin", error);
+      console.error("[Geoenergy] Failed to load RTL text plugin", error);
     });
   }
 }

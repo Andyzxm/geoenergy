@@ -1005,10 +1005,10 @@ export function ProcessingDialog({ mapControllerRef, onAddRaster }: ProcessingDi
       const wasmTools = wasmResult.status === "fulfilled" ? wasmResult.value : [];
       const wasmError = wasmResult.status === "rejected" ? wasmResult.reason : null;
       if (wasmError) {
-        console.warn("[GeoLibre] Could not enumerate WASM tool manifests:", wasmError);
+        console.warn("[Geoenergy] Could not enumerate WASM tool manifests:", wasmError);
       }
       if (catalogError) {
-        console.warn("[GeoLibre] Could not load Whitebox catalog snapshot:", catalogError);
+        console.warn("[Geoenergy] Could not load Whitebox catalog snapshot:", catalogError);
       }
       const nextTools = withGlobalDemTool(mergeWasmToolManifests(catalogTools, wasmTools));
       setTools(nextTools);

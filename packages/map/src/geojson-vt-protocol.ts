@@ -164,7 +164,7 @@ async function geojsonVtProtocolHandler(
       data: pbf.buffer.slice(pbf.byteOffset, pbf.byteOffset + pbf.byteLength) as ArrayBuffer,
     };
   } catch (err) {
-    console.warn("[GeoLibre] geojson-vt tile encode failed", err);
+    console.warn("[Geoenergy] geojson-vt tile encode failed", err);
     return { data: new ArrayBuffer(0) };
   }
 }

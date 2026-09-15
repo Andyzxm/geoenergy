@@ -18,7 +18,7 @@ export async function initializeNativeProjectOpen(): Promise<void> {
     startupPaths = paths.slice(0, 1);
     deferredPaths.push(...paths.slice(1));
   } catch (error) {
-    console.error("[GeoLibre] Could not read project paths supplied at launch", error);
+    console.error("[Geoenergy] Could not read project paths supplied at launch", error);
   }
 }
 
@@ -55,14 +55,14 @@ export async function listenForNativeProjectOpen(
         try {
           paths.push(...(await takePendingProjectPaths()));
         } catch (error) {
-          console.error("[GeoLibre] Could not read an opened project path", error);
+          console.error("[Geoenergy] Could not read an opened project path", error);
         }
         for (const path of paths) {
           if (disposed) return;
           try {
             await openPath(path);
           } catch (error) {
-            console.error(`[GeoLibre] Could not open project "${path}"`, error);
+            console.error(`[Geoenergy] Could not open project "${path}"`, error);
           }
         }
       }

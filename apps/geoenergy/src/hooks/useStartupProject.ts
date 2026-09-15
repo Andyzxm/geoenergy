@@ -101,7 +101,7 @@ export function useStartupProject(): {
     try {
       return consumeInlineProjectFragment();
     } catch (error) {
-      console.error("[GeoLibre] Could not load the direct-file project", error);
+      console.error("[Geoenergy] Could not load the direct-file project", error);
       return null;
     }
   });

@@ -15,6 +15,12 @@ const CATALOG_TIMEOUT_MS = 20_000;
 // An Overpass query against a wide view can legitimately take most a minute,
 // well past the catalog's own ceiling.
 const OVERPASS_TIMEOUT_MS = 90_000;
+// Roughly a large state. Past this the public instances refuse or time out.
+const MAX_OVERPASS_SPAN_DEG = 12;
+const OVERPASS_MIRRORS = [
+  "https://overpass-api.de/api/interpreter",
+  "https://overpass.kumi.systems/api/interpreter",
+];
 
 interface OverpassElement {
   type: "node" | "way" | "relation";
@@ -240,32 +246,67 @@ export async function addDataset(app: GeoLibreAppAPI, dataset: GeoenergyDataset)
     }
     case "overpass": {
       // OpenStreetMap has no national "data centers" download, so this queries
-      // the current view instead of a fixed extent: what the map shows is what
-      // gets fetched, which also keeps a nationwide query off Overpass's public
-      // servers. Panning and re-clicking loads the new view.
+      // the current view. Two things make that fragile, and both bit on the
+      // published site before this guard existed:
+      //
+      // At low zoom the map's bounds run past the antimeridian and the poles
+      // (a whole-globe view reports longitudes like -204), and Overpass rejects
+      // an out-of-range bbox outright. So the view is clamped first.
+      //
+      // And a continent-sized bbox is a query the public servers will refuse or
+      // time out on, which reads to a user as "this dataset is broken". Better
+      // to say what to do instead.
       const bounds = app.getViewBounds?.();
       if (!bounds) throw new Error("The map extent is not available yet.");
-      const [west, south, east, north] = bounds;
+      const west = Math.max(-180, Math.min(180, bounds[0]));
+      const south = Math.max(-90, Math.min(90, bounds[1]));
+      const east = Math.max(-180, Math.min(180, bounds[2]));
+      const north = Math.max(-90, Math.min(90, bounds[3]));
+      if (east - west > MAX_OVERPASS_SPAN_DEG || north - south > MAX_OVERPASS_SPAN_DEG) {
+        throw new Error(
+          "Zoom in to a state or metro area first. OpenStreetMap queries are " +
+            "bounded to the visible map, and a view this wide is more than its " +
+            "public servers will answer.",
+        );
+      }
       const bbox = `${south},${west},${north},${east}`;
       const body = `[out:json][timeout:60];(${(dataset.query ?? "").replaceAll("{{bbox}}", bbox)});out center tags;`;
-      const response = await fetch(dataset.url, {
-        method: "POST",
-        body: new URLSearchParams({ data: body }),
-        signal: AbortSignal.timeout(OVERPASS_TIMEOUT_MS),
-      });
-      if (!response.ok) {
-        // 429 and 504 are Overpass's rate limiter and its load shedder, which a
-        // user can simply retry; anything else is worth naming.
+
+      // The main endpoint rate-limits and sheds load; the mirror picks up a
+      // query it refuses. Both are volunteer-run, so a failure here is a
+      // "try again", not a bug in the catalog.
+      const endpoints = [dataset.url, ...OVERPASS_MIRRORS.filter((url) => url !== dataset.url)];
+      let response: Response | null = null;
+      let lastStatus = 0;
+      for (const endpoint of endpoints) {
+        try {
+          const attempt = await fetch(endpoint, {
+            method: "POST",
+            body: new URLSearchParams({ data: body }),
+            signal: AbortSignal.timeout(OVERPASS_TIMEOUT_MS),
+          });
+          if (attempt.ok) {
+            response = attempt;
+            break;
+          }
+          lastStatus = attempt.status;
+        } catch (error) {
+          // A timeout or a network refusal is worth trying the mirror for; the
+          // last one's failure is reported below.
+          console.warn(`Overpass endpoint ${endpoint} failed.`, error);
+        }
+      }
+      if (!response) {
         throw new Error(
-          response.status === 429 || response.status === 504
-            ? "OpenStreetMap's query service is busy. Try again in a moment."
-            : `OpenStreetMap query failed (${response.status}).`,
+          lastStatus === 429 || lastStatus === 504
+            ? "OpenStreetMap's query servers are busy. Try again in a moment."
+            : "Could not reach OpenStreetMap's query service.",
         );
       }
       const payload = (await response.json()) as { elements?: OverpassElement[] };
       const features = (payload.elements ?? [])
         .map((element) => {
-          // A node carries its own position; a way or relation is returned with
+          // A node carries its own position; a way or relation comes back with
           // `out center`, which is the only geometry this layer needs.
           const lat = element.lat ?? element.center?.lat;
           const lon = element.lon ?? element.center?.lon;
@@ -280,7 +321,10 @@ export async function addDataset(app: GeoLibreAppAPI, dataset: GeoenergyDataset)
         .filter((feature) => feature !== null);
       if (!appRef) return;
       if (!features.length) {
-        throw new Error("No features of that kind are mapped in the current view.");
+        throw new Error(
+          "Nothing of that kind is mapped in this view. Try a metro area with " +
+            "known sites, such as Northern Virginia, Dallas, or Phoenix.",
+        );
       }
       app.addGeoJsonLayer(dataset.title, { type: "FeatureCollection", features }, dataset.url);
       return;

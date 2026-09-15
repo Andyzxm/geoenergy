@@ -105,7 +105,7 @@ export function ProjectFileDialogs({ projectFiles }: ProjectFileDialogsProps) {
               <Label htmlFor="project-url">{t("toolbar.item.projectUrl")}</Label>
               <Input
                 id="project-url"
-                placeholder="https://example.com/project.geolibre.json"
+                placeholder="https://example.com/project.geoenergy.json"
                 value={projectFiles.projectUrl}
                 onChange={(event) => {
                   projectFiles.setProjectUrl(event.target.value);

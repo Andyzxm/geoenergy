@@ -151,7 +151,7 @@ const GEOLIBRE_PROJECT_FILE_TYPES: BrowserFilePickerType[] = [
   {
     description: "GeoLibre Project",
     accept: {
-      "application/json": [".geolibre", ".json"],
+      "application/json": [".geoenergy", ".geolibre", ".json"],
     },
   },
 ];
@@ -159,7 +159,14 @@ const GEOLIBRE_PROJECT_FILE_TYPES: BrowserFilePickerType[] = [
 /** Project extension handled as a workspace switch by drag-and-drop. */
 export function isGeoLibreProjectFileName(path: string): boolean {
   const name = browserSafeFileName(path).toLowerCase();
-  return name.endsWith(".geolibre") || name.endsWith(".geolibre.json");
+  // Still accepts a GeoLibre project: the schema is unchanged, so a file
+  // saved by either app opens in the other.
+  return (
+    name.endsWith(".geoenergy") ||
+    name.endsWith(".geoenergy.json") ||
+    name.endsWith(".geolibre") ||
+    name.endsWith(".geolibre.json")
+  );
 }
 
 interface SaveTextFileOptions {
@@ -595,7 +602,7 @@ export async function readLocalFileBytes(path: string): Promise<Uint8Array<Array
     // failure (a moved/deleted file, not a scope denial) is still diagnosable
     // even though the command's "Could not read local file" error is what
     // ultimately surfaces.
-    console.debug(`[GeoLibre] fs read of "${path}" failed; retrying via read_local_file.`, error);
+    console.debug(`[Geoenergy] fs read of "${path}" failed; retrying via read_local_file.`, error);
     const buffer = await invoke<ArrayBuffer>("read_local_file", { path });
     return new Uint8Array(buffer);
   }
@@ -615,7 +622,7 @@ export async function readLocalFileText(path: string): Promise<string> {
     return await readTextFile(path);
   } catch (error) {
     if (!isTauri()) throw error;
-    console.debug(`[GeoLibre] fs read of "${path}" failed; retrying via read_local_file.`, error);
+    console.debug(`[Geoenergy] fs read of "${path}" failed; retrying via read_local_file.`, error);
     const buffer = await invoke<ArrayBuffer>("read_local_file", { path });
     // `fatal: true` matches `readTextFile`, which rejects on malformed UTF-8
     // rather than silently substituting U+FFFD: a corrupt KML/GPX/GeoJSON
@@ -636,7 +643,7 @@ async function localFileSizeBytes(path: string): Promise<number | undefined> {
   try {
     return (await stat(path)).size;
   } catch (error) {
-    console.debug(`[GeoLibre] Could not stat "${path}" for the large-file guard.`, error);
+    console.debug(`[Geoenergy] Could not stat "${path}" for the large-file guard.`, error);
     return undefined;
   }
 }
@@ -666,7 +673,7 @@ async function readVectorFileTextOrEmpty(file: File): Promise<string> {
   try {
     return await file.text();
   } catch (error) {
-    console.warn(`[GeoLibre] Could not read "${file.name}" as text; skipping its overlays.`, error);
+    console.warn(`[Geoenergy] Could not read "${file.name}" as text; skipping its overlays.`, error);
     return "";
   }
 }
@@ -676,7 +683,7 @@ async function readLocalFileTextOrEmpty(path: string): Promise<string> {
   try {
     return await readLocalFileText(path);
   } catch (error) {
-    console.warn(`[GeoLibre] Could not read "${path}" as text; skipping its overlays.`, error);
+    console.warn(`[Geoenergy] Could not read "${path}" as text; skipping its overlays.`, error);
     return "";
   }
 }
@@ -1033,7 +1040,7 @@ async function loadShapefileZip(
   }
   if (shouldRouteToDuckDb(unzipped.file.data.byteLength)) {
     console.info(
-      `[GeoLibre] "${unzipped.file.name}" is ${Math.round(
+      `[Geoenergy] "${unzipped.file.name}" is ${Math.round(
         unzipped.file.data.byteLength / (1024 * 1024),
       )} MB uncompressed; reading it with DuckDB instead of shpjs to keep the parse off the main thread.`,
     );
@@ -2026,7 +2033,7 @@ async function tryLoadNativeDuckDbVectorPath(
   } catch (error) {
     if (isVectorLoadCancelled(error)) throw error;
     console.warn(
-      "[GeoLibre] Native DuckDB vector load failed; falling back to DuckDB-WASM.",
+      "[Geoenergy] Native DuckDB vector load failed; falling back to DuckDB-WASM.",
       error,
     );
     return { data: null, featureCountChecked };
@@ -2091,7 +2098,7 @@ async function loadBrowserVectorFile(
   // route here would be misleading for a container near the threshold.
   if (streamViaDuckDb && ROUTABLE_TEXT_EXTENSIONS.has(extension)) {
     console.info(
-      `[GeoLibre] "${file.name}" is ${Math.round(
+      `[Geoenergy] "${file.name}" is ${Math.round(
         file.size / (1024 * 1024),
       )} MB; streaming it through DuckDB instead of the in-memory reader.`,
     );
@@ -2329,7 +2336,7 @@ export async function readVectorFileWithSidecars(path: string): Promise<{
       nativeData: await tryLoadPickedNativeVectorPath(path, {
         onLargeDataset: ({ name, featureCount }) => {
           console.warn(
-            `[GeoLibre] Skipping native vector restore for "${name}" because it contains ${featureCount.toLocaleString()} features; re-add the file to confirm loading it as GeoJSON.`,
+            `[Geoenergy] Skipping native vector restore for "${name}" because it contains ${featureCount.toLocaleString()} features; re-add the file to confirm loading it as GeoJSON.`,
           );
           return false;
         },
@@ -2388,7 +2395,7 @@ async function loadTauriVectorFile(
   // See `loadBrowserVectorFile`: containers decide their own routing later.
   if (streamViaDuckDb && ROUTABLE_TEXT_EXTENSIONS.has(extension)) {
     console.info(
-      `[GeoLibre] "${browserSafeFileName(path)}" is ${Math.round(
+      `[Geoenergy] "${browserSafeFileName(path)}" is ${Math.round(
         (sizeBytes ?? 0) / (1024 * 1024),
       )} MB; streaming it through DuckDB instead of the in-memory reader.`,
     );
@@ -2593,8 +2600,8 @@ async function openProjectFileBrowser(): Promise<{
   }
 
   const result = await openLocalDataFileWithFallback({
-    filters: [{ name: "GeoLibre Project", extensions: ["geolibre", "json"] }],
-    accept: ".geolibre,.json,.geolibre.json",
+    filters: [{ name: "Geoenergy Project", extensions: ["geoenergy", "geolibre", "json"] }],
+    accept: ".geoenergy,.geoenergy.json,.geolibre,.json,.geolibre.json",
     readText: true,
   });
   if (!result?.text) return null;
@@ -2948,7 +2955,7 @@ export async function openProjectFile(): Promise<{
 
   const selected = await open({
     multiple: false,
-    filters: [{ name: "GeoLibre Project", extensions: ["geolibre", "json"] }],
+    filters: [{ name: "Geoenergy Project", extensions: ["geoenergy", "geolibre", "json"] }],
   });
   if (!selected || typeof selected !== "string") return null;
   const text = await readTextFile(selected);
@@ -3192,7 +3199,7 @@ export async function saveProjectFile(
   }
 
   const path = await save({
-    filters: [{ name: "GeoLibre Project", extensions: ["geolibre", "json"] }],
+    filters: [{ name: "Geoenergy Project", extensions: ["geoenergy", "geolibre", "json"] }],
     defaultPath: defaultName ?? "project.geolibre",
   });
   if (!path) return null;

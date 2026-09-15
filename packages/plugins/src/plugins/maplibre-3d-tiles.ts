@@ -197,7 +197,7 @@ export function restoreThreeDTilesLayers(app: GeoLibreAppAPI): void {
     hydrateThreeDTilesControlFromStore(control, { replaceExisting: true });
     syncThreeDTilesStoreFromControl(control);
   } catch (error) {
-    console.error("[GeoLibre] Failed to restore 3D Tiles layers", error);
+    console.error("[Geoenergy] Failed to restore 3D Tiles layers", error);
   }
 }
 
@@ -242,7 +242,7 @@ function openStandaloneThreeDTilesControl(app: GeoLibreAppAPI): boolean {
       hydrateThreeDTilesControlFromStore(control);
       syncThreeDTilesStoreFromControl(control);
     } catch (error) {
-      console.error("[GeoLibre] Failed to open 3D Tiles layer panel", error);
+      console.error("[Geoenergy] Failed to open 3D Tiles layer panel", error);
     }
   }, 0);
 
@@ -849,7 +849,7 @@ async function addGooglePhotorealisticTilesFromPanel(
   const submittedUrl = getThreeDTilesUrlInput(panel)?.value.trim();
   if (submittedUrl && urlHasKeyQueryParam(submittedUrl)) {
     console.warn(
-      "[GeoLibre] Ignoring the `key` query parameter in the Google Photorealistic 3D Tiles URL; the API key is taken from VITE_GOOGLE_MAPS_API_KEY (or the X-GOOG-API-KEY request header) instead.",
+      "[Geoenergy] Ignoring the `key` query parameter in the Google Photorealistic 3D Tiles URL; the API key is taken from VITE_GOOGLE_MAPS_API_KEY (or the X-GOOG-API-KEY request header) instead.",
     );
   }
 
@@ -923,12 +923,12 @@ function installArcgisI3sTilesPanelHandlers(control: ThreeDTilesControl, panel: 
 function addArcgisI3sTilesFromPanel(control: ThreeDTilesControl, panel: HTMLElement): void {
   const app = activeThreeDTilesApp;
   if (!app) {
-    console.warn("[GeoLibre] ArcGIS I3S submit ignored: no active 3D Tiles app");
+    console.warn("[Geoenergy] ArcGIS I3S submit ignored: no active 3D Tiles app");
     return;
   }
   const url = getThreeDTilesUrlInput(panel)?.value.trim();
   if (!url) {
-    console.warn("[GeoLibre] ArcGIS I3S submit ignored: empty URL");
+    console.warn("[Geoenergy] ArcGIS I3S submit ignored: empty URL");
     return;
   }
 
@@ -1503,7 +1503,7 @@ function getThreeDTilesControlLayers(
   const layers = (control as unknown as ThreeDTilesControlInternals)._layers;
   if (!(layers instanceof Map)) {
     console.warn(
-      "[GeoLibre] ThreeDTilesControl._layers unavailable; skipping 3D Tiles restore. The library internals may have changed.",
+      "[Geoenergy] ThreeDTilesControl._layers unavailable; skipping 3D Tiles restore. The library internals may have changed.",
     );
     return null;
   }
@@ -1524,8 +1524,8 @@ function getThreeDTilesDecoderOptions(control: ThreeDTilesControl): {
     // rather than naming a unpkg URL this build will never request.
     console.warn(
       NO_EXTERNAL_CDN
-        ? "[GeoLibre] ThreeDTilesControl decoder paths unavailable and external CDNs are disabled in this build; Draco/KTX2-compressed tilesets will fail to load."
-        : `[GeoLibre] ThreeDTilesControl decoder paths unavailable; falling back to unpkg three@${THREE_VERSION}. Compressed tilesets will fail offline.`,
+        ? "[Geoenergy] ThreeDTilesControl decoder paths unavailable and external CDNs are disabled in this build; Draco/KTX2-compressed tilesets will fail to load."
+        : `[Geoenergy] ThreeDTilesControl decoder paths unavailable; falling back to unpkg three@${THREE_VERSION}. Compressed tilesets will fail offline.`,
     );
   }
   return {

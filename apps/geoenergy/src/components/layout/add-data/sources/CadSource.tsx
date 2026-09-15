@@ -168,7 +168,7 @@ export function CadSource() {
     } catch (err) {
       if (isUnsupportedGeometryError(err)) {
         // Keep the raw cause in DevTools while showing the friendly message.
-        console.warn("[GeoLibre] CAD layer geometry could not be decoded", err);
+        console.warn("[Geoenergy] CAD layer geometry could not be decoded", err);
         throw new Error(t("addData.cad.errorUnsupportedGeometry"));
       }
       throw err;

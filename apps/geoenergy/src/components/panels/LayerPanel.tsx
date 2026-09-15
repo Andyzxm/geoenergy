@@ -2448,7 +2448,7 @@ export function LayerPanel({
       })
       .catch((error: unknown) => {
         if (cancelled) return;
-        console.warn("[GeoLibre] Failed to read raster metadata", error);
+        console.warn("[Geoenergy] Failed to read raster metadata", error);
         setRasterInfoState({ layerId, status: "error" });
       });
 
@@ -2586,7 +2586,7 @@ export function LayerPanel({
           // watcher and show a spurious error while watching is actually active.
           if (cancelled) return;
           watchUnsubsRef.current.delete(layer.id);
-          console.warn(`[GeoLibre] Could not watch "${path}" for changes.`, error);
+          console.warn(`[Geoenergy] Could not watch "${path}" for changes.`, error);
           setRefreshStatuses((current) => ({
             ...current,
             [layer.id]: {

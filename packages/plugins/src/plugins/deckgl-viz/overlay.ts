@@ -221,7 +221,7 @@ function renderDeckVizLayers(): void {
         deckLayers.push(...buildElevation3dLayers(deckGL, layer));
       }
     } catch (error) {
-      console.warn("[GeoLibre] deckgl-viz: failed to build layer", error);
+      console.warn("[Geoenergy] deckgl-viz: failed to build layer", error);
     }
   }
 

@@ -95,7 +95,7 @@ if (isTauri()) {
   nativeArcGISFetchReady = import("./lib/arcgis-fetch")
     .then(({ installNativeArcGISFetch }) => installNativeArcGISFetch())
     .catch((error: unknown) => {
-      console.error("[GeoLibre] Failed to install native ArcGIS fetch", error);
+      console.error("[Geoenergy] Failed to install native ArcGIS fetch", error);
     });
   // WebView2 can apply browser CORS and Local Network Access restrictions to
   // the loopback processing server. Route those requests through Tauri's
@@ -108,7 +108,7 @@ if (isTauri()) {
     nativeSidecarFetchReady = import("./lib/sidecar-fetch")
       .then(({ installNativeSidecarFetch }) => installNativeSidecarFetch())
       .catch((error: unknown) => {
-        console.error("[GeoLibre] Failed to install native sidecar fetch", error);
+        console.error("[Geoenergy] Failed to install native sidecar fetch", error);
       });
   }
   void import("./lib/geocoding-fetch")
@@ -117,7 +117,7 @@ if (isTauri()) {
       // If the install fails, geocoding stays on the browser fetch (the
       // CORS-buggy path this fixes), so surface it rather than let it become a
       // silent unhandled rejection.
-      console.error("[GeoLibre] Failed to install native geocoding fetch", error);
+      console.error("[Geoenergy] Failed to install native geocoding fetch", error);
     });
   // Likewise route share.geolibre.app (project Share + gallery) through the
   // native HTTP client: the share server's CORS policy allows the web origin but
@@ -129,7 +129,7 @@ if (isTauri()) {
     .catch((error: unknown) => {
       // On failure the share client stays on the browser fetch (the CORS-blocked
       // path this fixes); surface it rather than swallow the rejection.
-      console.error("[GeoLibre] Failed to install native share fetch", error);
+      console.error("[Geoenergy] Failed to install native share fetch", error);
     });
   // GeoLens sends X-Api-Key, which preflights in a WebView. Keep the built-in
   // datasets.geolibre.app connection working even when its CORS origin
@@ -137,7 +137,7 @@ if (isTauri()) {
   void import("./lib/geolens-fetch")
     .then(({ installNativeGeoLensFetch }) => installNativeGeoLensFetch())
     .catch((error: unknown) => {
-      console.error("[GeoLibre] Failed to install native GeoLens fetch", error);
+      console.error("[Geoenergy] Failed to install native GeoLens fetch", error);
     });
 }
 // Recover from chunks orphaned by a web redeploy (stale lazy import → 404). A
@@ -238,7 +238,7 @@ registerSW({
   onRegisterError(error) {
     // Registration can fail in production (non-secure origin, scope conflict).
     // The app still works without the SW, so surface it rather than fail.
-    console.error("[GeoLibre] Service worker registration failed", error);
+    console.error("[Geoenergy] Service worker registration failed", error);
   },
 });
 
@@ -253,7 +253,7 @@ const sharedSettingsReady = sharedSettingsUrl
         // A shared settings file is optional configuration. Keep the app usable
         // with the visitor's local settings, but make a bad URL visible in the
         // diagnostics capture and developer console.
-        console.error("[GeoLibre] Failed to load shared desktop settings", error);
+        console.error("[Geoenergy] Failed to load shared desktop settings", error);
         return null;
       })
   : Promise.resolve(null);
@@ -272,7 +272,7 @@ const startupLanguageReady = Promise.all([i18nReady, sharedSettingsReady]).then(
     } catch (error) {
       // Shared language is optional presentation configuration. If its lazy
       // catalog cannot load, retain the language i18next already initialized.
-      console.error("[GeoLibre] Failed to apply shared settings language", error);
+      console.error("[Geoenergy] Failed to apply shared settings language", error);
     }
   },
 );

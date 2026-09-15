@@ -681,7 +681,7 @@ function startArcGISViewportLoader(
       // A timeout that survived its retry gets guidance the user can act on;
       // ArcGIS's own wording for it blames the query parameters, which are fine.
       if (isArcGISTransientQueryError(error)) {
-        console.error("[GeoLibre] ArcGIS viewport query timed out", error);
+        console.error("[Geoenergy] ArcGIS viewport query timed out", error);
         reportArcGISViewportError(layerId, ARCGIS_VIEWPORT_TIMEOUT);
         return;
       }
@@ -805,7 +805,7 @@ function stopArcGISViewportLoader(layerId: string): void {
 
 function handleArcGISViewportError(layerId: string, error: unknown): void {
   if (isArcGISAbortError(error)) return;
-  console.error("[GeoLibre] ArcGIS viewport query failed", error);
+  console.error("[Geoenergy] ArcGIS viewport query failed", error);
   reportArcGISViewportError(layerId, error instanceof Error ? error.message : String(error));
 }
 
@@ -1735,20 +1735,31 @@ function arcgisPageSignature(feature: Feature | undefined): string | null {
  * @param features - The features collected.
  * @param truncated - Whether the walk gave up with rows still unread.
  */
+// A viewport-loading layer re-runs its query on every pan, and hitting the
+// per-viewport cap is that feature working as designed, not an anomaly. Warning
+// each time turned the diagnostics log into a scroll of identical lines, so the
+// message is kept (it still tells you the layer is partial) but reported once
+// per cap value per session.
+const reportedFeatureCaps = new Set<number>();
+
 function finishArcGISPaging(
   plan: ArcGISPagingPlan,
   features: Feature[],
   truncated: boolean,
 ): FeatureCollection {
   if (plan.maxFeatures !== null && features.length >= plan.maxFeatures) {
-    console.warn(
-      `[GeoLibre] ArcGIS feature download stopped at the requested maximum of ` +
-        `${plan.maxFeatures} features (partial dataset).`,
-    );
+    if (!reportedFeatureCaps.has(plan.maxFeatures)) {
+      reportedFeatureCaps.add(plan.maxFeatures);
+      console.warn(
+        `[Geoenergy] Feature download stopped at the requested maximum of ` +
+          `${plan.maxFeatures} features (partial dataset). Viewport layers re-run ` +
+          `this query as you pan; this notice is shown once.`,
+      );
+    }
   } else if (truncated || (plan.total !== null && features.length < plan.total)) {
     const of = plan.total === null ? "" : ` of ${plan.total}`;
     console.warn(
-      `[GeoLibre] ArcGIS feature query was truncated: loaded ${features.length}${of} ` +
+      `[Geoenergy] ArcGIS feature query was truncated: loaded ${features.length}${of} ` +
         `features (partial dataset).`,
     );
   }

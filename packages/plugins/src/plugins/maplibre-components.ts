@@ -3592,7 +3592,7 @@ function notifySwipeCogChange(): void {
     try {
       listener();
     } catch (error) {
-      console.warn("[GeoLibre] swipe COG change listener", error);
+      console.warn("[Geoenergy] swipe COG change listener", error);
     }
   }
 }
@@ -3825,7 +3825,7 @@ export async function mirrorAddCogLayer(
   await control.addLayer(snapshot.url);
   const newId = control.getLayerIds().find((id) => !before.has(id)) ?? null;
   if (!newId) {
-    console.debug("[GeoLibre] swipe COG mirror: no new layer id after addLayer", snapshot.url);
+    console.debug("[Geoenergy] swipe COG mirror: no new layer id after addLayer", snapshot.url);
   }
   return newId;
 }
