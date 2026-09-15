@@ -12,8 +12,8 @@ import {
   stripAutoFidColumn,
   SYNTHESIZED_GEOMETRY_COLUMN,
   wkbRowsToFeatureCollection,
-} from "../apps/geolibre-desktop/src/lib/duckdb-geometry";
-import { encodeWkb } from "../apps/geolibre-desktop/src/lib/geometry-wkb";
+} from "../apps/geoenergy/src/lib/duckdb-geometry";
+import { encodeWkb } from "../apps/geoenergy/src/lib/geometry-wkb";
 
 function describeRow(name: string, type: string) {
   return { column_name: name, column_type: type };

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { isGeoLibreProjectFileName } from "../apps/geolibre-desktop/src/lib/tauri-io";
-import { resolveDroppedProjectIfCurrent } from "../apps/geolibre-desktop/src/lib/dropped-project";
+import { isGeoLibreProjectFileName } from "../apps/geoenergy/src/lib/tauri-io";
+import { resolveDroppedProjectIfCurrent } from "../apps/geoenergy/src/lib/dropped-project";
 import type { GeoLibreProject } from "@geolibre/core";
 
 test("recognizes GeoLibre project files dropped onto the app", () => {

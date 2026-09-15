@@ -9,7 +9,7 @@ import {
   useAppStore,
 } from "@geolibre/core";
 import { matchFeaturesByLocation } from "../packages/processing/src/vector-tools";
-import { applyMatchedSelection } from "../apps/geolibre-desktop/src/lib/selection-actions";
+import { applyMatchedSelection } from "../apps/geoenergy/src/lib/selection-actions";
 import {
   featuresIntersectingPolygon,
   CAMERA_HANDLERS,

@@ -6,7 +6,7 @@ import {
   getPluginBundlePin,
   removePluginBundlePin,
   verifyPluginBundleIntegrity,
-} from "../apps/geolibre-desktop/src/lib/plugin-integrity";
+} from "../apps/geoenergy/src/lib/plugin-integrity";
 
 // plugin-integrity reads/writes the bare `localStorage` global (=== window's in
 // the browser). Emulate just enough for Node's test runner.

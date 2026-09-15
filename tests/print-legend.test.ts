@@ -15,8 +15,8 @@ import {
   reorderLegendEntry,
   setLegendItemLabel,
   toggleLegendItemHidden,
-} from "../apps/geolibre-desktop/src/lib/print-legend";
-import { MAX_LEGEND_ROWS } from "../apps/geolibre-desktop/src/lib/auto-legend";
+} from "../apps/geoenergy/src/lib/print-legend";
+import { MAX_LEGEND_ROWS } from "../apps/geoenergy/src/lib/auto-legend";
 
 function config(overrides: Partial<LegendConfig> = {}): LegendConfig {
   return { ...DEFAULT_LEGEND_CONFIG, order: [], overrides: {}, ...overrides };

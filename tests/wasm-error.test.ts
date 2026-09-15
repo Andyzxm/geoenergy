@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   isRasterTooLargeForWasm,
   messageFromThrown,
-} from "../apps/geolibre-desktop/src/lib/wasm-error";
+} from "../apps/geoenergy/src/lib/wasm-error";
 
 const FALLBACK = "Could not convert this file.";
 

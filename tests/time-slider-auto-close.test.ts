@@ -7,7 +7,7 @@ import {
   isTimeSliderOpenedByBinding,
   setTimeSliderOpenedByBinding,
   shouldCloseTimeSliderDock as shouldClose,
-} from "../apps/geolibre-desktop/src/lib/time-slider-dock";
+} from "../apps/geoenergy/src/lib/time-slider-dock";
 
 // The app passes the real `isTimeSliderIdle`, so these exercise the whole
 // predicate rather than a stand-in for the "nothing left to drive" half.

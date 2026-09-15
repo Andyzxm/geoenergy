@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { latLonBoxCorners } from "../apps/geolibre-desktop/src/lib/kml";
+import { latLonBoxCorners } from "../apps/geoenergy/src/lib/kml";
 import {
   findArchiveEntry,
   imageMimeFromName,
   isTiffImageName,
   normalizeArchivePath,
-} from "../apps/geolibre-desktop/src/lib/kml-overlays";
+} from "../apps/geoenergy/src/lib/kml-overlays";
 
 const bytes = (label: string): Uint8Array => new TextEncoder().encode(label);
 

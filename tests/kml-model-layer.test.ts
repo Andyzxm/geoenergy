@@ -7,8 +7,8 @@ import {
   kmlModelTranslation,
   kmlModelUniformScale,
   modelNameFromPath,
-} from "../apps/geolibre-desktop/src/lib/kml-model";
-import type { LoadedModel } from "../apps/geolibre-desktop/src/lib/tauri-io";
+} from "../apps/geoenergy/src/lib/kml-model";
+import type { LoadedModel } from "../apps/geoenergy/src/lib/tauri-io";
 
 function model(patch: Partial<LoadedModel> = {}): LoadedModel {
   return {

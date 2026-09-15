@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { martinSourceMatchesTable } from "../apps/geolibre-desktop/src/components/layout/add-data/martin-source-match";
+import { martinSourceMatchesTable } from "../apps/geoenergy/src/components/layout/add-data/martin-source-match";
 
 describe("martinSourceMatchesTable", () => {
   it("matches a public-schema table by its bare source id", () => {

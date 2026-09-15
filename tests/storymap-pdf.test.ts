@@ -6,7 +6,7 @@ import {
   htmlToPlainText,
   type HandoutChapter,
   type HandoutOptions,
-} from "../apps/geolibre-desktop/src/lib/storymap-pdf";
+} from "../apps/geoenergy/src/lib/storymap-pdf";
 
 /** Default handout options with empty running text, overridable per test. */
 function opts(overrides: Partial<HandoutOptions> = {}): HandoutOptions {

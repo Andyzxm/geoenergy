@@ -5,7 +5,7 @@ import {
   CLERK_WAITLIST_ENV,
   resolveClerkPublishableKey,
   resolveClerkWaitlistEnabled,
-} from "../apps/geolibre-desktop/src/lib/clerk-auth";
+} from "../apps/geoenergy/src/lib/clerk-auth";
 
 describe("optional Clerk authentication", () => {
   it("stays disabled when no publishable key is configured", () => {

@@ -22,7 +22,7 @@ function fc(properties: Record<string, unknown>[]): FeatureCollection {
 
 describe("shapefileFieldWarnings", () => {
   before(async () => {
-    ({ shapefileFieldWarnings } = await import("../apps/geolibre-desktop/src/lib/vector-export"));
+    ({ shapefileFieldWarnings } = await import("../apps/geoenergy/src/lib/vector-export"));
   });
 
   it("returns no warnings when every field name is Shapefile-safe", () => {

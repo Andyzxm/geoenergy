@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   readDeploymentEnv,
   readDeploymentEnvValue,
-} from "../apps/geolibre-desktop/src/lib/deployment-env";
+} from "../apps/geoenergy/src/lib/deployment-env";
 
 const KEY = "VITE_GEOLIBRE_SHARE_URL";
 

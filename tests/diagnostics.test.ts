@@ -21,7 +21,7 @@ const storage = new Map<string, string>();
   removeEventListener: () => {},
 };
 
-type DiagnosticsModule = typeof import("../apps/geolibre-desktop/src/lib/diagnostics");
+type DiagnosticsModule = typeof import("../apps/geoenergy/src/lib/diagnostics");
 let appendDiagnostic: DiagnosticsModule["appendDiagnostic"];
 let clearDiagnostics: DiagnosticsModule["clearDiagnostics"];
 let getDiagnosticsSnapshot: DiagnosticsModule["getDiagnosticsSnapshot"];
@@ -37,7 +37,7 @@ before(async () => {
     setCaptureNetworkInfo,
     installDiagnosticsCapture,
     OPTIONAL_RESOURCE_HEADER,
-  } = await import("../apps/geolibre-desktop/src/lib/diagnostics"));
+  } = await import("../apps/geoenergy/src/lib/diagnostics"));
 });
 
 // Intentionally duplicated from diagnostics.ts: the key is a persistence
@@ -156,7 +156,7 @@ describe("diagnostics startup transient suppression", () => {
 
   before(async () => {
     ({ installDiagnosticsCapture: installCapture } =
-      await import("../apps/geolibre-desktop/src/lib/diagnostics"));
+      await import("../apps/geoenergy/src/lib/diagnostics"));
   });
 
   beforeEach(() => {

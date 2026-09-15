@@ -4,7 +4,7 @@ import {
   isSignInCallback,
   mergeStashedQuery,
   stripCallbackParams,
-} from "../apps/geolibre-desktop/src/lib/auth-return-url";
+} from "../apps/geoenergy/src/lib/auth-return-url";
 
 describe("keeping one login attempt out of the next", () => {
   it("drops Auth0's parameters, keeping the app's", () => {

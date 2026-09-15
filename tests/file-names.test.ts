@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   ensureHtmlFileName,
   ensureProjectFileName,
-} from "../apps/geolibre-desktop/src/lib/file-names";
+} from "../apps/geoenergy/src/lib/file-names";
 
 describe("ensureHtmlFileName", () => {
   it("falls back to the slug-based name when blank", () => {

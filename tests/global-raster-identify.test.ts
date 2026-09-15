@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   rasterIdentifyProperties,
   rasterPixelIdentifyProperties,
-} from "../apps/geolibre-desktop/src/lib/global-raster-identify";
+} from "../apps/geoenergy/src/lib/global-raster-identify";
 import { formatPixelValue } from "../packages/core/src/pixel-format";
 
 const labels = {

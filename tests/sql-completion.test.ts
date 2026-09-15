@@ -3,8 +3,8 @@ import { describe, it } from "node:test";
 import {
   sqlCompletionCandidates,
   wordPrefixAt,
-} from "../apps/geolibre-desktop/src/lib/sql-completion";
-import type { SqlWorkspaceTableColumns } from "../apps/geolibre-desktop/src/lib/sql-workspace";
+} from "../apps/geoenergy/src/lib/sql-completion";
+import type { SqlWorkspaceTableColumns } from "../apps/geoenergy/src/lib/sql-workspace";
 
 // Hand-built tables so the test stays free of the DuckDB-WASM import that
 // sql-workspace.ts pulls in (it cannot load under the node test runner). The

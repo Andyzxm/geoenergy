@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { prjSidecarCrs } from "../apps/geolibre-desktop/src/lib/prj-sidecar.ts";
+import { prjSidecarCrs } from "../apps/geoenergy/src/lib/prj-sidecar.ts";
 
 function sibling(name: string, extension: string, text: string) {
   return { name, extension, data: new TextEncoder().encode(text) };

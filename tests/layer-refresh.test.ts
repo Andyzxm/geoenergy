@@ -7,7 +7,7 @@ import {
   isVectorControlRefreshLayer,
   supportsRefreshFailurePolicy,
   WFS_XML_RESPONSE_ERROR,
-} from "../apps/geolibre-desktop/src/lib/layer-refresh";
+} from "../apps/geoenergy/src/lib/layer-refresh";
 
 function makeLayer(patch: Partial<GeoLibreLayer> = {}): GeoLibreLayer {
   return {

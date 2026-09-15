@@ -8,8 +8,8 @@ import {
   sourceLayersForQueryRefresh,
   sqlQueryLayerMetadata,
   SQL_QUERY_SOURCE_KIND,
-} from "../apps/geolibre-desktop/src/lib/sql-query-layer";
-import { isRefreshableLayer } from "../apps/geolibre-desktop/src/lib/layer-refresh";
+} from "../apps/geoenergy/src/lib/sql-query-layer";
+import { isRefreshableLayer } from "../apps/geoenergy/src/lib/layer-refresh";
 
 const QUERY = "SELECT NAME, geom FROM countries WHERE POP_EST > 50000000";
 

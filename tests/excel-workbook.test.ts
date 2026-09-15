@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import * as XLSX from "@e965/xlsx";
-import { isExcelFile, readExcelWorksheets } from "../apps/geolibre-desktop/src/lib/excel-workbook";
+import { isExcelFile, readExcelWorksheets } from "../apps/geoenergy/src/lib/excel-workbook";
 
 for (const bookType of ["xls", "xlsx"] as const) {
   test(`reads ${bookType} worksheets as delimited text`, async () => {

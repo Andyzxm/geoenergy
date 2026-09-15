@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { TFunction } from "i18next";
-import { pluginDisplayName } from "../apps/geolibre-desktop/src/lib/plugin-display-name";
+import { pluginDisplayName } from "../apps/geoenergy/src/lib/plugin-display-name";
 
 /**
  * Stand-in for i18next's `t`: returns the catalog entry for a key, or the

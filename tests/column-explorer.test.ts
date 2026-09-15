@@ -3,14 +3,14 @@ import { describe, it } from "node:test";
 import {
   coerceNumericStringRows,
   type ChartRow,
-} from "../apps/geolibre-desktop/src/lib/attribute-charts";
-import type { NumericFieldStats } from "../apps/geolibre-desktop/src/lib/attribute-stats";
+} from "../apps/geoenergy/src/lib/attribute-charts";
+import type { NumericFieldStats } from "../apps/geoenergy/src/lib/attribute-stats";
 import {
   COLUMN_EXPLORER_TOP_VALUES,
   populatedCount,
   summarizeColumn,
   summarizeColumns,
-} from "../apps/geolibre-desktop/src/lib/column-explorer";
+} from "../apps/geoenergy/src/lib/column-explorer";
 
 function rows(...properties: Record<string, unknown>[]): ChartRow[] {
   return properties.map((p) => ({ properties: p }));

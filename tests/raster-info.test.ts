@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { MetadataSummary } from "maplibre-gl-raster";
-import { rasterInfoFromSummary } from "../apps/geolibre-desktop/src/lib/raster-info";
+import { rasterInfoFromSummary } from "../apps/geoenergy/src/lib/raster-info";
 
 function summaryWith(overrides: {
   crs?: Partial<MetadataSummary["crs"]>;

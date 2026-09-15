@@ -8,7 +8,7 @@ import {
   renameOfflineBasemap,
   setOfflineBasemapFlavor,
   upsertOfflineBasemap,
-} from "../apps/geolibre-desktop/src/lib/offline-basemaps";
+} from "../apps/geoenergy/src/lib/offline-basemaps";
 
 /** Minimal in-memory Storage so the catalogue helpers can be tested without a
  * DOM/localStorage. */

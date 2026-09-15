@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   coordinateTargetFromSearch,
   coordinateTargetFromGeoUri,
-} from "../apps/geolibre-desktop/src/lib/coordinate-url";
+} from "../apps/geoenergy/src/lib/coordinate-url";
 
 test("web coordinates preserve axis order, fractional zoom and zero values", () => {
   assert.deepEqual(coordinateTargetFromSearch("?lat=40.7128&lon=-74.006&zoom=12.5"), {

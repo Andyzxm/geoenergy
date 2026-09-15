@@ -15,18 +15,18 @@ import {
 import {
   computeChart,
   chartResultHasData,
-} from "../apps/geolibre-desktop/src/components/panels/charts/chart-spec";
+} from "../apps/geoenergy/src/components/panels/charts/chart-spec";
 import {
   CHART_PALETTE,
   categoryColors,
   isHexColor,
   shadeRamp,
-} from "../apps/geolibre-desktop/src/components/panels/charts/chart-colors";
+} from "../apps/geoenergy/src/components/panels/charts/chart-colors";
 import {
   distinctCategoryValues,
   filterRowsBySelections,
   type ChartRow,
-} from "../apps/geolibre-desktop/src/lib/attribute-charts";
+} from "../apps/geoenergy/src/lib/attribute-charts";
 
 function widget(patch: Partial<DashboardWidget> = {}): DashboardWidget {
   return {

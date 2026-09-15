@@ -4,7 +4,7 @@ import { describe, it } from "node:test";
 import {
   resolvePluginAssetUrl,
   withPluginAssetCacheToken,
-} from "../apps/geolibre-desktop/src/lib/plugin-asset-url";
+} from "../apps/geoenergy/src/lib/plugin-asset-url";
 
 describe("plugin asset URLs", () => {
   it("appends a cache token to resolved plugin asset URLs", () => {

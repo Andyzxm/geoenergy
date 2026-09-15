@@ -7,7 +7,7 @@ import {
   PINNED_FOLDERS_CHANGED_EVENT,
   readPinnedFolders,
   unpinFolder,
-} from "../apps/geolibre-desktop/src/lib/browser-folders";
+} from "../apps/geoenergy/src/lib/browser-folders";
 
 // Minimal localStorage + window stub so the module's browser guards run under
 // node --test (mirrors how the app persists pinned folders in the browser).

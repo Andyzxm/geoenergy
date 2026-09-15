@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { Geometry } from "geojson";
-import { decodeWkb, encodeWkb } from "../apps/geolibre-desktop/src/lib/geometry-wkb";
+import { decodeWkb, encodeWkb } from "../apps/geoenergy/src/lib/geometry-wkb";
 
 /**
  * decodeWkb is the inverse of encodeWkb (used to read GeoPackage geometry blobs

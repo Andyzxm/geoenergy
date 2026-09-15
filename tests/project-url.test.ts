@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { fetchProjectFromUrl } from "../apps/geolibre-desktop/src/lib/project-url";
+import { fetchProjectFromUrl } from "../apps/geoenergy/src/lib/project-url";
 
 const PROJECT_URL = "https://example.com/Test.geolibre.json";
 

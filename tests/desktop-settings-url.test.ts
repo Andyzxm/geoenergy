@@ -3,12 +3,12 @@ import { describe, it } from "node:test";
 import {
   applyTemporaryDesktopSettings,
   shouldPersistDesktopSettings,
-} from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
+} from "../apps/geoenergy/src/hooks/useDesktopSettings";
 import {
   desktopSettingsUrl,
   fetchDesktopSettings,
   sharedSettingsLanguage,
-} from "../apps/geolibre-desktop/src/lib/desktop-settings-url";
+} from "../apps/geoenergy/src/lib/desktop-settings-url";
 
 describe("desktop settings URL", () => {
   it("prefers settingsUrl and accepts the discussion's settingUrl spelling", () => {

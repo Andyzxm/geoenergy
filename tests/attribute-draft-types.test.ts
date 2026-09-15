@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { inferColumnTypes } from "../apps/geolibre-desktop/src/lib/attribute-columns";
+import { inferColumnTypes } from "../apps/geoenergy/src/lib/attribute-columns";
 
 /**
  * A cell that is empty says nothing about its column's type. Typing into one

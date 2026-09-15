@@ -4,7 +4,7 @@ import {
   clampExaggeration,
   MAX_EXAGGERATION,
   MIN_EXAGGERATION,
-} from "../apps/geolibre-desktop/src/lib/terrain-exaggeration";
+} from "../apps/geoenergy/src/lib/terrain-exaggeration";
 
 describe("clampExaggeration", () => {
   it("passes through values already inside the display range", () => {

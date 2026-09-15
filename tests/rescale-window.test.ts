@@ -4,7 +4,7 @@ import {
   boundText,
   nextRescaleWindow,
   parseBound,
-} from "../apps/geolibre-desktop/src/lib/rescale-window";
+} from "../apps/geoenergy/src/lib/rescale-window";
 
 describe("nextRescaleWindow", () => {
   it("applies the window once both ends are filled", () => {

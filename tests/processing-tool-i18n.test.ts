@@ -11,7 +11,7 @@ import {
   translateToolName,
   translateWhiteboxParameterDescription,
   whiteboxParameterLabel,
-} from "../apps/geolibre-desktop/src/lib/processing-tool-i18n";
+} from "../apps/geoenergy/src/lib/processing-tool-i18n";
 
 function fakeT(catalog: Record<string, string> = {}): TFunction {
   const translate = ((key: string, options?: { defaultValue?: string }) =>

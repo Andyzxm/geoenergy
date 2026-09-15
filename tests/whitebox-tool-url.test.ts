@@ -8,7 +8,7 @@ import {
   WHITEBOX_TOOL_PARAM,
   whiteboxToolFromSearch,
   whiteboxToolShareBase,
-} from "../apps/geolibre-desktop/src/lib/whitebox-tool-url";
+} from "../apps/geoenergy/src/lib/whitebox-tool-url";
 
 describe("isKnownWhiteboxToolId", () => {
   it("accepts ids present in the checked-in menu catalog", () => {

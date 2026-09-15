@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DEFAULT_LAYER_STYLE, type GeoLibreLayer } from "@geolibre/core";
 import type { GeoLibreExternalNativeLayerRegistration } from "@geolibre/plugins";
-import { createExternalNativeStoreLayer } from "../apps/geolibre-desktop/src/lib/external-native-layer";
+import { createExternalNativeStoreLayer } from "../apps/geoenergy/src/lib/external-native-layer";
 
 const baseRegistration = (
   overrides: Partial<GeoLibreExternalNativeLayerRegistration> = {},

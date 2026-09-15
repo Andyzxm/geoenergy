@@ -4,7 +4,7 @@ import {
   discoverOllamaModels,
   isOllamaNetworkFailure,
   withOllamaOriginHint,
-} from "../apps/geolibre-desktop/src/lib/assistant/ollama";
+} from "../apps/geoenergy/src/lib/assistant/ollama";
 
 describe("Ollama network errors", () => {
   it("recognizes a browser fetch failure wrapped by the OpenAI client", () => {

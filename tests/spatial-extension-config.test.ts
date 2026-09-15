@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { getSpatialExtensionPath } from "../apps/geolibre-desktop/src/lib/spatial-extension-config";
+import { getSpatialExtensionPath } from "../apps/geoenergy/src/lib/spatial-extension-config";
 
 describe("getSpatialExtensionPath", () => {
   it("returns undefined when env is missing or empty", () => {

@@ -6,12 +6,12 @@ import {
   requestOrigin,
   resetShareFetch,
   setShareFetch,
-} from "../apps/geolibre-desktop/src/lib/share-fetch";
-import { uploadProjectToShare } from "../apps/geolibre-desktop/src/lib/share-geolibre";
+} from "../apps/geoenergy/src/lib/share-fetch";
+import { uploadProjectToShare } from "../apps/geoenergy/src/lib/share-geolibre";
 import {
   fetchMyProjects,
   fetchSharedProjects,
-} from "../apps/geolibre-desktop/src/lib/share-gallery";
+} from "../apps/geoenergy/src/lib/share-gallery";
 
 // A minimal JSON Response for a share endpoint.
 function jsonResponse(body: unknown, status = 200): Response {

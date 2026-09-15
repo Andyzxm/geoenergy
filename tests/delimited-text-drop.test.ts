@@ -14,7 +14,7 @@ type LoadDroppedVectorFiles = (
 let loadDroppedVectorFiles: LoadDroppedVectorFiles;
 
 before(async () => {
-  const mod = await import("../apps/geolibre-desktop/src/lib/tauri-io");
+  const mod = await import("../apps/geoenergy/src/lib/tauri-io");
   loadDroppedVectorFiles = mod.loadDroppedVectorFiles as unknown as LoadDroppedVectorFiles;
 });
 

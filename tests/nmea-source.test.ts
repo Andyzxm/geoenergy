@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { nmeaChecksum } from "../apps/geolibre-desktop/src/lib/nmea";
-import type { GpsFix } from "../apps/geolibre-desktop/src/lib/gps-tracking";
+import { nmeaChecksum } from "../apps/geoenergy/src/lib/nmea";
+import type { GpsFix } from "../apps/geoenergy/src/lib/gps-tracking";
 import {
   connectSerialNmea,
   NmeaError,
   serialNmeaSupported,
-} from "../apps/geolibre-desktop/src/lib/nmea-source";
+} from "../apps/geoenergy/src/lib/nmea-source";
 
 const sentence = (payload: string) => `$${payload}*${nmeaChecksum(payload)}\r\n`;
 

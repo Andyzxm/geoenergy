@@ -50,7 +50,7 @@ describe("expression function catalog", () => {
     const en = JSON.parse(
       readFileSync(
         fileURLToPath(
-          new URL("../apps/geolibre-desktop/src/i18n/locales/en.json", import.meta.url),
+          new URL("../apps/geoenergy/src/i18n/locales/en.json", import.meta.url),
         ),
         "utf8",
       ),

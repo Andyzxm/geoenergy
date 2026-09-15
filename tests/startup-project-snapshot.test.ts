@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 
-import type { StartupSettings } from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
-import { STARTUP_SNAPSHOTS_STORAGE_KEY } from "../apps/geolibre-desktop/src/lib/storage-keys";
+import type { StartupSettings } from "../apps/geoenergy/src/hooks/useDesktopSettings";
+import { STARTUP_SNAPSHOTS_STORAGE_KEY } from "../apps/geoenergy/src/lib/storage-keys";
 import {
   exceedsStartupSnapshotLimit,
   MAX_STARTUP_SNAPSHOT_BYTES,
@@ -12,7 +12,7 @@ import {
   startupSnapshotSlot,
   writeStartupSnapshot,
   type SnapshotStorage,
-} from "../apps/geolibre-desktop/src/lib/startup-project-snapshot";
+} from "../apps/geoenergy/src/lib/startup-project-snapshot";
 
 // The project from GeoLibre#1948, as the Android document picker hands it back:
 // /storage/emulated/0/Documents/json/General_Project.geolibre.json.

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { GeoLibreLayer } from "@geolibre/core";
 import type { FeatureCollection } from "geojson";
-import { GEBCO_ATTRIBUTION } from "../apps/geolibre-desktop/src/components/layout/add-data/constants";
+import { GEBCO_ATTRIBUTION } from "../apps/geoenergy/src/components/layout/add-data/constants";
 import {
   applyServiceEntry,
   arcgisFieldsToOptions,
@@ -14,12 +14,12 @@ import {
   wmsFieldsToParams,
   wmtsFieldsToParams,
   xyzFieldsToRequest,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/apply-service";
+} from "../apps/geoenergy/src/components/layout/add-data/apply-service";
 import type {
   ServiceFields,
   ServiceLibraryEntry,
   ServiceLibraryKind,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/service-library";
+} from "../apps/geoenergy/src/components/layout/add-data/service-library";
 
 /** Builds a service-library entry for a test with the given kind and fields. */
 function entry(

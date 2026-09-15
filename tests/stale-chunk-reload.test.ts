@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   reloadForStaleChunk,
   STALE_CHUNK_RELOAD_COOLDOWN_MS,
-} from "../apps/geolibre-desktop/src/lib/stale-chunk-reload";
+} from "../apps/geoenergy/src/lib/stale-chunk-reload";
 
 function makeDeps(initial: { now: number; lastReloadAt: number | null; dirty?: boolean }) {
   const state = {

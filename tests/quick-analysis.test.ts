@@ -10,7 +10,7 @@ import {
   QUICK_BUFFER_PRESETS,
   resolveQuickTool,
   runQuickAnalysis,
-} from "../apps/geolibre-desktop/src/lib/quick-analysis";
+} from "../apps/geoenergy/src/lib/quick-analysis";
 
 /** A map-controller ref stub; quick analysis only calls fitLayer/getMap on it. */
 function controllerRef(): { current: { fitLayer: () => void; getMap: () => null } } {

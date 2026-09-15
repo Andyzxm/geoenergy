@@ -7,7 +7,7 @@ import {
   INLINE_PROJECT_FRAGMENT_KEY,
   INLINE_VIEWER_FRAGMENT_KEY,
   parseInlineProjectFragment,
-} from "../apps/geolibre-desktop/src/lib/inline-project-fragment";
+} from "../apps/geoenergy/src/lib/inline-project-fragment";
 
 describe("inline project URL fragment", () => {
   it("compresses and round-trips a valid project", () => {

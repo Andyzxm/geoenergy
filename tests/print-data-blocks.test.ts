@@ -10,9 +10,9 @@ import {
   rowForAtlasFeature,
   rowsIntersectingBounds,
   rowsWithinBounds,
-} from "../apps/geolibre-desktop/src/lib/print-data-blocks";
-import { collectAtlasFeatures } from "../apps/geolibre-desktop/src/lib/print-atlas";
-import type { ChartRow } from "../apps/geolibre-desktop/src/lib/attribute-charts";
+} from "../apps/geoenergy/src/lib/print-data-blocks";
+import { collectAtlasFeatures } from "../apps/geoenergy/src/lib/print-atlas";
+import type { ChartRow } from "../apps/geoenergy/src/lib/attribute-charts";
 
 function point(lng: number, lat: number, properties: Record<string, unknown>): GeoJSON.Feature {
   return {

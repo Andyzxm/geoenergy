@@ -1,13 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { IS_MAS_BUILD } from "../apps/geolibre-desktop/src/lib/build-flags";
+import { IS_MAS_BUILD } from "../apps/geoenergy/src/lib/build-flags";
 import {
   MAS_HIDDEN_DATA_SOURCES,
   MAS_HIDDEN_MENU_ITEMS,
   masHidesDataSource,
   masHidesMenuItem,
   shapefileCompanionPathsFromSelection,
-} from "../apps/geolibre-desktop/src/lib/mas-build";
+} from "../apps/geoenergy/src/lib/mas-build";
 
 describe("Mac App Store build flag", () => {
   it("is false when the Vite define is absent (plain Node, and every non-MAS build)", () => {

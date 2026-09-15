@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   fieldSourceInputName,
   isFieldParameterName,
-} from "../apps/geolibre-desktop/src/lib/whitebox-field-params";
+} from "../apps/geoenergy/src/lib/whitebox-field-params";
 
 describe("isFieldParameterName", () => {
   it("matches the field/attribute suffixes tools use for a column name", () => {

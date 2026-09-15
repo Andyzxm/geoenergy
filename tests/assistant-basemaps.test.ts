@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   findNamedTileBasemap,
   NAMED_TILE_BASEMAPS,
-} from "../apps/geolibre-desktop/src/lib/assistant/basemaps";
+} from "../apps/geoenergy/src/lib/assistant/basemaps";
 
 describe("findNamedTileBasemap", () => {
   it("matches by exact id", () => {

@@ -4,12 +4,12 @@ import { before, describe, it } from "node:test";
 import type { Geometry } from "geojson";
 import initSqlJs from "sql.js";
 import type { Database, SqlJsStatic } from "sql.js";
-import { encodeWkb } from "../apps/geolibre-desktop/src/lib/geometry-wkb";
+import { encodeWkb } from "../apps/geoenergy/src/lib/geometry-wkb";
 import {
   isLikelyGeoPackage,
   readGeoPackageSync,
   stripGeoPackageHeader,
-} from "../apps/geolibre-desktop/src/lib/gpkg-reader";
+} from "../apps/geoenergy/src/lib/gpkg-reader";
 
 const require = createRequire(import.meta.url);
 let SQL: SqlJsStatic;

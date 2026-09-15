@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DOMParser } from "linkedom";
-import { KML_FOLDER_PATH_PROPERTY, parseKmlText } from "../apps/geolibre-desktop/src/lib/kml";
+import { KML_FOLDER_PATH_PROPERTY, parseKmlText } from "../apps/geoenergy/src/lib/kml";
 
 globalThis.DOMParser = DOMParser as unknown as typeof globalThis.DOMParser;
 

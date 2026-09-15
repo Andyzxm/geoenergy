@@ -13,7 +13,7 @@ import {
   savedRasterAttributeTable,
   seedRatRows,
   type RasterAttributeTableRow,
-} from "../apps/geolibre-desktop/src/lib/raster-attribute-table";
+} from "../apps/geoenergy/src/lib/raster-attribute-table";
 import {
   RASTER_MAX_STORED_CLASSES,
   savedRasterSymbology,

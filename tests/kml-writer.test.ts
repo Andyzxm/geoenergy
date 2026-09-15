@@ -3,12 +3,12 @@ import { describe, it } from "node:test";
 import type { FeatureCollection } from "geojson";
 import { strFromU8, unzipSync } from "fflate";
 import type { TFunction } from "i18next";
-import { writeKml } from "../apps/geolibre-desktop/src/lib/kml-writer";
+import { writeKml } from "../apps/geoenergy/src/lib/kml-writer";
 import {
   KmlCoordinateError,
   kmlExportErrorMessage,
-} from "../apps/geolibre-desktop/src/lib/vector-export-errors";
-import { exportBinaryVectorLayer } from "../apps/geolibre-desktop/src/lib/vector-exporter";
+} from "../apps/geoenergy/src/lib/vector-export-errors";
+import { exportBinaryVectorLayer } from "../apps/geoenergy/src/lib/vector-exporter";
 
 const SAMPLE: FeatureCollection = {
   type: "FeatureCollection",
@@ -350,7 +350,7 @@ describe("KML text export", () => {
     (globalThis as { self?: unknown }).self ??= globalThis;
 
     try {
-      const { exportVectorLayer } = await import("../apps/geolibre-desktop/src/lib/vector-export");
+      const { exportVectorLayer } = await import("../apps/geoenergy/src/lib/vector-export");
       const savedName = await exportVectorLayer(SAMPLE, "kml", "Cities", "Cities & towns");
 
       assert.equal(savedName, "Cities.kml");

@@ -9,7 +9,7 @@ import {
   parseDistanceInput,
   unitToDegrees,
   wgs84VectorLayerIds,
-} from "../apps/geolibre-desktop/src/lib/whitebox-distance-params";
+} from "../apps/geoenergy/src/lib/whitebox-distance-params";
 
 describe("isDistanceParameterName", () => {
   it("matches the ground-distance parameters the vector tools expose", () => {

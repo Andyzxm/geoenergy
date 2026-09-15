@@ -23,7 +23,7 @@ import {
   trackPointCount,
   trackPreview,
   trackStats,
-} from "../apps/geolibre-desktop/src/lib/gps-tracking";
+} from "../apps/geoenergy/src/lib/gps-tracking";
 
 function fix(overrides: Partial<GpsFix> = {}): GpsFix {
   return {

@@ -5,7 +5,7 @@ import {
   initializeNativeCoordinateOpen,
   initialNativeCoordinateTarget,
   finishNativeCoordinateStartup,
-} from "../apps/geolibre-desktop/src/lib/native-coordinate-open";
+} from "../apps/geoenergy/src/lib/native-coordinate-open";
 
 test("native link bridge captures cold launches and moves the live map without replacing layers", async () => {
   const originalWindow = (globalThis as { window?: unknown }).window;

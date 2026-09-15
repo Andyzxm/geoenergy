@@ -3,7 +3,7 @@ import { test } from "node:test";
 import {
   SHANGHAI_MODEL_SAMPLE,
   modelSampleBounds,
-} from "../apps/geolibre-desktop/src/lib/model-samples";
+} from "../apps/geoenergy/src/lib/model-samples";
 
 test("Shanghai fits the complete city only at its registered placement", () => {
   const sample = SHANGHAI_MODEL_SAMPLE;

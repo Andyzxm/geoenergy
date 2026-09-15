@@ -6,7 +6,7 @@ import type { Database, SqlJsStatic } from "sql.js";
 import {
   ensureGpkgFeatureCountSync,
   looksLikeSqlite,
-} from "../apps/geolibre-desktop/src/lib/gpkg-ogr-contents";
+} from "../apps/geoenergy/src/lib/gpkg-ogr-contents";
 
 const require = createRequire(import.meta.url);
 

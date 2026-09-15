@@ -7,7 +7,7 @@ import {
   nativeGeolocationAvailable,
   nativeWatchOptions,
   watchPosition,
-} from "../apps/geolibre-desktop/src/lib/geolocation";
+} from "../apps/geoenergy/src/lib/geolocation";
 
 // These cover the browser/desktop path (navigator.geolocation). The native Tauri
 // mobile path is gated behind nativeGeolocationAvailable() (isTauri && isMobile) and

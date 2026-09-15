@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   createPluginLocaleApi,
   type PluginLocaleI18n,
-} from "../apps/geolibre-desktop/src/lib/plugin-locale";
+} from "../apps/geoenergy/src/lib/plugin-locale";
 
 /** Minimal i18next stand-in with a real listener list, so unsubscribe is observable. */
 function fakeI18n(catalog: Record<string, string> = {}) {

@@ -6,7 +6,7 @@ import {
   DUCKDB_VECTOR_ROUTE_BYTES,
   shouldRouteToDuckDb,
   VectorLoadCancelledError,
-} from "../apps/geolibre-desktop/src/lib/duckdb-vector-guard";
+} from "../apps/geoenergy/src/lib/duckdb-vector-guard";
 import { detectNonGeographicCoordinates } from "../packages/core/src/types";
 
 describe("confirmLargeDataset", () => {

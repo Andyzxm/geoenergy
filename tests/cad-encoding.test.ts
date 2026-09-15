@@ -5,7 +5,7 @@ import {
   readDxfCodepage,
   recodeCadFeatureCollection,
   recodeCadString,
-} from "../apps/geolibre-desktop/src/lib/cad-encoding.ts";
+} from "../apps/geoenergy/src/lib/cad-encoding.ts";
 
 const TEXT_ENCODER = new TextEncoder();
 

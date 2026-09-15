@@ -13,7 +13,7 @@ import { FootprintLayer } from "../packages/plugins/src/plugins/vantor/footprint
 import { PanelUI } from "../packages/plugins/src/plugins/vantor/panel";
 import { StacClient } from "../packages/plugins/src/plugins/vantor/stac-client";
 import { WEB_SERVICE_PLUGIN_IDS } from "../packages/plugins/src/plugins/web-service-sync";
-import { pluginTier } from "../apps/geolibre-desktop/src/lib/ui-profile";
+import { pluginTier } from "../apps/geoenergy/src/lib/ui-profile";
 import type { GeoLibreAppAPI } from "../packages/plugins/src/types";
 
 describe("Vantor Open Data built-in plugin", () => {

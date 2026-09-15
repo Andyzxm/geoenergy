@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { shouldSuppressOnboarding } from "../apps/geolibre-desktop/src/lib/onboarding-suppression";
+import { shouldSuppressOnboarding } from "../apps/geoenergy/src/lib/onboarding-suppression";
 
 const originalWindow = (globalThis as { window?: unknown }).window;
 

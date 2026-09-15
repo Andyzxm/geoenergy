@@ -7,7 +7,7 @@ import {
   classifyColumnType,
   inferPropertyColumns,
   pickGeometryColumnName,
-} from "../apps/geolibre-desktop/src/lib/pglite-sql";
+} from "../apps/geoenergy/src/lib/pglite-sql";
 
 function feature(
   properties: Record<string, unknown> | null,

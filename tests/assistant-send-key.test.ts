@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isSendKey } from "../apps/geolibre-desktop/src/lib/assistant/send-key";
+import { isSendKey } from "../apps/geoenergy/src/lib/assistant/send-key";
 
 describe("assistant composer send key", () => {
   it("sends on a bare Enter", () => {

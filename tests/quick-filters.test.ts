@@ -13,7 +13,7 @@ import {
 import {
   profileQuickFilterFields,
   type QuickFilterFieldProfile,
-} from "../apps/geolibre-desktop/src/lib/quick-filter-profile";
+} from "../apps/geoenergy/src/lib/quick-filter-profile";
 
 /**
  * Run a compiled quick filter through MapLibre's own filter evaluator, so the

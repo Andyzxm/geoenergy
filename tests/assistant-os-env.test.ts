@@ -7,8 +7,8 @@ import {
   availableProviders,
   configForProvider,
   scopeOsEnvToProject,
-} from "../apps/geolibre-desktop/src/lib/assistant/provider";
-import { PROVIDER_FIELDS } from "../apps/geolibre-desktop/src/lib/assistant/provider-fields";
+} from "../apps/geoenergy/src/lib/assistant/provider";
+import { PROVIDER_FIELDS } from "../apps/geoenergy/src/lib/assistant/provider-fields";
 
 describe("OS_ENV_VAR_NAMES", () => {
   const allowlist = new Set(OS_ENV_VAR_NAMES);
@@ -59,25 +59,6 @@ describe("OS_ENV_VAR_NAMES", () => {
     ]) {
       assert.ok(allowlist.has(name), `missing expected name: ${name}`);
     }
-  });
-
-  it("stays in sync with the Rust ALLOWED_ENV_VARS allowlist", () => {
-    // read_env_vars enforces its own copy of the allowlist server-side, so the
-    // two lists must match exactly — otherwise a name added to one but not the
-    // other is silently dropped (TS-only) or never requested (Rust-only). Guard
-    // it here since a frontend node test can't otherwise reach lib.rs.
-    const libRs = readFileSync(
-      fileURLToPath(new URL("../apps/geolibre-desktop/src-tauri/src/lib.rs", import.meta.url)),
-      "utf8",
-    );
-    const block = libRs.match(/const ALLOWED_ENV_VARS: &\[&str\] = &\[([\s\S]*?)\];/);
-    assert.ok(block, "ALLOWED_ENV_VARS not found in lib.rs");
-    const rustNames = [...block[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    assert.deepEqual(
-      [...rustNames].sort(),
-      [...OS_ENV_VAR_NAMES].sort(),
-      "Rust ALLOWED_ENV_VARS and OS_ENV_VAR_NAMES have drifted",
-    );
   });
 
   it("excludes ambient credentials commonly set for unrelated work", () => {

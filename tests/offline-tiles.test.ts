@@ -15,7 +15,7 @@ import {
   tileToQuadkey,
   warmUrls,
   type Bbox,
-} from "../apps/geolibre-desktop/src/lib/offline-tiles";
+} from "../apps/geoenergy/src/lib/offline-tiles";
 
 describe("lngLatToTile", () => {
   it("maps the origin (0,0) to the center tile boundary", () => {

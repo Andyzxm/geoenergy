@@ -13,7 +13,7 @@ import {
   touchOfflineRegion,
   upsertOfflineRegion,
   urlHosts,
-} from "../apps/geolibre-desktop/src/lib/offline-regions";
+} from "../apps/geoenergy/src/lib/offline-regions";
 
 /** Minimal in-memory Storage for testing persistence without a browser. */
 function fakeStorage(): Storage {

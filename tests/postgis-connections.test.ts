@@ -7,8 +7,8 @@ import {
   registerPostgisConnection,
   resolvePostgisConnection,
   unregisterPostgisConnection,
-} from "../apps/geolibre-desktop/src/lib/postgis-connections";
-import { savedPostgresConnectionLabel } from "../apps/geolibre-desktop/src/components/layout/add-data/helpers";
+} from "../apps/geoenergy/src/lib/postgis-connections";
+import { savedPostgresConnectionLabel } from "../apps/geoenergy/src/components/layout/add-data/helpers";
 
 const CONNECTION = "postgresql://alice:hunter2@db.example.com:5432/gis";
 

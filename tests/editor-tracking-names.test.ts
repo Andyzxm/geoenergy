@@ -4,7 +4,7 @@ import {
   DEFAULT_EDITOR_TRACKING_NAMES,
   editorTrackingNameProblem,
   type EditorTrackingFieldKey,
-} from "../apps/geolibre-desktop/src/lib/editor-tracking-names";
+} from "../apps/geoenergy/src/lib/editor-tracking-names";
 
 function names(overrides: Partial<Record<EditorTrackingFieldKey, string>> = {}) {
   return { ...DEFAULT_EDITOR_TRACKING_NAMES, ...overrides };

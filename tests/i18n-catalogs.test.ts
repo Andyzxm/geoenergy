@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 
 const localesDir = fileURLToPath(
-  new URL("../apps/geolibre-desktop/src/i18n/locales/", import.meta.url),
+  new URL("../apps/geoenergy/src/i18n/locales/", import.meta.url),
 );
 
 function leafKeys(obj: unknown, prefix = ""): string[] {

@@ -6,8 +6,8 @@ import type { GeoLibreAppAPI } from "../packages/plugins/src/types";
 // Recovering from a SHA-256 pin block (#2318). external-plugins pulls in
 // browser-only modules through its import chain, so the module is imported
 // lazily in `before`, after the shims below are installed.
-type ExternalPlugins = typeof import("../apps/geolibre-desktop/src/lib/external-plugins");
-type PluginIntegrity = typeof import("../apps/geolibre-desktop/src/lib/plugin-integrity");
+type ExternalPlugins = typeof import("../apps/geoenergy/src/lib/external-plugins");
+type PluginIntegrity = typeof import("../apps/geoenergy/src/lib/plugin-integrity");
 
 const app = {} as GeoLibreAppAPI;
 const MANIFEST_URL = "http://localhost:7777/pin-demo/plugin.json";
@@ -92,8 +92,8 @@ describe("recovering a URL plugin blocked by its integrity pin", () => {
 
   before(async () => {
     installBrowserShims();
-    externalPlugins = await import("../apps/geolibre-desktop/src/lib/external-plugins");
-    integrity = await import("../apps/geolibre-desktop/src/lib/plugin-integrity");
+    externalPlugins = await import("../apps/geoenergy/src/lib/external-plugins");
+    integrity = await import("../apps/geoenergy/src/lib/plugin-integrity");
     ({ PluginManager: PluginManagerCtor } = await import("../packages/plugins/src/plugin-manager"));
   });
 

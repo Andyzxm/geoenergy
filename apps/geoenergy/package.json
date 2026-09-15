@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "npm run build -w @geolibre/embed",
     "dev": "vite",
+    "prebuild": "npm run build -w @geolibre/embed",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

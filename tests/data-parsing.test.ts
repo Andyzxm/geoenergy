@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isGeographicCrs, projectedGeoJsonCrs } from "../apps/geolibre-desktop/src/lib/crs-utils";
+import { isGeographicCrs, projectedGeoJsonCrs } from "../apps/geoenergy/src/lib/crs-utils";
 import {
   countDelimitedTextRows,
   detectCoordinateFields,
@@ -10,14 +10,14 @@ import {
   parseCoordinate,
   parseDelimitedTextFields,
   parseDelimitedTextLayer,
-} from "../apps/geolibre-desktop/src/lib/delimited-text";
+} from "../apps/geoenergy/src/lib/delimited-text";
 import {
   MIN_REFRESH_INTERVAL_MS,
   createWfsGetFeatureUrl,
   getLayerRefreshConfig,
   isRefreshableLayer,
   setLayerRefreshConfig,
-} from "../apps/geolibre-desktop/src/lib/layer-refresh";
+} from "../apps/geoenergy/src/lib/layer-refresh";
 import { DEFAULT_LAYER_STYLE, type GeoLibreLayer } from "@geolibre/core";
 
 function layer(patch: Partial<GeoLibreLayer> = {}): GeoLibreLayer {

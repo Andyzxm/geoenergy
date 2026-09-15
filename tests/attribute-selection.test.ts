@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { computeRowSelection } from "../apps/geolibre-desktop/src/lib/attribute-selection";
+import { computeRowSelection } from "../apps/geoenergy/src/lib/attribute-selection";
 
 const SORTED = ["a", "b", "c", "d", "e"];
 

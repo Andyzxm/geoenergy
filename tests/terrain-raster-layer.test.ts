@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { DEFAULT_LAYER_STYLE, type GeoLibreLayer } from "@geolibre/core";
-import { terrainRasterLayerOptions } from "../apps/geolibre-desktop/src/lib/terrain-raster-layer";
+import { terrainRasterLayerOptions } from "../apps/geoenergy/src/lib/terrain-raster-layer";
 
 /** Build the minimum store layer needed by terrain option tests. */
 function layer(overrides: Partial<GeoLibreLayer>): GeoLibreLayer {

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { parseKmlDate } from "../apps/geolibre-desktop/src/lib/kml";
+import { parseKmlDate } from "../apps/geoenergy/src/lib/kml";
 
 describe("parseKmlDate", () => {
   it("parses a full dateTime to epoch ms", () => {

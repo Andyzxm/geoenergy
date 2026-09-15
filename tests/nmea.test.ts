@@ -11,7 +11,7 @@ import {
   parseNmeaSentence,
   parseNmeaTime,
   splitNmeaLines,
-} from "../apps/geolibre-desktop/src/lib/nmea";
+} from "../apps/geoenergy/src/lib/nmea";
 
 /** Build a well-formed sentence from a payload, appending the real checksum. */
 function sentence(payload: string): string {

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { parseH3Cell } from "../apps/geolibre-desktop/src/lib/h3-search";
+import { parseH3Cell } from "../apps/geoenergy/src/lib/h3-search";
 
 /** A resolution-9 cell over San Francisco, used across the cases below. */
 const SF_HEX = "8928308280fffff";

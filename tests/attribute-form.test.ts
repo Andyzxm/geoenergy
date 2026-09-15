@@ -20,7 +20,7 @@ import {
   type AttributeFormFieldConfig,
   type GeoLibreLayer,
 } from "@geolibre/core";
-import { buildPropertiesWithForm } from "../apps/geolibre-desktop/src/lib/field-collection";
+import { buildPropertiesWithForm } from "../apps/geoenergy/src/lib/field-collection";
 
 function fieldConfig(patch: Partial<AttributeFormFieldConfig> = {}): AttributeFormFieldConfig {
   return { field: "population", widget: "number", ...patch };

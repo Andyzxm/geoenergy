@@ -1,14 +1,14 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DOMParser } from "linkedom";
-import { CSW_SAMPLES } from "../apps/geolibre-desktop/src/components/layout/add-data/constants";
+import { CSW_SAMPLES } from "../apps/geoenergy/src/components/layout/add-data/constants";
 import {
   classifyCswResource,
   createCswGetRecordsUrl,
   isCswFeatureCollection,
   isHttpCswEndpoint,
   parseCswRecords,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/csw";
+} from "../apps/geoenergy/src/components/layout/add-data/csw";
 
 globalThis.DOMParser = DOMParser as unknown as typeof globalThis.DOMParser;
 

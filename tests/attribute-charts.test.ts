@@ -17,7 +17,7 @@ import {
   pickAnalysisRows,
   toFiniteNumber,
   type ChartRow,
-} from "../apps/geolibre-desktop/src/lib/attribute-charts";
+} from "../apps/geoenergy/src/lib/attribute-charts";
 
 function rows(...properties: Record<string, unknown>[]): ChartRow[] {
   return properties.map((p) => ({ properties: p }));

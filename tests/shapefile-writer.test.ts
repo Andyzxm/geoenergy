@@ -23,7 +23,7 @@ let writeShapefile: (geojson: FeatureCollection) => {
 before(async () => {
   // parseShp / parseDbf / combine are named exports in shpjs.
   shp = (await import("shpjs")) as unknown as ShpModule;
-  ({ writeShapefile } = await import("../apps/geolibre-desktop/src/lib/shapefile-writer"));
+  ({ writeShapefile } = await import("../apps/geoenergy/src/lib/shapefile-writer"));
 });
 
 function toArrayBuffer(bytes: Uint8Array): ArrayBuffer {

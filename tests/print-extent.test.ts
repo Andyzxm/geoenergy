@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 
-import { drawPrintExtent } from "../apps/geolibre-desktop/src/lib/print-extent";
+import { drawPrintExtent } from "../apps/geoenergy/src/lib/print-extent";
 
 /**
  * Tests for the "Draw print extent" interaction (`print-extent.ts`), which had

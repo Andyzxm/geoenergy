@@ -15,7 +15,7 @@ import {
   stripAtlasTokens,
   substituteAtlasTokens,
   type AtlasTokenContext,
-} from "../apps/geolibre-desktop/src/lib/print-atlas";
+} from "../apps/geoenergy/src/lib/print-atlas";
 
 function ctx(overrides: Partial<AtlasTokenContext> = {}): AtlasTokenContext {
   return {

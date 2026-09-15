@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { GeoLibreProject, ProjectPluginState } from "@geolibre/core";
-import { mergeInboundCollaborationProject } from "../apps/geolibre-desktop/src/lib/collaboration-project";
+import { mergeInboundCollaborationProject } from "../apps/geoenergy/src/lib/collaboration-project";
 
 const view = { center: [1, 2] as [number, number], zoom: 3, bearing: 0, pitch: 0 };
 

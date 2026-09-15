@@ -1,19 +1,19 @@
 import assert from "node:assert/strict";
 import { before, describe, it } from "node:test";
 import type { Feature, FeatureCollection } from "geojson";
-import { KML_FOLDER_PATH_PROPERTY } from "../apps/geolibre-desktop/src/lib/kml";
+import { KML_FOLDER_PATH_PROPERTY } from "../apps/geoenergy/src/lib/kml";
 
 // tauri-io statically pulls in shpjs, whose bundle reads the browser `self`
 // global at module-eval time; shim it before the dynamic import.
 (globalThis as { self?: unknown }).self ??= globalThis;
 
 type SplitKmlFolderLayers =
-  typeof import("../apps/geolibre-desktop/src/lib/tauri-io").splitKmlFolderLayers;
+  typeof import("../apps/geoenergy/src/lib/tauri-io").splitKmlFolderLayers;
 
 let splitKmlFolderLayers: SplitKmlFolderLayers;
 
 before(async () => {
-  const mod = await import("../apps/geolibre-desktop/src/lib/tauri-io");
+  const mod = await import("../apps/geoenergy/src/lib/tauri-io");
   splitKmlFolderLayers = mod.splitKmlFolderLayers;
 });
 

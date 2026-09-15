@@ -14,11 +14,11 @@ import {
   type BrowserNode,
   type ConnectionLoad,
   type DirectoryEntry,
-} from "../apps/geolibre-desktop/src/lib/browser-tree";
+} from "../apps/geoenergy/src/lib/browser-tree";
 import type {
   ServiceLibraryEntry,
   ServiceLibraryKind,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/service-library";
+} from "../apps/geoenergy/src/components/layout/add-data/service-library";
 
 function service(
   id: string,

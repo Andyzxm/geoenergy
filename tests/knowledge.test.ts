@@ -9,7 +9,7 @@ import {
   parseGeosearch,
   parseSummary,
   wikipediaLang,
-} from "../apps/geolibre-desktop/src/lib/knowledge";
+} from "../apps/geoenergy/src/lib/knowledge";
 
 describe("wikipediaLang", () => {
   it("keeps a plain two-letter code", () => {

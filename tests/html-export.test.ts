@@ -6,7 +6,7 @@ import {
   buildProjectHtml,
   DEFAULT_VIEWER_BASE_URL,
   resolveViewerBaseUrl,
-} from "../apps/geolibre-desktop/src/lib/html-export";
+} from "../apps/geoenergy/src/lib/html-export";
 
 // A minimal project that only exercises the fields the HTML builder touches.
 const PROJECT = {

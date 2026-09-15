@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { CESIUM_CAPABILITIES } from "../packages/map/src/cesium-engine";
 import { MAPLIBRE_CAPABILITIES } from "../packages/map/src/map-engine";
 import type { MapEngine } from "../packages/map/src/map-engine";
-import { shouldAwaitNativeMap } from "../apps/geolibre-desktop/src/lib/native-map-attach";
+import { shouldAwaitNativeMap } from "../apps/geoenergy/src/lib/native-map-attach";
 
 // The guard three hooks use to decide whether polling for the native MapLibre
 // map is still worth another frame (#2268). It exists as a shared function

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isMultipleDatasetParameter } from "../apps/geolibre-desktop/src/lib/whitebox-param-kind";
+import { isMultipleDatasetParameter } from "../apps/geoenergy/src/lib/whitebox-param-kind";
 
 describe("isMultipleDatasetParameter", () => {
   it("uses explicit multiple cardinality", () => {

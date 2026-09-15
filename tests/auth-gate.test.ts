@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { AUTH0_CLIENT_ID_ENV, AUTH0_DOMAIN_ENV } from "../apps/geolibre-desktop/src/lib/auth0-auth";
-import { resolveAuthGate } from "../apps/geolibre-desktop/src/lib/auth-gate";
+import { AUTH0_CLIENT_ID_ENV, AUTH0_DOMAIN_ENV } from "../apps/geoenergy/src/lib/auth0-auth";
+import { resolveAuthGate } from "../apps/geoenergy/src/lib/auth-gate";
 import {
   CLERK_PUBLISHABLE_KEY_ENV,
   CLERK_WAITLIST_ENV,
-} from "../apps/geolibre-desktop/src/lib/clerk-auth";
+} from "../apps/geoenergy/src/lib/clerk-auth";
 
 type Env = Record<string, string | undefined>;
 

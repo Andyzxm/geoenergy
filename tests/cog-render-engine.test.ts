@@ -4,7 +4,7 @@ import {
   LEGACY_COG_ENGINE,
   cogEngineDefaults,
   deepLinkCogDefaults,
-} from "../apps/geolibre-desktop/src/lib/cog-render-engine";
+} from "../apps/geoenergy/src/lib/cog-render-engine";
 
 // The raster control holds one engine for every raster it manages, so the
 // difference between "no engine key" and "engine: <default>" decides whether

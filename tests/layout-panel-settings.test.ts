@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   DEFAULT_DESKTOP_LAYOUT_SETTINGS,
   normalizeDesktopSettings,
-} from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
+} from "../apps/geoenergy/src/hooks/useDesktopSettings";
 
 // The Browser and Comments right panels used to be session-only: their Settings
 // → Layout toggles moved the panel registry but nothing was persisted, so every

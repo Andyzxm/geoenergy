@@ -11,7 +11,7 @@ import {
   setKmlSuperOverlayResolver,
   unregisterKmlSuperOverlay,
   type KmlSuperOverlayTile,
-} from "../apps/geolibre-desktop/src/lib/kml-super-overlay";
+} from "../apps/geoenergy/src/lib/kml-super-overlay";
 
 const PROTOCOL = "geolibre-kml-super-overlay";
 
@@ -145,7 +145,7 @@ describe("KMZ Super-Overlay import", () => {
     // shpjs, pulled in by the general vector importer, expects the browser
     // global even though this case never asks it to parse a shapefile.
     globalThis.self = globalThis;
-    const { superOverlayDocNames } = await import("../apps/geolibre-desktop/src/lib/tauri-io");
+    const { superOverlayDocNames } = await import("../apps/geoenergy/src/lib/tauri-io");
     const names = superOverlayDocNames([
       {
         name: "0.kml",

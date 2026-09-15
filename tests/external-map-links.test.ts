@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { googleEarthUrl, googleMapsUrl } from "../apps/geolibre-desktop/src/lib/external-map-links";
+import { googleEarthUrl, googleMapsUrl } from "../apps/geoenergy/src/lib/external-map-links";
 
 describe("googleMapsUrl", () => {
   it("builds a centered camera URL", () => {

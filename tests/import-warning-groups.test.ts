@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { groupImportWarnings } from "../apps/geolibre-desktop/src/lib/import-warning-groups";
+import { groupImportWarnings } from "../apps/geoenergy/src/lib/import-warning-groups";
 
 interface TestWarning {
   layerName: string;

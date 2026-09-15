@@ -21,7 +21,7 @@ import {
   TOUR_CONFIG_VERSION,
   type TourKeyframe,
   TOUR_MIME_CANDIDATES,
-} from "../apps/geolibre-desktop/src/lib/tour-recorder";
+} from "../apps/geoenergy/src/lib/tour-recorder";
 import type { FeatureCollection } from "geojson";
 
 describe("pickSupportedMimeType", () => {

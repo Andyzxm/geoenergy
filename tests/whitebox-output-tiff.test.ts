@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { isTiff } from "../apps/geolibre-desktop/src/lib/scripting/binary-output";
+import { isTiff } from "../apps/geoenergy/src/lib/scripting/binary-output";
 
 /** A header only: the sniff never reads past the first four bytes. */
 function header(...bytes: number[]): Uint8Array {

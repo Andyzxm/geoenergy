@@ -3,14 +3,14 @@ import { describe, it } from "node:test";
 import {
   DEFAULT_STARTUP_SETTINGS,
   normalizeDesktopSettings,
-} from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
+} from "../apps/geoenergy/src/hooks/useDesktopSettings";
 import {
   planStartup,
   startupDefaultProjection,
   startupDefaultWorkspace,
   startupProjectPath,
   startupSettingsAfterForcedSaveAs,
-} from "../apps/geolibre-desktop/src/lib/startup-project";
+} from "../apps/geoenergy/src/lib/startup-project";
 
 describe("startup project settings", () => {
   it("defaults to the normal untitled workspace", () => {

@@ -12,7 +12,7 @@ import {
   setNetcdfProfileSampleProfile,
   subscribeNetcdfProfile,
   type NetcdfProfileSample,
-} from "../apps/geolibre-desktop/src/lib/netcdf-profile-store";
+} from "../apps/geoenergy/src/lib/netcdf-profile-store";
 
 /** A clicked pixel with just enough shape for the store's bookkeeping. */
 function sample(layerId: string, lng: number): Omit<NetcdfProfileSample, "id" | "order"> {

@@ -11,7 +11,7 @@ import {
 } from "@geolibre/core";
 import type { GeoLibreExternalNativeLayerRegistration } from "@geolibre/plugins";
 import { removeLayerFromMap, syncLayer } from "../packages/map/src/layer-sync";
-import { createExternalNativeStoreLayer } from "../apps/geolibre-desktop/src/lib/external-native-layer";
+import { createExternalNativeStoreLayer } from "../apps/geoenergy/src/lib/external-native-layer";
 
 // A plugin's MapLibre CustomLayerInterface layer has no paint properties, so
 // GeoLibre must not offer (or apply) MapLibre paint for it, and the panel's

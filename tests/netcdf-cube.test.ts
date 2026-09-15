@@ -17,7 +17,7 @@ import {
   type CubeFace,
   type CubeFootprint,
   type NetcdfCube,
-} from "../apps/geolibre-desktop/src/lib/netcdf-cube";
+} from "../apps/geoenergy/src/lib/netcdf-cube";
 import type {
   LocalNetcdfAxis,
   LocalNetcdfGrid,

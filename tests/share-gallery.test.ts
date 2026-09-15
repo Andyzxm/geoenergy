@@ -7,7 +7,7 @@ import {
   projectOpenToken,
   resolveThumbnailUrl,
   shareAuthorizedFetch,
-} from "../apps/geolibre-desktop/src/lib/share-gallery";
+} from "../apps/geoenergy/src/lib/share-gallery";
 
 const BASE = "https://share.geolibre.app";
 

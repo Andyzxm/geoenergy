@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { FeatureCollection } from "geojson";
-import { prepareCollaborationLayers } from "../apps/geolibre-desktop/src/lib/collaboration-layers";
+import { prepareCollaborationLayers } from "../apps/geoenergy/src/lib/collaboration-layers";
 import { geojsonLayer } from "./helpers/layer-fixtures";
 
 const FEATURES: FeatureCollection = {

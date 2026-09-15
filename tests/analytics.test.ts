@@ -6,7 +6,7 @@ import {
   installAnalytics,
   resolveAnalyticsId,
   startAnalytics,
-} from "../apps/geolibre-desktop/src/lib/analytics";
+} from "../apps/geoenergy/src/lib/analytics";
 
 const ID = "G-ABC1234567";
 

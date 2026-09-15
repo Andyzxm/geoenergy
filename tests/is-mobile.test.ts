@@ -5,7 +5,7 @@ import {
   isDesktopRuntime,
   isMobile,
   isWindows,
-} from "../apps/geolibre-desktop/src/lib/is-mobile";
+} from "../apps/geoenergy/src/lib/is-mobile";
 
 describe("isMobile", () => {
   it("detects Android (incl. the Tauri webview UA)", () => {

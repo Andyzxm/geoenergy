@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DEFAULT_LAYER_STYLE, type GeoLibreLayer } from "@geolibre/core";
 import type { FeatureCollection } from "geojson";
-import { calculateField } from "../apps/geolibre-desktop/src/lib/attribute-columns";
+import { calculateField } from "../apps/geoenergy/src/lib/attribute-columns";
 import {
   coerceComputedValue,
   compileExpression,
   fieldReference,
   isBareIdentifier,
-} from "../apps/geolibre-desktop/src/lib/attribute-expression";
+} from "../apps/geoenergy/src/lib/attribute-expression";
 
 function fc(features: FeatureCollection["features"]): FeatureCollection {
   return { type: "FeatureCollection", features };

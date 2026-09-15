@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   managedUrlSourcesForIds,
   pluginAssetUrlFromSource,
-} from "../apps/geolibre-desktop/src/lib/plugin-asset-url";
+} from "../apps/geoenergy/src/lib/plugin-asset-url";
 
 describe("pluginAssetUrlFromSource", () => {
   it("resolves an asset against a bundled plugin's manifest URL", () => {

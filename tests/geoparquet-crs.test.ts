@@ -5,7 +5,7 @@ import {
   GEOPARQUET_METADATA_KEY,
   geoParquetMetadataSql,
   readGeoParquetGeoMetadata,
-} from "../apps/geolibre-desktop/src/lib/geoparquet-crs";
+} from "../apps/geoenergy/src/lib/geoparquet-crs";
 
 /** The reprojection source a `geo` document reduces to, as the loader reads it. */
 function sourceCrs(

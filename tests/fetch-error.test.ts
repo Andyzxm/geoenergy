@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
-import { classifyFetchFailure } from "../apps/geolibre-desktop/src/lib/fetch-error";
+import { classifyFetchFailure } from "../apps/geoenergy/src/lib/fetch-error";
 
 describe("classifyFetchFailure", () => {
   it("classifies an AbortError as an abort with no hint", () => {

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { beforeEach, describe, it } from "node:test";
 import { useAppStore } from "@geolibre/core";
-import { projectChanged } from "../apps/geolibre-desktop/src/lib/project-broadcast-changed";
+import { projectChanged } from "../apps/geoenergy/src/lib/project-broadcast-changed";
 import { geojsonLayer } from "./helpers/layer-fixtures";
 
 describe("collaboration projectChanged", () => {

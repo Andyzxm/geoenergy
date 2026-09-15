@@ -6,7 +6,7 @@ import {
   isAndroidContentUri,
   isUriWritePermissionError,
   writeInPlaceWithAndroidFallback,
-} from "../apps/geolibre-desktop/src/lib/android-content-uri";
+} from "../apps/geoenergy/src/lib/android-content-uri";
 
 // The URI from GeoLibre#1833: a project opened from Documents/json through the
 // Android document picker.

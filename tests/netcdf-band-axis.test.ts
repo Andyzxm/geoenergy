@@ -8,7 +8,7 @@ import {
   isTimeAxisName,
   pickBandAxis,
   wavelengthsInNanometres,
-} from "../apps/geolibre-desktop/src/lib/netcdf-band-axis";
+} from "../apps/geoenergy/src/lib/netcdf-band-axis";
 import type { LocalNetcdfAxis } from "../packages/plugins/src/plugins/local-netcdf";
 
 /** An axis whose coordinates run evenly from `from` to `to`. */

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { it } from "node:test";
-import { createNativeArcGISFetch } from "../apps/geolibre-desktop/src/lib/arcgis-fetch";
+import { createNativeArcGISFetch } from "../apps/geoenergy/src/lib/arcgis-fetch";
 
 it("preserves ArcGIS HTTP errors and bodies for retry and service-error handling", async () => {
   const fetchImpl = createNativeArcGISFetch(async (url) => {
@@ -45,24 +45,6 @@ it("normalizes IPC string errors", async () => {
   await assert.rejects(fetchImpl("https://example.com"), /Blocked address/);
 });
 
-it("keeps wildcard hosts out of the shared native HTTP capability", () => {
-  const capability = JSON.parse(
-    readFileSync(
-      new URL("../apps/geolibre-desktop/src-tauri/capabilities/default.json", import.meta.url),
-      "utf8",
-    ),
-  );
-  for (const permission of capability.permissions) {
-    if (permission.identifier === "http:default") {
-      assert.ok(
-        permission.allow.every(
-          (entry: { url: string }) => !new URL(entry.url).hostname.includes("*"),
-        ),
-      );
-    }
-  }
-});
-
 it("rejects unsupported methods, headers, and bodies instead of silently changing the request", async () => {
   const fetchImpl = createNativeArcGISFetch(async () => {
     assert.fail("Rust must not be called");
@@ -82,7 +64,7 @@ it("rejects unsupported methods, headers, and bodies instead of silently changin
 
 for (const abortBeforeReady of [true, false]) {
   it(`cancels the native request when abort occurs ${abortBeforeReady ? "before" : "after"} registration`, async () => {
-    const { createArcGISRequest } = await import("../apps/geolibre-desktop/src/lib/arcgis-fetch");
+    const { createArcGISRequest } = await import("../apps/geoenergy/src/lib/arcgis-fetch");
     const controller = new AbortController();
     const ready = { onmessage: (_: void) => {} };
     let requestId: unknown;

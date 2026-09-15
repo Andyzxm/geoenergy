@@ -4,7 +4,7 @@ import {
   PYODIDE_VERSION,
   getPyodideIndexUrl,
   isDefaultPyodideIndexUrl,
-} from "../apps/geolibre-desktop/src/lib/pyodide/pyodide-config";
+} from "../apps/geoenergy/src/lib/pyodide/pyodide-config";
 
 describe("getPyodideIndexUrl", () => {
   it("defaults to the pinned jsDelivr CDN for the pinned version", () => {

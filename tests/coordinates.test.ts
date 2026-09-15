@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { formatLatLon, parseLatLon } from "../apps/geolibre-desktop/src/lib/coordinates";
+import { formatLatLon, parseLatLon } from "../apps/geoenergy/src/lib/coordinates";
 
 /** Assert a parsed coordinate is close to the expected lat/lon. */
 function assertClose(

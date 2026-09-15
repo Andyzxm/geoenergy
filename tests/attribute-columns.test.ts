@@ -13,7 +13,7 @@ import {
   showAllColumns,
   toggleColumnHidden,
   visibleColumns,
-} from "../apps/geolibre-desktop/src/lib/attribute-columns";
+} from "../apps/geoenergy/src/lib/attribute-columns";
 
 function fc(features: FeatureCollection["features"]): FeatureCollection {
   return { type: "FeatureCollection", features };

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { assistantSelectionKey } from "../apps/geolibre-desktop/src/lib/assistant/profiles";
-import type { AssistantProfile } from "../apps/geolibre-desktop/src/lib/assistant/provider";
+import { assistantSelectionKey } from "../apps/geoenergy/src/lib/assistant/profiles";
+import type { AssistantProfile } from "../apps/geoenergy/src/lib/assistant/provider";
 
 function profile(overrides: Partial<AssistantProfile> = {}): AssistantProfile {
   return {

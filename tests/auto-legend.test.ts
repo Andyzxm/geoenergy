@@ -17,7 +17,7 @@ import {
   removeLegendCustomEntry,
   serializeLegend,
   setLegendCustomEntry,
-} from "../apps/geolibre-desktop/src/lib/auto-legend";
+} from "../apps/geoenergy/src/lib/auto-legend";
 
 function layer(over: Partial<GeoLibreLayer>): GeoLibreLayer {
   return {

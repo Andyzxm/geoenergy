@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { GeoLibreLayer } from "../packages/core/src/types";
 import type { ModelToolDescriptor } from "../packages/processing/src/model-graph";
-import { buildAssistantModel } from "../apps/geolibre-desktop/src/lib/assistant/model-builder";
+import { buildAssistantModel } from "../apps/geoenergy/src/lib/assistant/model-builder";
 
 const BUFFER: ModelToolDescriptor = {
   key: "vector:buffer",

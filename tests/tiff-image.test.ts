@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { writeArrayBuffer } from "geotiff";
-import { decodeTiffToRgba } from "../apps/geolibre-desktop/src/lib/tiff-image";
+import { decodeTiffToRgba } from "../apps/geoenergy/src/lib/tiff-image";
 
 /** Write a tiny uncompressed TIFF with `samplesPerPixel` interleaved bands. */
 async function tiffBytes(

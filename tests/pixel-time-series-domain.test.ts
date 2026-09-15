@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { resolveChartDomain } from "../apps/geolibre-desktop/src/lib/chart-domain";
+import { resolveChartDomain } from "../apps/geoenergy/src/lib/chart-domain";
 
 describe("resolveChartDomain", () => {
   const auto = { min: null, max: null };

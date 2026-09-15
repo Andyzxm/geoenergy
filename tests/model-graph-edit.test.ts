@@ -22,7 +22,7 @@ import {
   uniqueOutputName,
   NODE_HEIGHT,
   NODE_WIDTH,
-} from "../apps/geolibre-desktop/src/lib/model-graph-edit";
+} from "../apps/geoenergy/src/lib/model-graph-edit";
 
 const BUFFER: ModelToolDescriptor = {
   key: "vector:buffer",

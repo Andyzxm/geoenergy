@@ -5,11 +5,11 @@ import {
   availableProviders,
   type AssistantProviderId,
   type RuntimeEnv,
-} from "../apps/geolibre-desktop/src/lib/assistant/provider";
+} from "../apps/geoenergy/src/lib/assistant/provider";
 import {
   PROVIDER_DOCS_URL,
   PROVIDER_FIELDS,
-} from "../apps/geolibre-desktop/src/lib/assistant/provider-fields";
+} from "../apps/geoenergy/src/lib/assistant/provider-fields";
 
 // Build a runtime env that fills exactly the chosen fields of a provider. A
 // URL-shaped value satisfies every field the resolver inspects (API keys,

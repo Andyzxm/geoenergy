@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { DEFAULT_DESKTOP_LAYOUT_SETTINGS } from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
-import { layoutOptionsFromLocation } from "../apps/geolibre-desktop/src/hooks/useLayoutOptions";
+import { DEFAULT_DESKTOP_LAYOUT_SETTINGS } from "../apps/geoenergy/src/hooks/useDesktopSettings";
+import { layoutOptionsFromLocation } from "../apps/geoenergy/src/hooks/useLayoutOptions";
 
 const originalWindow = (globalThis as { window?: unknown }).window;
 

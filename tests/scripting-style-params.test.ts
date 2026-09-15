@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 import { useAppStore } from "@geolibre/core";
 import { getHistoryCoalesceMs, setHistoryCoalesceMs } from "../packages/core/src/history";
-import { styleParamPatch } from "../apps/geolibre-desktop/src/lib/scripting/style-params";
+import { styleParamPatch } from "../apps/geoenergy/src/lib/scripting/style-params";
 
 // The notebook client's `add_geojson(gdf, **style)` always sends a `style`
 // object, so the scripting handler's `addGeoJsonLayer` decides — via

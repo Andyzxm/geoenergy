@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   coerceNumericStringRows,
   type ChartRow,
-} from "../apps/geolibre-desktop/src/lib/attribute-charts";
+} from "../apps/geoenergy/src/lib/attribute-charts";
 import {
   computeFieldStats,
   computeNumericStats,
@@ -13,7 +13,7 @@ import {
   statsScopeAvailability,
   type NumericFieldStats,
   type TextFieldStats,
-} from "../apps/geolibre-desktop/src/lib/attribute-stats";
+} from "../apps/geoenergy/src/lib/attribute-stats";
 
 function rows(...properties: Record<string, unknown>[]): ChartRow[] {
   return properties.map((p) => ({ properties: p }));

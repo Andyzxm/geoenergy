@@ -7,7 +7,7 @@ import {
   isZippedShapefileUrl,
   resetVectorUrlFetchDedupe,
   vectorDownloadFileName,
-} from "../apps/geolibre-desktop/src/lib/vector-url-fetch";
+} from "../apps/geoenergy/src/lib/vector-url-fetch";
 
 const KMZ_URL =
   "https://firms.modaps.eosdis.nasa.gov/api/kml_fire_footprints/russia_asia/24h/" +

@@ -9,8 +9,8 @@ import {
   nextItemsPageUrl,
   parseOgcCollections,
   parseOgcFeaturesUrl,
-} from "../apps/geolibre-desktop/src/lib/ogc-api-features";
-import { buildOgcFeaturesLayer } from "../apps/geolibre-desktop/src/components/layout/add-data/apply-service";
+} from "../apps/geoenergy/src/lib/ogc-api-features";
+import { buildOgcFeaturesLayer } from "../apps/geoenergy/src/components/layout/add-data/apply-service";
 
 /** A minimal point feature, numbered so pages can be told apart. */
 function feature(index: number): Feature {

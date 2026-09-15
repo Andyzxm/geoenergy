@@ -4,7 +4,7 @@ import {
   AUTH0_CLIENT_ID_ENV,
   AUTH0_DOMAIN_ENV,
   resolveAuth0Config,
-} from "../apps/geolibre-desktop/src/lib/auth0-auth";
+} from "../apps/geoenergy/src/lib/auth0-auth";
 
 const CLIENT_ID = "aBcD1234efGh5678ijKl9012mnOp3456";
 

@@ -9,7 +9,7 @@ import {
   styleSourceLayers,
   tileJsonConfig,
   unionCollectionBounds,
-} from "../apps/geolibre-desktop/src/lib/ogc-vector-tiles";
+} from "../apps/geoenergy/src/lib/ogc-vector-tiles";
 
 /**
  * Installs a `globalThis.fetch` stub answering from a URL → document map, and

@@ -9,7 +9,7 @@ import {
   releaseSeverity,
   UPDATE_URL,
   UpdateCheckError,
-} from "../apps/geolibre-desktop/src/lib/updates";
+} from "../apps/geoenergy/src/lib/updates";
 
 describe("update version helpers", () => {
   it("parses semantic versions with and without a v prefix", () => {

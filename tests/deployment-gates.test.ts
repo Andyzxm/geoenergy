@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import type { Command } from "../apps/geolibre-desktop/src/lib/commands";
+import type { Command } from "../apps/geoenergy/src/lib/commands";
 import {
   commandAppPrivileges,
   commandCapability,
@@ -8,7 +8,7 @@ import {
   filterCommandsByCapabilities,
   filterCommandsByPrivileges,
   projectMenuItemCapability,
-} from "../apps/geolibre-desktop/src/lib/deployment-gates";
+} from "../apps/geoenergy/src/lib/deployment-gates";
 import {
   ALL_DEPLOYMENT_CAPABILITIES,
   type DeploymentCapability,

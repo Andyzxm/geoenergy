@@ -5,7 +5,7 @@ import {
   useDesktopSettingsStore,
   type DesktopSettings,
   type UiProfileSettings,
-} from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
+} from "../apps/geoenergy/src/hooks/useDesktopSettings";
 import {
   DATA_SOURCE_CATALOG,
   MENU_ITEM_CATALOG,
@@ -19,7 +19,7 @@ import {
   pluginTier,
   presetHiddenSets,
   showsAdvancedNotices,
-} from "../apps/geolibre-desktop/src/lib/ui-profile";
+} from "../apps/geoenergy/src/lib/ui-profile";
 
 function profile(patch: Partial<UiProfileSettings>): UiProfileSettings {
   return { ...DEFAULT_UI_PROFILE_SETTINGS, ...patch };

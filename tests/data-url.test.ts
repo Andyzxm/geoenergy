@@ -7,7 +7,7 @@ import {
   fetchRemoteData,
   mapboxStyleForDataLayer,
   parseRasterUrlStyle,
-} from "../apps/geolibre-desktop/src/lib/data-url";
+} from "../apps/geoenergy/src/lib/data-url";
 
 const collection = (id: string) => ({
   type: "FeatureCollection" as const,

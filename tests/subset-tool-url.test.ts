@@ -6,7 +6,7 @@ import {
   layersForSubsetUrl,
   subsetUrlFieldValues,
   subsetUrlToolKind,
-} from "../apps/geolibre-desktop/src/lib/subset-tool-url";
+} from "../apps/geoenergy/src/lib/subset-tool-url";
 
 function layer(partial: Partial<GeoLibreLayer>): GeoLibreLayer {
   return {

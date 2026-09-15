@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { getInitialThemeMode } from "../apps/geolibre-desktop/src/hooks/useThemeMode";
+import { getInitialThemeMode } from "../apps/geoenergy/src/hooks/useThemeMode";
 
 const originalWindow = (globalThis as { window?: unknown }).window;
 
@@ -22,15 +22,18 @@ afterEach(() => {
   }
 });
 
+// Geoenergy opens dark whatever the OS says, so these assertions differ from
+// upstream GeoLibre's, where the OS preference wins. The `?theme=` override is
+// unchanged, and remains the escape hatch for an embed or a light-only viewer.
 describe("getInitialThemeMode", () => {
-  it("falls back to the OS preference without a theme param", () => {
+  it("defaults to dark regardless of the OS preference", () => {
     withWindow("", true);
     assert.equal(getInitialThemeMode(), "dark");
     withWindow("", false);
-    assert.equal(getInitialThemeMode(), "light");
+    assert.equal(getInitialThemeMode(), "dark");
   });
 
-  it("honors ?theme=dark and ?theme=light over the OS preference", () => {
+  it("honors ?theme=dark and ?theme=light over the default", () => {
     withWindow("?theme=dark", false);
     assert.equal(getInitialThemeMode(), "dark");
     withWindow("?theme=light", true);
@@ -44,20 +47,16 @@ describe("getInitialThemeMode", () => {
     assert.equal(getInitialThemeMode(), "light");
   });
 
-  it("ignores an unrecognized or empty theme value and uses the OS preference", () => {
-    withWindow("?theme=neon", true);
-    assert.equal(getInitialThemeMode(), "dark");
+  it("ignores an unrecognized or empty theme value and stays dark", () => {
     withWindow("?theme=neon", false);
-    assert.equal(getInitialThemeMode(), "light");
-    // A bare `?theme=` yields "" and should also fall back to the OS preference.
-    withWindow("?theme=", true);
     assert.equal(getInitialThemeMode(), "dark");
+    // A bare `?theme=` yields "", which is not a valid override either.
     withWindow("?theme=", false);
-    assert.equal(getInitialThemeMode(), "light");
+    assert.equal(getInitialThemeMode(), "dark");
   });
 
-  it("returns light when window is undefined (SSR)", () => {
+  it("returns dark when window is undefined (SSR)", () => {
     delete (globalThis as { window?: unknown }).window;
-    assert.equal(getInitialThemeMode(), "light");
+    assert.equal(getInitialThemeMode(), "dark");
   });
 });

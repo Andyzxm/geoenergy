@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 
-import { KIND_I18N_KEY } from "../apps/geolibre-desktop/src/components/layout/add-data/constants";
+import { KIND_I18N_KEY } from "../apps/geoenergy/src/components/layout/add-data/constants";
 
 // The Add Data dialog resolves its title/description with a runtime-interpolated
 // key (`t(`addData.kind.${KIND_I18N_KEY[kind]}.label`)`), which TypeScript and
@@ -12,7 +12,7 @@ import { KIND_I18N_KEY } from "../apps/geolibre-desktop/src/components/layout/ad
 // silently rendering the raw key at runtime.
 const en = JSON.parse(
   readFileSync(
-    fileURLToPath(new URL("../apps/geolibre-desktop/src/i18n/locales/en.json", import.meta.url)),
+    fileURLToPath(new URL("../apps/geoenergy/src/i18n/locales/en.json", import.meta.url)),
     "utf8",
   ),
 ) as { addData: { kind: Record<string, { label?: string; description?: string }> } };

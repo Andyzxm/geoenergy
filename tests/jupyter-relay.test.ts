@@ -8,8 +8,8 @@ import {
   relayReconnectDelay,
   relaySocketUrl,
   runRelayCommand,
-} from "../apps/geolibre-desktop/src/lib/jupyter-relay";
-import type { ScriptingHandlers } from "../apps/geolibre-desktop/src/lib/scripting/scriptingApi";
+} from "../apps/geoenergy/src/lib/jupyter-relay";
+import type { ScriptingHandlers } from "../apps/geoenergy/src/lib/scripting/scriptingApi";
 
 // The wire format the app shares with the desktop Jupyter map-command relay
 // (backend/geolibre_server/geolibre_server/jupyter_relay.py), which is what lets

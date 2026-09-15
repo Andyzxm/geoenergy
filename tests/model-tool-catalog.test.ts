@@ -8,7 +8,7 @@ import {
   searchModelTools,
   vectorToolDescriptor,
   whiteboxToolDescriptor,
-} from "../apps/geolibre-desktop/src/lib/model-tool-catalog";
+} from "../apps/geoenergy/src/lib/model-tool-catalog";
 
 const bufferAlgorithm: ProcessingAlgorithm = {
   id: "buffer",

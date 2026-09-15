@@ -3,7 +3,7 @@ import { beforeEach, describe, it } from "node:test";
 import { useAppStore } from "@geolibre/core";
 import { SKETCHES_SOURCE_KIND } from "@geolibre/plugins/geo-editor-geometry";
 import type { GeoLibreSelection } from "@geolibre/plugins";
-import { createPluginLayerQueries } from "../apps/geolibre-desktop/src/lib/plugin-layer-queries";
+import { createPluginLayerQueries } from "../apps/geoenergy/src/lib/plugin-layer-queries";
 
 // These exercise `createPluginLayerQueries`, which `createAppAPI` spreads into
 // the object it hands plugins, rather than reaching through `createAppAPI`

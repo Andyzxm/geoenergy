@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { readLastBasemap, writeLastBasemap } from "../apps/geolibre-desktop/src/lib/last-basemap";
-import { LAST_BASEMAP_STORAGE_KEY } from "../apps/geolibre-desktop/src/lib/storage-keys";
+import { readLastBasemap, writeLastBasemap } from "../apps/geoenergy/src/lib/last-basemap";
+import { LAST_BASEMAP_STORAGE_KEY } from "../apps/geoenergy/src/lib/storage-keys";
 
 function memoryStorage(): Storage {
   const values = new Map<string, string>();

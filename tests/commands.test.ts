@@ -6,7 +6,7 @@ import {
   filterCommands,
   formatShortcut,
   matchesShortcut,
-} from "../apps/geolibre-desktop/src/lib/commands";
+} from "../apps/geoenergy/src/lib/commands";
 
 interface KeyEvent {
   key: string;

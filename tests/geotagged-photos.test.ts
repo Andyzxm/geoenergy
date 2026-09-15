@@ -13,11 +13,11 @@ import {
   loadPhotosAtLocation,
   PHOTO_IMAGE_EXTENSIONS,
   relocatePhotoFeatures,
-} from "../apps/geolibre-desktop/src/lib/geotagged-photos";
+} from "../apps/geoenergy/src/lib/geotagged-photos";
 import {
   PHOTO_FULL_PROPERTY,
   PHOTO_PROPERTY,
-} from "../apps/geolibre-desktop/src/lib/field-collection";
+} from "../apps/geoenergy/src/lib/field-collection";
 
 describe("isPhotoFileName", () => {
   it("accepts the supported image extensions, case-insensitively", () => {

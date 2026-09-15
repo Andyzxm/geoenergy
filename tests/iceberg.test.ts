@@ -25,11 +25,11 @@ import {
   normalizeIcebergSql,
   selectDefaultIcebergTable,
   type IcebergLayerConfig,
-} from "../apps/geolibre-desktop/src/lib/iceberg";
+} from "../apps/geoenergy/src/lib/iceberg";
 import {
   isRefreshableLayer,
   supportsAutoRefresh,
-} from "../apps/geolibre-desktop/src/lib/layer-refresh";
+} from "../apps/geoenergy/src/lib/layer-refresh";
 
 const TABLE_CONFIG: IcebergLayerConfig = {
   mode: "table",

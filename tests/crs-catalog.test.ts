@@ -6,7 +6,7 @@ import {
   formatCrsLabel,
   parseEpsgCode,
   searchCrsCatalog,
-} from "../apps/geolibre-desktop/src/lib/crs-catalog";
+} from "../apps/geoenergy/src/lib/crs-catalog";
 
 describe("CRS_CATALOG", () => {
   it("names the generated zone families the way EPSG does", () => {

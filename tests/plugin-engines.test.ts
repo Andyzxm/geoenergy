@@ -20,7 +20,7 @@ import { cartoLightPlugin } from "../packages/plugins/src/plugins/carto-light";
 import {
   isExternalPluginManifest,
   isPluginEngineList,
-} from "../apps/geolibre-desktop/src/lib/plugin-archive-unpack";
+} from "../apps/geoenergy/src/lib/plugin-archive-unpack";
 
 describe("isPluginEngineSupported", () => {
   it("defaults to MapLibre support when engines is undefined", () => {

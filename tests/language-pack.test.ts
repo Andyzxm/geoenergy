@@ -7,7 +7,7 @@ import {
   LanguagePackError,
   languagePackUrl,
   parseLanguagePack,
-} from "../apps/geolibre-desktop/src/lib/language-pack";
+} from "../apps/geoenergy/src/lib/language-pack";
 
 function pack(overrides: Record<string, unknown> = {}): Record<string, unknown> {
   return {

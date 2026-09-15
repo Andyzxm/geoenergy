@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { ProcessingModelGraph } from "../packages/core/src/types";
 import type { ModelToolDescriptor } from "../packages/processing/src/model-graph";
-import { modelGraphToPython } from "../apps/geolibre-desktop/src/lib/model-python-script";
+import { modelGraphToPython } from "../apps/geoenergy/src/lib/model-python-script";
 
 const tools: ModelToolDescriptor[] = [
   {

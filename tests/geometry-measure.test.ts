@@ -2,14 +2,14 @@ import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
 import { setActiveEllipsoidId } from "@geolibre/core";
 import type { FeatureCollection, Geometry } from "geojson";
-import { calculateField } from "../apps/geolibre-desktop/src/lib/attribute-columns";
-import { compileExpression } from "../apps/geolibre-desktop/src/lib/attribute-expression";
+import { calculateField } from "../apps/geoenergy/src/lib/attribute-columns";
+import { compileExpression } from "../apps/geoenergy/src/lib/attribute-expression";
 import {
   detectGeometryFamilies,
   measureArea,
   measureLength,
   measurePerimeter,
-} from "../apps/geolibre-desktop/src/lib/geometry-measure";
+} from "../apps/geoenergy/src/lib/geometry-measure";
 
 // A 1° segment along the equator and a small square near the equator give stable
 // reference values against Earth's default mean radius (~6371008.77 m).

@@ -15,7 +15,7 @@ import {
   parseGcpsCsv,
   solveAffine,
   warpArgsForTransform,
-} from "../apps/geolibre-desktop/src/lib/georeference";
+} from "../apps/geoenergy/src/lib/georeference";
 
 /** A known affine: lng = 0.001·px + 10, lat = -0.001·py + 50 (y flips). */
 const KNOWN: Affine = { a: 0.001, b: 0, c: 10, d: 0, e: -0.001, f: 50 };

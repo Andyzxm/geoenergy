@@ -14,7 +14,7 @@ import {
   serviceFieldString,
   type ServiceLibraryEntry,
   upsertServiceEntry,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/service-library";
+} from "../apps/geoenergy/src/components/layout/add-data/service-library";
 
 function makeEntry(overrides: Partial<ServiceLibraryEntry> = {}): ServiceLibraryEntry {
   return {

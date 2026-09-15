@@ -6,7 +6,7 @@ import { DOMParser } from "linkedom";
 import {
   importQgisProject,
   materializeQgisRemoteLayers,
-} from "../apps/geolibre-desktop/src/lib/qgis-project-import";
+} from "../apps/geoenergy/src/lib/qgis-project-import";
 
 globalThis.DOMParser = DOMParser as unknown as typeof globalThis.DOMParser;
 

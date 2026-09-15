@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { strToU8, zipSync } from "fflate";
-import { bundleFromZipBytes } from "../apps/geolibre-desktop/src/lib/plugin-archive-unpack";
+import { bundleFromZipBytes } from "../apps/geoenergy/src/lib/plugin-archive-unpack";
 
 const VALID_MANIFEST = {
   id: "demo-plugin",

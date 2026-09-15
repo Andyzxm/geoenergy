@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { afterEach, describe, it } from "node:test";
-import { observeGalleryEnd } from "../apps/geolibre-desktop/src/lib/gallery-auto-load";
+import { observeGalleryEnd } from "../apps/geoenergy/src/lib/gallery-auto-load";
 
 describe("project gallery auto-load observer", () => {
   const originalObserver = globalThis.IntersectionObserver;

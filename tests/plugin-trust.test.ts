@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { partitionProjectPluginManifestUrls } from "../apps/geolibre-desktop/src/lib/plugin-trust";
+import { partitionProjectPluginManifestUrls } from "../apps/geoenergy/src/lib/plugin-trust";
 
 // Security regression coverage for #1062: a `.geolibre.json` project is opened
 // as data, so its plugin manifest URLs must never be fetched or imported until

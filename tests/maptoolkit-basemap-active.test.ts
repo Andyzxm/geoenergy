@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import type { GeoLibreLayer } from "../packages/core/src/types";
-import { isMaptoolkitBasemapActive } from "../apps/geolibre-desktop/src/lib/maptoolkit-basemap";
+import { isMaptoolkitBasemapActive } from "../apps/geoenergy/src/lib/maptoolkit-basemap";
 
 /** Minimal GeoLibreLayer stub with just the fields the predicate reads. */
 function basemapLayer(overrides: Partial<GeoLibreLayer> = {}): GeoLibreLayer {

@@ -6,8 +6,8 @@ import {
   netcdfSeriesColor,
   NETCDF_SERIES_COLORS,
   niceTickValues,
-} from "../apps/geolibre-desktop/src/lib/netcdf-profile-series";
-import type { NetcdfProfileSample } from "../apps/geolibre-desktop/src/lib/netcdf-profile-store";
+} from "../apps/geoenergy/src/lib/netcdf-profile-series";
+import type { NetcdfProfileSample } from "../apps/geoenergy/src/lib/netcdf-profile-store";
 
 type ProfileAxis = { name: string; size: number; units?: string; values?: number[] };
 

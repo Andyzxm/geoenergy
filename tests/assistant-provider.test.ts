@@ -11,7 +11,7 @@ import {
   readRuntimeEnv,
   resolveProviderConfig,
   type RuntimeEnv,
-} from "../apps/geolibre-desktop/src/lib/assistant/provider";
+} from "../apps/geoenergy/src/lib/assistant/provider";
 
 describe("build-time AI proxy", () => {
   it("does not configure a managed proxy unless its URL is explicitly set", () => {

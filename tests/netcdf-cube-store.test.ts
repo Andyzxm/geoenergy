@@ -12,8 +12,8 @@ import {
   startNetcdfCube,
   subscribeNetcdfCube,
   type NetcdfCubeSettings,
-} from "../apps/geolibre-desktop/src/lib/netcdf-cube-store";
-import { MAX_CUBE_BANDS } from "../apps/geolibre-desktop/src/lib/netcdf-cube";
+} from "../apps/geoenergy/src/lib/netcdf-cube-store";
+import { MAX_CUBE_BANDS } from "../apps/geoenergy/src/lib/netcdf-cube";
 
 /** Settings differing from the defaults, so a carry-over is visible. */
 function settings(overrides: Partial<NetcdfCubeSettings> = {}): NetcdfCubeSettings {

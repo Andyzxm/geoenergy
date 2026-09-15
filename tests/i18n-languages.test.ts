@@ -5,7 +5,7 @@ import {
   languageDirection,
   languageOptions,
   resolveLanguage,
-} from "../apps/geolibre-desktop/src/i18n/languages";
+} from "../apps/geoenergy/src/i18n/languages";
 
 describe("resolveLanguage", () => {
   const available = ["en", "zh", "pt"];

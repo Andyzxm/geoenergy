@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   isNetcdfFileUrl,
   openRemoteNetcdfFile,
-} from "../apps/geolibre-desktop/src/lib/netcdf-remote-client";
+} from "../apps/geoenergy/src/lib/netcdf-remote-client";
 
 /**
  * Run `body` with a stub `Worker` and the `window` timer functions the client

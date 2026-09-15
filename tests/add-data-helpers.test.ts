@@ -11,7 +11,7 @@ import type { FeatureCollection } from "geojson";
 import {
   EOX_S2CLOUDLESS_ATTRIBUTION,
   GEBCO_ATTRIBUTION,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/constants";
+} from "../apps/geoenergy/src/components/layout/add-data/constants";
 import {
   appendQuery,
   attributionForTileUrl,
@@ -32,7 +32,7 @@ import {
   resolveDelimitedTextDelimiter,
   savedPostgresConnectionLabel,
   serviceRequestErrorMessage,
-} from "../apps/geolibre-desktop/src/components/layout/add-data/helpers";
+} from "../apps/geoenergy/src/components/layout/add-data/helpers";
 import type { TFunction } from "i18next";
 
 // A minimal `t` stub: returns the key so the branch taken is observable, and

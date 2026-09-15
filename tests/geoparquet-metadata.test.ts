@@ -3,14 +3,14 @@ import { describe, it } from "node:test";
 import {
   detectGeometryColumn,
   SYNTHESIZED_GEOMETRY_COLUMN,
-} from "../apps/geolibre-desktop/src/lib/duckdb-geometry";
+} from "../apps/geoenergy/src/lib/duckdb-geometry";
 import {
   nativeGeometryColumn,
   parquetLogicalTypesSql,
   PARQUET_SCHEMA_LOGICAL_TYPE_COLUMN,
   PARQUET_SCHEMA_NAME_COLUMN,
   readGeoParquetGeoMetadata,
-} from "../apps/geolibre-desktop/src/lib/geoparquet-crs";
+} from "../apps/geoenergy/src/lib/geoparquet-crs";
 import {
   describeGeoParquet,
   geoParquetColumn,
@@ -19,7 +19,7 @@ import {
   parseLogicalTypeCrs,
   parseNativeGeometryLogicalType,
   type GeoParquetCrs,
-} from "../apps/geolibre-desktop/src/lib/geoparquet-metadata";
+} from "../apps/geoenergy/src/lib/geoparquet-metadata";
 
 /** The EPSG code a parsed CRS can honestly claim, or null. */
 function crsEpsg(crs: GeoParquetCrs): number | null {

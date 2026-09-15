@@ -5,7 +5,7 @@ import {
   getNetcdfLayerState,
   registerNetcdfLayer,
   releaseNetcdfLayer,
-} from "../apps/geolibre-desktop/src/lib/netcdf-layer-registry";
+} from "../apps/geoenergy/src/lib/netcdf-layer-registry";
 import type { LocalNetcdfGrid } from "../packages/plugins/src/plugins/local-netcdf";
 
 /** A 2x2 slice whose values tag their cell, so a mix-up between two is visible. */

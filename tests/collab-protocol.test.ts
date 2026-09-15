@@ -7,12 +7,12 @@ import {
   httpBaseFromWs,
   resolveCollabBaseUrl,
   sessionWsUrl,
-} from "../apps/geolibre-desktop/src/lib/collab-client";
-import { participantCanEdit } from "../apps/geolibre-desktop/src/lib/collab-protocol";
+} from "../apps/geoenergy/src/lib/collab-client";
+import { participantCanEdit } from "../apps/geoenergy/src/lib/collab-protocol";
 import type {
   ClientMessage,
   ServerMessage,
-} from "../apps/geolibre-desktop/src/lib/collab-protocol";
+} from "../apps/geoenergy/src/lib/collab-protocol";
 import type { CollaborationParticipant } from "@geolibre/core";
 
 describe("resolveCollabBaseUrl", () => {

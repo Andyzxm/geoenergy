@@ -13,7 +13,7 @@ import {
   formatCoordinate,
   nextCoordinateFormat,
   normalizeCoordinateFormat,
-} from "../apps/geolibre-desktop/src/lib/coordinate-format";
+} from "../apps/geoenergy/src/lib/coordinate-format";
 
 // The White House, used by the lab material this was built for.
 const WH_LNG = -77.036566;

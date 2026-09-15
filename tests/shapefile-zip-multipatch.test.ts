@@ -17,7 +17,7 @@ let shapefileShapeType: ShapefileShapeType;
 let readShapefileZipForDuckDb: ReadShapefileZipForDuckDb;
 
 before(async () => {
-  const mod = await import("../apps/geolibre-desktop/src/lib/tauri-io");
+  const mod = await import("../apps/geoenergy/src/lib/tauri-io");
   shapefileShapeType = mod.shapefileShapeType;
   readShapefileZipForDuckDb = mod.readShapefileZipForDuckDb;
 });

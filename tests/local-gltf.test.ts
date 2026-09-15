@@ -10,7 +10,7 @@ import {
   MAX_LOCAL_GLTF_BYTES,
   embedLocalGltf,
   localGltfMime,
-} from "../apps/geolibre-desktop/src/lib/local-gltf";
+} from "../apps/geoenergy/src/lib/local-gltf";
 
 const encode = (value: unknown) => new TextEncoder().encode(JSON.stringify(value)).buffer;
 const encodeText = (json: string) => new TextEncoder().encode(json).buffer;

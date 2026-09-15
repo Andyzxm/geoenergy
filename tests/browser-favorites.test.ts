@@ -8,7 +8,7 @@ import {
   readBrowserFavorites,
   removeFavorite,
   type BrowserFavorite,
-} from "../apps/geolibre-desktop/src/lib/browser-favorites";
+} from "../apps/geoenergy/src/lib/browser-favorites";
 
 class MemoryStorage {
   private store = new Map<string, string>();

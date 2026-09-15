@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { parseDelimitedTextRows } from "../apps/geolibre-desktop/src/lib/delimited-text";
+import { parseDelimitedTextRows } from "../apps/geoenergy/src/lib/delimited-text";
 import {
   autoDetectFieldMapping,
   computeDeckVizBounds,
   detectAndParseDeckVizInput,
-} from "../apps/geolibre-desktop/src/lib/deck-viz-input";
+} from "../apps/geoenergy/src/lib/deck-viz-input";
 import {
   DEFAULT_DECK_VIZ_SCENEGRAPH,
   DEFAULT_DECK_VIZ_STYLE,

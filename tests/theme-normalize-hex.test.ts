@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { normalizeHexColor } from "../apps/geolibre-desktop/src/lib/theme-schemes";
+import { normalizeHexColor } from "../apps/geoenergy/src/lib/theme-schemes";
 
 describe("normalizeHexColor", () => {
   it("accepts 6-digit hex with or without a leading #", () => {

@@ -12,7 +12,7 @@ import {
   shareHostLabel,
   ShareUploadError,
   uploadProjectToShare,
-} from "../apps/geolibre-desktop/src/lib/share-geolibre";
+} from "../apps/geoenergy/src/lib/share-geolibre";
 
 const PROJECT_DTO = {
   username: "giswqs",

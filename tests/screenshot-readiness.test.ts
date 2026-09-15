@@ -6,7 +6,7 @@ import {
   inspectScreenshotLayers,
   screenshotReadinessEnabled,
   type LayerLoadProbe,
-} from "../apps/geolibre-desktop/src/lib/screenshot-readiness";
+} from "../apps/geoenergy/src/lib/screenshot-readiness";
 
 const layer: GeoLibreLayer = {
   id: "nlcd",

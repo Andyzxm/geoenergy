@@ -10,7 +10,7 @@ import {
   overlayOutputRect,
   pickSupportedMimeType,
   videoExtensionForMime,
-} from "../apps/geolibre-desktop/src/lib/map-recorder";
+} from "../apps/geoenergy/src/lib/map-recorder";
 
 describe("pickSupportedMimeType", () => {
   it("returns the first candidate the browser supports", () => {

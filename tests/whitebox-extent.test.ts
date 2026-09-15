@@ -7,7 +7,7 @@ import {
   extentParameterStyle,
   isBboxExtentParameter,
   isCornerExtentParameter,
-} from "../apps/geolibre-desktop/src/lib/whitebox-extent";
+} from "../apps/geoenergy/src/lib/whitebox-extent";
 
 function tool(params: WhiteboxToolParameter[], id = "test_tool"): WhiteboxTool {
   return { id, params };

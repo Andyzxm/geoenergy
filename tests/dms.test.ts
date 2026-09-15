@@ -7,7 +7,7 @@ import {
   decimalToDmsAxis,
   ddmAxisToDecimal,
   dmsAxisToDecimal,
-} from "../apps/geolibre-desktop/src/lib/dms";
+} from "../apps/geoenergy/src/lib/dms";
 
 describe("decimalToDmsAxis", () => {
   it("splits a positive longitude into D/M/S with the E hemisphere", () => {

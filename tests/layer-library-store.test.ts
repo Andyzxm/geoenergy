@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DEFAULT_LAYER_STYLE, type LayerLibraryEntry } from "@geolibre/core";
-import { sortLayerLibraryEntriesByStoredOrder } from "../apps/geolibre-desktop/src/lib/layer-library-store";
+import { sortLayerLibraryEntriesByStoredOrder } from "../apps/geoenergy/src/lib/layer-library-store";
 
 function entry(id: string, order?: number): LayerLibraryEntry {
   return {

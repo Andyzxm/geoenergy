@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DEFAULT_LAYER_STYLE, type GeoLibreLayer } from "../packages/core/src/index";
-import { legendSwatchesForLayer } from "../apps/geolibre-desktop/src/lib/print-legend";
-import { layerSwatchShape } from "../apps/geolibre-desktop/src/lib/layer-swatch";
+import { legendSwatchesForLayer } from "../apps/geoenergy/src/lib/print-legend";
+import { layerSwatchShape } from "../apps/geoenergy/src/lib/layer-swatch";
 
 function layer(over: Partial<GeoLibreLayer>): GeoLibreLayer {
   return {

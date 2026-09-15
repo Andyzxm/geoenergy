@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   postgisTableKey,
   postgisTableLabel,
-} from "../apps/geolibre-desktop/src/lib/postgis-table-selection";
+} from "../apps/geoenergy/src/lib/postgis-table-selection";
 
 describe("PostGIS table selection", () => {
   it("distinguishes dotted identifiers that have the same display label", () => {

@@ -12,8 +12,8 @@ import {
 import {
   applyRightPanelVisibility,
   registerPersistedRightPanel,
-} from "../apps/geolibre-desktop/src/lib/persisted-right-panel";
-import { useDesktopSettingsStore } from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
+} from "../apps/geoenergy/src/lib/persisted-right-panel";
+import { useDesktopSettingsStore } from "../apps/geoenergy/src/hooks/useDesktopSettings";
 
 // The Browser and Comments right panels persist their visibility so a panel the
 // user turned off stays off across restarts (GeoLibre#1935). The setting and the

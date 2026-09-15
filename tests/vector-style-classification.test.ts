@@ -6,7 +6,7 @@ import {
   countCategorizedValues,
   MAX_MANUAL_CATEGORIZED_VALUES,
   proportionalSizeBounds,
-} from "../apps/geolibre-desktop/src/lib/vector-style-classification";
+} from "../apps/geoenergy/src/lib/vector-style-classification";
 
 const tiledLayer = {};
 

@@ -4,7 +4,7 @@ import type { FeatureCollection } from "geojson";
 import {
   buildStyleSuggestions,
   HEATMAP_SUGGESTION_MIN_FEATURES,
-} from "../apps/geolibre-desktop/src/lib/style-suggestions";
+} from "../apps/geoenergy/src/lib/style-suggestions";
 
 /** A minimal layer shape: the suggestion builder only reads type + geojson. */
 function layerWith(

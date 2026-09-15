@@ -9,7 +9,7 @@ import {
   resolvePageSize,
   type LayoutOptions,
   type LegendEntry,
-} from "../apps/geolibre-desktop/src/lib/print-layout";
+} from "../apps/geoenergy/src/lib/print-layout";
 
 /**
  * A minimal recording stand-in for a 2D canvas context. Every drawing method is

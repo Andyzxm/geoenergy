@@ -24,7 +24,7 @@ import {
   resolveTargetLayer,
   slugifyKey,
   validateForm,
-} from "../apps/geolibre-desktop/src/lib/field-collection";
+} from "../apps/geoenergy/src/lib/field-collection";
 
 describe("slugifyKey", () => {
   it("slugifies labels to safe keys", () => {

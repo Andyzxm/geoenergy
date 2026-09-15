@@ -2,7 +2,7 @@ import type { GeoLibreLayer } from "@geolibre/core";
 import type { Feature } from "geojson";
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { buildSymbologyStyle } from "../apps/geolibre-desktop/src/lib/assistant/symbology";
+import { buildSymbologyStyle } from "../apps/geoenergy/src/lib/assistant/symbology";
 
 /** Build a minimal point layer carrying the given property values. */
 function layerWith(property: string, values: unknown[]): GeoLibreLayer {

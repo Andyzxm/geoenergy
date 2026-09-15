@@ -5,7 +5,7 @@ import type { Feature, Point, Polygon } from "geojson";
 import {
   clearAtlasFeatureMask,
   showAtlasFeatureMask,
-} from "../apps/geolibre-desktop/src/lib/print-atlas-mask";
+} from "../apps/geoenergy/src/lib/print-atlas-mask";
 
 interface FakeSource {
   data: unknown;

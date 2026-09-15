@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { batchDecodePolylines, decodePolylineDetailed } from "@geolibre/core";
-import { SAMPLE_POLYLINES } from "../apps/geolibre-desktop/src/lib/polyline-samples";
+import { SAMPLE_POLYLINES } from "../apps/geoenergy/src/lib/polyline-samples";
 
 /**
  * The Add Encoded Polyline Layer dialog offers these as one-click samples. An

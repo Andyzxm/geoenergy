@@ -10,7 +10,7 @@ import {
   SESSION_HEARTBEAT_MS,
   shouldOfferProjectRecovery,
   type ProjectRecoveryCandidate,
-} from "../apps/geolibre-desktop/src/lib/project-history-session";
+} from "../apps/geoenergy/src/lib/project-history-session";
 
 const NOW = Date.parse("2026-01-02T12:00:00.000Z");
 const stamp = (msAgo: number) => new Date(NOW - msAgo).toISOString();

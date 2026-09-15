@@ -7,7 +7,7 @@ import {
   reusableCredentialChoice,
   reusableVectorDataChoice,
   saveChoicesForProject,
-} from "../apps/geolibre-desktop/src/lib/project-save-choices";
+} from "../apps/geoenergy/src/lib/project-save-choices";
 
 describe("Mac App Store vector saves", () => {
   it("disables path-only projects in the sandboxed build", () => {

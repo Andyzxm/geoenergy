@@ -8,7 +8,7 @@ import {
 import {
   createNativeSidecarFetch,
   isNativeSidecarRequest,
-} from "../apps/geolibre-desktop/src/lib/sidecar-fetch";
+} from "../apps/geoenergy/src/lib/sidecar-fetch";
 
 describe("sidecar fetch override", () => {
   afterEach(() => {

@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   nativeFileDialogFilters,
   type FileDialogFilter,
-} from "../apps/geolibre-desktop/src/lib/file-dialog-filters";
+} from "../apps/geoenergy/src/lib/file-dialog-filters";
 
 const styleFilters: FileDialogFilter[] = [
   {

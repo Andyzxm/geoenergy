@@ -14,8 +14,8 @@ function source(path: string): string {
   return readFileSync(fileURLToPath(new URL(`../${path}`, import.meta.url)), "utf8");
 }
 
-const DESKTOP_SHELL = "apps/geolibre-desktop/src/components/layout/DesktopShell.tsx";
-const TOP_TOOLBAR = "apps/geolibre-desktop/src/components/layout/TopToolbar.tsx";
+const DESKTOP_SHELL = "apps/geoenergy/src/components/layout/DesktopShell.tsx";
+const TOP_TOOLBAR = "apps/geoenergy/src/components/layout/TopToolbar.tsx";
 
 describe("terrain restore is independent of toolbar visibility", () => {
   it("DesktopShell applies the preference itself", () => {

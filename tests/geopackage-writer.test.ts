@@ -4,7 +4,7 @@ import { before, describe, it } from "node:test";
 import initSqlJs from "sql.js";
 import type { SqlJsStatic } from "sql.js";
 import type { FeatureCollection } from "geojson";
-import { writeGeoPackageSync } from "../apps/geolibre-desktop/src/lib/geopackage-writer";
+import { writeGeoPackageSync } from "../apps/geoenergy/src/lib/geopackage-writer";
 
 const require = createRequire(import.meta.url);
 

@@ -20,7 +20,7 @@ import {
   requireEmbedLayer,
   resolveHighlightIds,
   type EmbedHighlightTarget,
-} from "../apps/geolibre-desktop/src/lib/embed-api";
+} from "../apps/geoenergy/src/lib/embed-api";
 
 /** A tile template that satisfies the addLayer renderable-source check. */
 const XYZ_TILE_URL = "https://tiles.example.com/{z}/{x}/{y}.png";

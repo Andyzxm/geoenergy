@@ -4,7 +4,7 @@ import {
   detectionPhotoMimeType,
   detectionsToPhotoFeatureCollection,
   isDetectionPhotoFileName,
-} from "../apps/geolibre-desktop/src/lib/object-detection-photo";
+} from "../apps/geoenergy/src/lib/object-detection-photo";
 import { rasterFromRgba } from "../packages/processing/src/object-detection";
 
 describe("regular photo detection input", () => {

@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { normalizeDesktopSettings } from "../apps/geolibre-desktop/src/hooks/useDesktopSettings";
-import { selectActiveAssistantProfile } from "../apps/geolibre-desktop/src/lib/assistant/profiles";
-import { mergeRuntimeEnv } from "../apps/geolibre-desktop/src/lib/assistant/provider";
-import type { AssistantProfile } from "../apps/geolibre-desktop/src/lib/assistant/provider";
+import { normalizeDesktopSettings } from "../apps/geoenergy/src/hooks/useDesktopSettings";
+import { selectActiveAssistantProfile } from "../apps/geoenergy/src/lib/assistant/profiles";
+import { mergeRuntimeEnv } from "../apps/geoenergy/src/lib/assistant/provider";
+import type { AssistantProfile } from "../apps/geoenergy/src/lib/assistant/provider";
 
 const NO_SOURCES = {
   osEnv: {},

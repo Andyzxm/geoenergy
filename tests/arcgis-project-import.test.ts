@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { DEFAULT_LAYER_STYLE } from "@geolibre/core";
 import { strToU8, zipSync } from "fflate";
-import { importArcgisProject } from "../apps/geolibre-desktop/src/lib/arcgis-project-import";
+import { importArcgisProject } from "../apps/geoenergy/src/lib/arcgis-project-import";
 
 function featureLayer(name: string, path: string) {
   return {

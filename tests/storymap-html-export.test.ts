@@ -6,7 +6,7 @@ import {
   type GeoLibreLayer,
   type StoryMap,
 } from "@geolibre/core";
-import { buildStoryMapHtml } from "../apps/geolibre-desktop/src/lib/storymap-export";
+import { buildStoryMapHtml } from "../apps/geoenergy/src/lib/storymap-export";
 
 function story(overrides: Partial<StoryMap> = {}): StoryMap {
   return {

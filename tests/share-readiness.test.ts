@@ -8,7 +8,7 @@ import {
   probeShareSources,
   probeTargetFor,
   summarizeShareSources,
-} from "../apps/geolibre-desktop/src/lib/share-readiness";
+} from "../apps/geoenergy/src/lib/share-readiness";
 
 function layer(overrides: Partial<GeoLibreLayer> = {}): GeoLibreLayer {
   return {

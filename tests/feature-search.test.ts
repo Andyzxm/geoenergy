@@ -7,7 +7,7 @@ import {
   isSearchableLayer,
   searchLayerFeatures,
   searchableText,
-} from "../apps/geolibre-desktop/src/lib/feature-search";
+} from "../apps/geoenergy/src/lib/feature-search";
 
 /** Build a point feature carrying `properties`, optionally with a stable id. */
 function point(properties: Record<string, unknown>, id?: string | number): Feature {

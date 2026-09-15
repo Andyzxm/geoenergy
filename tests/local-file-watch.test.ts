@@ -16,7 +16,7 @@ let getLayerWatchConfig: GetLayerWatchConfig;
 let setLayerWatchConfig: SetLayerWatchConfig;
 
 before(async () => {
-  const mod = await import("../apps/geolibre-desktop/src/lib/local-file-watch");
+  const mod = await import("../apps/geoenergy/src/lib/local-file-watch");
   isLocalFileLayer = mod.isLocalFileLayer;
   getLayerWatchConfig = mod.getLayerWatchConfig;
   setLayerWatchConfig = mod.setLayerWatchConfig;
