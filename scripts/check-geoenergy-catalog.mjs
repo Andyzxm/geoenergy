@@ -13,9 +13,10 @@
 import { readFile } from "node:fs/promises";
 import process from "node:process";
 
-const CATALOG_PATH = "apps/geolibre-desktop/public/geoenergy/catalog.json";
+const CATALOG_PATH = "apps/geoenergy/public/geoenergy/catalog.json";
 const KINDS = new Set([
   "arcgis-feature",
+  "overpass",
   "arcgis-map-service",
   "geojson",
   "vector",
@@ -52,6 +53,14 @@ for (const group of catalog.groups) {
     if (dataset.kind === "arcgis-feature" && !/\/FeatureServer\/\d+$/i.test(dataset.url ?? "")) {
       problems.push(`${where}: an arcgis-feature url must end in /FeatureServer/<layer>.`);
     }
+    if (dataset.kind === "overpass") {
+      if (!dataset.query) problems.push(`${where}: an overpass entry needs a query.`);
+      else if (!dataset.query.includes("{{bbox}}")) {
+        // Without the placeholder the query is unbounded, which is how a public
+        // Overpass instance ends up refusing the whole app.
+        problems.push(`${where}: the overpass query must bound itself with {{bbox}}.`);
+      }
+    }
     entries.push({ where, dataset });
   }
 }
@@ -61,6 +70,7 @@ if (process.argv.includes("--net")) {
     entries.map(async ({ where, dataset }) => {
       const url = dataset.url ?? "";
       if (!/^https?:\/\//i.test(url)) return `local   ${where} → ${url}`;
+      if (dataset.kind === "overpass") return `skip    ${where} (POST-only endpoint)`;
       const probe = dataset.kind.startsWith("arcgis")
         ? `${url}${url.includes("?") ? "&" : "?"}f=json`
         : url;

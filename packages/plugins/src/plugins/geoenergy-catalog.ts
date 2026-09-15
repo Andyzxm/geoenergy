@@ -12,6 +12,18 @@ const PANEL_ID = GEOENERGY_CATALOG_PLUGIN_ID;
 // the ordinary search timeout rather than the long download ceiling the dataset
 // loaders below run under.
 const CATALOG_TIMEOUT_MS = 20_000;
+// An Overpass query against a wide view can legitimately take most a minute,
+// well past the catalog's own ceiling.
+const OVERPASS_TIMEOUT_MS = 90_000;
+
+interface OverpassElement {
+  type: "node" | "way" | "relation";
+  id: number;
+  lat?: number;
+  lon?: number;
+  center?: { lat: number; lon: number };
+  tags?: Record<string, string>;
+}
 
 /**
  * How a catalog entry reaches the map. Each value maps to one loader in
@@ -20,6 +32,7 @@ const CATALOG_TIMEOUT_MS = 20_000;
  */
 export type GeoenergyDatasetKind =
   | "arcgis-feature"
+  | "overpass"
   | "arcgis-map-service"
   | "geojson"
   | "vector"
@@ -46,6 +59,13 @@ export interface GeoenergyDataset {
   maxFeatures?: number;
   /** Vintage or update cadence, rendered under the title. */
   vintage?: string;
+  /**
+   * Overpass QL body for `kind: "overpass"`, with `{{bbox}}` where the current
+   * view's bounds belong. The plugin wraps it in the settings and `out` clause,
+   * so a query is just its statements, e.g.
+   * `nwr["telecom"="data_center"]({{bbox}});`.
+   */
+  query?: string;
 }
 
 export interface GeoenergyGroup {
@@ -64,6 +84,11 @@ export interface GeoenergyGroup {
 export interface GeoenergyCatalog {
   version: number;
   title?: string;
+  /**
+   * Dataset ids loaded once when the app opens, so the map has something on it
+   * rather than starting empty. Keep this short: each entry is a real download.
+   */
+  defaultLayers?: string[];
   groups: GeoenergyGroup[];
 }
 
@@ -80,6 +105,10 @@ export interface GeoenergyCatalogLabels {
   added: (title: string) => string;
   addError: (title: string) => string;
   counted: (shown: number, total: number) => string;
+  loadingDefaults: string;
+  analysisTitle: string;
+  analysisHint: string;
+  analysis: { label: string; where: string }[];
 }
 
 export const DEFAULT_GEOENERGY_CATALOG_LABELS: GeoenergyCatalogLabels = {
@@ -95,6 +124,22 @@ export const DEFAULT_GEOENERGY_CATALOG_LABELS: GeoenergyCatalogLabels = {
   added: (title) => `Added ${title}.`,
   addError: (title) => `Could not add ${title}.`,
   counted: (shown, total) => `Showing ${shown} of ${total} datasets.`,
+  loadingDefaults: "Loading the starting layers…",
+  analysisTitle: "What you can do with a layer",
+  analysisHint:
+    "Every dataset you add is a normal map layer, so the analysis tools work on it.",
+  // Named where each tool actually lives, so the panel teaches the app rather
+  // than pretending to be the whole app.
+  analysis: [
+    { label: "Filter and query by attribute", where: "Layers panel → the layer's ⋯ menu" },
+    { label: "Buffer, clip, intersect, dissolve", where: "Processing → Vector" },
+    { label: "Zonal and summary statistics", where: "Processing → Statistics" },
+    { label: "Nearest neighbor and service areas", where: "Processing → Network" },
+    { label: "Read values under the cursor", where: "click any feature on the map" },
+    { label: "Step through a time series", where: "Plugins → Time Slider" },
+    { label: "Compare two layers side by side", where: "Plugins → Layer Swipe" },
+    { label: "Export what you built", where: "Project → Export, or the layer's ⋯ menu" },
+  ],
 };
 
 let labels: GeoenergyCatalogLabels = { ...DEFAULT_GEOENERGY_CATALOG_LABELS };
@@ -136,6 +181,9 @@ let panelContainer: HTMLElement | null = null;
 let disposePanel: (() => void) | null = null;
 let unregisterPanel: (() => void) | null = null;
 let cachedCatalog: GeoenergyCatalog | null = null;
+// Starting layers load once per session, not once per panel open: reopening the
+// panel should not re-download them, and a user who removed them means it.
+let defaultLayersLoaded = false;
 let catalogController: AbortController | null = null;
 
 function boundedSignal(signal: AbortSignal, timeoutMs = CATALOG_TIMEOUT_MS): AbortSignal {
@@ -188,6 +236,53 @@ export async function addDataset(app: GeoLibreAppAPI, dataset: GeoenergyDataset)
         url: dataset.url,
         name: dataset.title,
       });
+      return;
+    }
+    case "overpass": {
+      // OpenStreetMap has no national "data centers" download, so this queries
+      // the current view instead of a fixed extent: what the map shows is what
+      // gets fetched, which also keeps a nationwide query off Overpass's public
+      // servers. Panning and re-clicking loads the new view.
+      const bounds = app.getViewBounds?.();
+      if (!bounds) throw new Error("The map extent is not available yet.");
+      const [west, south, east, north] = bounds;
+      const bbox = `${south},${west},${north},${east}`;
+      const body = `[out:json][timeout:60];(${(dataset.query ?? "").replaceAll("{{bbox}}", bbox)});out center tags;`;
+      const response = await fetch(dataset.url, {
+        method: "POST",
+        body: new URLSearchParams({ data: body }),
+        signal: AbortSignal.timeout(OVERPASS_TIMEOUT_MS),
+      });
+      if (!response.ok) {
+        // 429 and 504 are Overpass's rate limiter and its load shedder, which a
+        // user can simply retry; anything else is worth naming.
+        throw new Error(
+          response.status === 429 || response.status === 504
+            ? "OpenStreetMap's query service is busy. Try again in a moment."
+            : `OpenStreetMap query failed (${response.status}).`,
+        );
+      }
+      const payload = (await response.json()) as { elements?: OverpassElement[] };
+      const features = (payload.elements ?? [])
+        .map((element) => {
+          // A node carries its own position; a way or relation is returned with
+          // `out center`, which is the only geometry this layer needs.
+          const lat = element.lat ?? element.center?.lat;
+          const lon = element.lon ?? element.center?.lon;
+          if (lat === undefined || lon === undefined) return null;
+          return {
+            type: "Feature" as const,
+            id: `${element.type}/${element.id}`,
+            geometry: { type: "Point" as const, coordinates: [lon, lat] },
+            properties: { osm_id: `${element.type}/${element.id}`, ...(element.tags ?? {}) },
+          };
+        })
+        .filter((feature) => feature !== null);
+      if (!appRef) return;
+      if (!features.length) {
+        throw new Error("No features of that kind are mapped in the current view.");
+      }
+      app.addGeoJsonLayer(dataset.title, { type: "FeatureCollection", features }, dataset.url);
       return;
     }
     case "geojson": {
@@ -332,6 +427,71 @@ function buildCard(
   return card;
 }
 
+/**
+ * Load the catalog's starting layers so the map opens with data on it.
+ *
+ * Sequential rather than parallel: each entry is a real download, and three at
+ * once against the same ArcGIS host is how a service starts refusing them.
+ */
+async function loadDefaultLayers(
+  catalog: GeoenergyCatalog,
+  status: HTMLElement,
+): Promise<void> {
+  if (defaultLayersLoaded) return;
+  defaultLayersLoaded = true;
+  const byId = new Map(
+    catalog.groups.flatMap((group) => group.datasets.map((dataset) => [dataset.id, dataset])),
+  );
+  const wanted = (catalog.defaultLayers ?? [])
+    .map((id) => byId.get(id))
+    .filter((dataset) => dataset !== undefined);
+  if (!wanted.length) return;
+  status.textContent = labels.loadingDefaults;
+  for (const dataset of wanted) {
+    const app = appRef;
+    if (!app) return;
+    try {
+      await addDataset(app, dataset);
+    } catch (error) {
+      // A starting layer that fails is not worth an error state in the panel:
+      // the catalog is still usable, and the user did not ask for this load.
+      console.warn(`Could not load the starting layer ${dataset.id}.`, error);
+    }
+  }
+  if (appRef) status.textContent = labels.counted(byId.size, byId.size);
+}
+
+/** A short, honest map of the analysis surface, with where each tool lives. */
+function buildAnalysisSection(): HTMLElement {
+  const section = element("div", "margin-top:14px;border-top:1px solid hsl(var(--border));padding-top:12px;");
+  section.append(
+    element(
+      "div",
+      "font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;" +
+        "color:hsl(var(--muted-foreground));margin-bottom:6px;",
+      labels.analysisTitle,
+    ),
+  );
+  section.append(
+    element(
+      "div",
+      "font-size:11px;color:hsl(var(--muted-foreground));line-height:1.4;margin-bottom:8px;",
+      labels.analysisHint,
+    ),
+  );
+  const list = element("div", "display:flex;flex-direction:column;gap:6px;");
+  for (const entry of labels.analysis) {
+    const row = element("div", "display:flex;flex-direction:column;gap:1px;");
+    row.append(element("span", "font-size:11.5px;color:hsl(var(--foreground));", entry.label));
+    row.append(
+      element("span", "font-size:10.5px;color:hsl(var(--muted-foreground));", entry.where),
+    );
+    list.append(row);
+  }
+  section.append(list);
+  return section;
+}
+
 function buildPanel(container: HTMLElement): () => void {
   container.replaceChildren();
   const root = element("div", "display:flex;flex-direction:column;gap:8px;padding:8px;");
@@ -399,6 +559,8 @@ function buildPanel(container: HTMLElement): () => void {
       if (controller.signal.aborted) return;
       catalog = loaded;
       render();
+      root.append(buildAnalysisSection());
+      void loadDefaultLayers(loaded, status);
     })
     .catch((error: unknown) => {
       if ((error as Error).name === "AbortError") return;

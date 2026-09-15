@@ -9,9 +9,9 @@ profile that hides the parts of the interface an energy user does not need.
 
 | Path | Purpose |
 | --- | --- |
-| `apps/geolibre-desktop/public/geoenergy/catalog.json` | The dataset catalog. Edit this to add or remove datasets — no rebuild needed for a served site. |
+| `apps/geoenergy/public/geoenergy/catalog.json` | The dataset catalog. Edit this to add or remove datasets — no rebuild needed for a served site. |
 | `packages/plugins/src/plugins/geoenergy-catalog.ts` | The panel that renders the catalog and loads a dataset onto the map. |
-| `apps/geolibre-desktop/public/admin-profile.json` | The deployment profile that trims the interface. |
+| `apps/geoenergy/public/admin-profile.json` | The deployment profile that trims the interface. |
 | `scripts/check-geoenergy-catalog.mjs` | Validator: structure always, reachability with `--net`. |
 
 The catalog is fetched at panel open, relative to the document base, so the same
@@ -69,7 +69,7 @@ without one still renders correctly, just without the color coding.
 | `xyz` | an `{z}/{x}/{y}` template | A plain raster tile service. |
 
 A relative `url` (`data/…`) resolves against the deployed site, which is how you
-ship your own files: put them in `apps/geolibre-desktop/public/data/` and they
+ship your own files: put them in `apps/geoenergy/public/data/` and they
 are published with the app.
 
 ## Adding your own data
@@ -77,7 +77,7 @@ are published with the app.
 1. Convert to GeoParquet (or PMTiles for anything nationwide and dense):
 
    ```bash
-   python -c "import geopandas; geopandas.read_file('outages.gpkg').to_parquet('apps/geolibre-desktop/public/data/eaglei_county_outages.parquet')"
+   python -c "import geopandas; geopandas.read_file('outages.gpkg').to_parquet('apps/geoenergy/public/data/eaglei_county_outages.parquet')"
    ```
 
 2. Add an entry to the `reliability` group in `catalog.json` with
@@ -115,7 +115,7 @@ than it should, so run it before a talk or a demo.
 ```
 
 `level` hides every data source, plugin, and menu item tiered `advanced` in
-`apps/geolibre-desktop/src/lib/ui-profile.ts`. Two tiers are changed there for
+`apps/geoenergy/src/lib/ui-profile.ts`. Two tiers are changed there for
 this edition: the Geoenergy catalog is `basic` so it is always visible, and the
 time slider is `intermediate` because the outage datasets are time series.
 
@@ -129,9 +129,9 @@ deployment is permitted to do rather than what it shows.
 The fork touches five upstream files, deliberately few:
 
 - `packages/plugins/src/index.ts` — one export block appended at the end.
-- `apps/geolibre-desktop/src/hooks/usePlugins.ts` — one import, one line in `registerAll`.
-- `apps/geolibre-desktop/src/lib/ui-profile.ts` — two tier entries.
-- `apps/geolibre-desktop/index.html` — title and description.
+- `apps/geoenergy/src/hooks/usePlugins.ts` — one import, one line in `registerAll`.
+- `apps/geoenergy/src/lib/ui-profile.ts` — two tier entries.
+- `apps/geoenergy/index.html` — title and description.
 - `.github/workflows/geoenergy-pages.yml` — new file, upstream's `pages.yml` untouched.
 
 Everything else is new files. Merging upstream should stay a matter of resolving

@@ -86,7 +86,7 @@ wizard is skipped, and — if `lock` is set — the Interface settings are read-
 | `hiddenMenuItems` | string[] | Menu-item ids to hide (e.g. `processing.raster`, `help.diagnostics`, `controls.minimap`). |
 
 Data-source ids are the catalog ids in
-`apps/geolibre-desktop/src/lib/ui-profile.ts` (e.g. `vector`, `xyz`, `mbtiles`,
+`apps/geoenergy/src/lib/ui-profile.ts` (e.g. `vector`, `xyz`, `mbtiles`,
 `postgres`). Plugin ids are the stable ids defined in
 `packages/plugins/src/plugins/*` (e.g. `maplibre-gl-geoagent`). Menu and
 menu-item ids are the catalog ids in the same `ui-profile.ts`

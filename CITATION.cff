@@ -1,24 +1,32 @@
 cff-version: 1.2.0
-title: GeoLibre
-message: "If you use this software, please cite it using the metadata from this file."
+title: "Geoenergy: an interactive browser for U.S. energy datasets"
+message: "If you use Geoenergy in your research, please cite it, and cite GeoLibre as the platform it is built on."
 type: software
-abstract: "GeoLibre is a free and open-source, lightweight, cloud-native GIS platform for visualizing, exploring, and analyzing geospatial data across web browsers, desktop applications, mobile devices, and Jupyter notebooks while keeping data local and private."
 authors:
-  - given-names: Qiusheng
-    family-names: Wu
-    email: giswqs@gmail.com
-    affiliation: "University of Tennessee, Knoxville, USA"
-    orcid: "https://orcid.org/0000-0001-5437-4073"
-version: 2.9.0
-date-released: 2026-09-02
-doi: "10.5281/zenodo.20785400"
-repository-code: "https://github.com/opengeos/GeoLibre"
-url: "https://geolibre.app"
-license: MIT
+  - given-names: Xinming
+    family-names: Zhang
+    alias: Andyzxm
+    affiliation: "Department of Geography and Sustainability, University of Tennessee, Knoxville"
+repository-code: "https://github.com/Andyzxm/geoenergy"
+url: "https://andyzxm.github.io/geoenergy/"
+abstract: >-
+  Geoenergy is a browser-based map for exploring and analyzing U.S. energy
+  infrastructure data: generation, transmission, substations, data centers,
+  fuel pipelines, and county-level outage reliability. It is a focused fork of
+  GeoLibre, narrowed to energy data and extended with a curated dataset catalog.
 keywords:
+  - energy geography
+  - electric grid
   - GIS
   - geospatial
-  - remote sensing
-  - data visualization
-  - MapLibre
-  - Python
+  - power outages
+  - data centers
+license: MIT
+references:
+  - type: software
+    title: "GeoLibre: a lightweight, cloud-native GIS platform"
+    authors:
+      - given-names: Qiusheng
+        family-names: Wu
+    repository-code: "https://github.com/opengeos/GeoLibre"
+    license: MIT

@@ -14,7 +14,7 @@ user needs.
 ```bash
 npm install
 npm run dev          # http://localhost:5173
-npm run build -w geolibre-desktop
+npm run build -w geoenergy
 npm run check:catalog        # validate the dataset catalog
 npm run check:catalog:net    # also probe every remote service
 ```
@@ -29,8 +29,8 @@ GitHub Pages on every push to `main`. Enable Pages for the repository with
 New files:
 
 - `packages/plugins/src/plugins/geoenergy-catalog.ts` — the Energy Data panel.
-- `apps/geolibre-desktop/src/components/layout/GeoenergyMark.tsx` — the brand glyph.
-- `apps/geolibre-desktop/public/geoenergy/catalog.json` — the dataset catalog.
+- `apps/geoenergy/src/components/layout/GeoenergyMark.tsx` — the brand glyph.
+- `apps/geoenergy/public/geoenergy/catalog.json` — the dataset catalog.
 - `scripts/check-geoenergy-catalog.mjs` — the catalog validator.
 - `docs/geoenergy-catalog.md` — how to add datasets and trim the interface.
 - `.github/workflows/geoenergy-pages.yml` — the fork's deploy.
@@ -46,20 +46,20 @@ are kept.
 Upstream files touched, deliberately few, so merges stay cheap:
 
 - `packages/plugins/src/index.ts` — one export block.
-- `apps/geolibre-desktop/src/hooks/usePlugins.ts` — register the plugin, plus a
+- `apps/geoenergy/src/hooks/usePlugins.ts` — register the plugin, plus a
   once-per-session activation helper.
-- `apps/geolibre-desktop/src/components/layout/DesktopShell.tsx` — call that
+- `apps/geoenergy/src/components/layout/DesktopShell.tsx` — call that
   helper on mount.
-- `apps/geolibre-desktop/src/lib/ui-profile.ts` — two complexity tiers.
-- `apps/geolibre-desktop/public/admin-profile.json` — was `null`, now trims the
+- `apps/geoenergy/src/lib/ui-profile.ts` — two complexity tiers.
+- `apps/geoenergy/public/admin-profile.json` — was `null`, now trims the
   interface to the Intermediate tier.
-- `apps/geolibre-desktop/index.html`, `TopToolbar.tsx` — title, wordmark, mark.
+- `apps/geoenergy/index.html`, `TopToolbar.tsx` — title, wordmark, mark.
 - `packages/ui/src/globals.css` — copper is the base accent; GeoLibre's blue
   becomes the `[data-theme="blue"]` preset.
-- `apps/geolibre-desktop/src/lib/theme-schemes.ts` — registers `copper` and makes
+- `apps/geoenergy/src/lib/theme-schemes.ts` — registers `copper` and makes
   it the default scheme.
-- `apps/geolibre-desktop/src/hooks/useThemeMode.ts` — dark by default.
-- `apps/geolibre-desktop/src/i18n/locales/en.json` — one label for the new scheme.
+- `apps/geoenergy/src/hooks/useThemeMode.ts` — dark by default.
+- `apps/geoenergy/src/i18n/locales/en.json` — one label for the new scheme.
 - `mkdocs.yml`, `package.json` — one nav entry, two scripts.
 
 ## Look and feel

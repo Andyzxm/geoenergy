@@ -42,7 +42,7 @@ jobs:
         run: node scripts/check-geoenergy-catalog.mjs
 
       - name: Build
-        run: npm run build -w geolibre-desktop
+        run: npm run build -w geoenergy
         env:
           # Relative base so the build works under https://<user>.github.io/<repo>/.
           GEOLIBRE_APP_BASE: ./
@@ -50,7 +50,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: apps/geolibre-desktop/dist
+          path: apps/geoenergy/dist
 
   deploy:
     name: Deploy to GitHub Pages

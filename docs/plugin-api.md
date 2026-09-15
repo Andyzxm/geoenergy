@@ -313,7 +313,7 @@ GeoLibre. To add one to this repository:
    export { myPlugin } from "./plugins/my-plugin";
    ```
 
-3. Register it in `apps/geolibre-desktop/src/hooks/usePlugins.ts`.
+3. Register it in `apps/geoenergy/src/hooks/usePlugins.ts`.
 
    ```typescript
    import { myPlugin } from "@geolibre/plugins";
@@ -330,7 +330,7 @@ For a MapLibre control plugin, add the package dependency, then call
 `app.addMapControl(control, "top-left")` in `activate()` and
 `app.removeMapControl(control)` in `deactivate()`. If the control's npm package
 ships its own stylesheet, import that stylesheet in
-`apps/geolibre-desktop/src/main.tsx`, alongside the existing
+`apps/geoenergy/src/main.tsx`, alongside the existing
 `maplibre-gl-*/style.css` imports. That is only for a dependency's own CSS —
 any app-specific fixes on top of it belong in `index.css`, as described under
 [Styling third-party controls](#styling-third-party-controls) below.
@@ -350,7 +350,7 @@ GeoTIFF layers can also be added through the standard Add Raster Layer dialog.
 ### Styling third-party controls
 
 If a third-party MapLibre control needs app-specific styling fixes, add scoped
-overrides in `apps/geolibre-desktop/src/index.css` instead of editing files in
+overrides in `apps/geoenergy/src/index.css` instead of editing files in
 `node_modules`. Keep selectors limited to the plugin's control class. For
 example, GeoEditor toolbar buttons need a local override because MapLibre's
 default control button CSS can override their flex centering:
@@ -575,7 +575,7 @@ const cogId = await app.addCogLayer?.(
 
 The helpers are typed optional for forward-compatibility with host variants, so call them with optional chaining (`app.addTileLayer?.(...)`).
 
-> **Desktop (Tauri) note:** The desktop app enforces a Content Security Policy that restricts which tile hosts the WebView can reach. If your plugin registers tiles from a host not already in the GeoLibre CSP allowlist, the layer is created but its tiles silently fail to load. For bundled (first-party) plugins, add the host to `connect-src` / `img-src` in `apps/geolibre-desktop/src-tauri/tauri.conf.json`; external plugins can only reach already-permitted hosts. The web build is unaffected.
+> **Desktop (Tauri) note:** The desktop app enforces a Content Security Policy that restricts which tile hosts the WebView can reach. If your plugin registers tiles from a host not already in the GeoLibre CSP allowlist, the layer is created but its tiles silently fail to load. For bundled (first-party) plugins, add the host to `connect-src` / `img-src` in `apps/geoenergy/src-tauri/tauri.conf.json`; external plugins can only reach already-permitted hosts. The web build is unaffected.
 
 ## Zarr layers
 
@@ -952,13 +952,13 @@ For the web app, use manifest URLs or **Install from file** (above). Manifest UR
 To ship an external plugin as part of GeoLibre — loaded automatically, with no Settings entry and no manifest URL — drop its built bundle into the Vite public directory, one folder per plugin id:
 
 ```text
-apps/geolibre-desktop/public/plugins/example-plugin/
+apps/geoenergy/public/plugins/example-plugin/
   plugin.json
   dist/index.js
   dist/style.css
 ```
 
-This is the **same content a manifest URL would serve**. A drop-in is all that is required — no source edits per plugin. The `bundledPlugins()` Vite plugin (`apps/geolibre-desktop/vite-plugins/bundled-plugins.ts`) scans `public/plugins/` at build and dev-server start, exposes the discovered manifest paths through the `virtual:bundled-plugins` module, and `usePlugins.ts` loads them through the normal external-plugin path (fetch → blob import → register). Discovery happens at build time, so restart the dev server or rebuild after adding, updating, or removing a plugin folder.
+This is the **same content a manifest URL would serve**. A drop-in is all that is required — no source edits per plugin. The `bundledPlugins()` Vite plugin (`apps/geoenergy/vite-plugins/bundled-plugins.ts`) scans `public/plugins/` at build and dev-server start, exposes the discovered manifest paths through the `virtual:bundled-plugins` module, and `usePlugins.ts` loads them through the normal external-plugin path (fetch → blob import → register). Discovery happens at build time, so restart the dev server or rebuild after adding, updating, or removing a plugin folder.
 
 The same folder serves **both** the web and desktop builds: the desktop app bundles the identical frontend (`frontendDist` in `tauri.conf.json`) and serves it from `tauri://localhost`, which is same-origin and allowed by the desktop CSP (`connect-src 'self'`, `script-src ... blob:`). Bundled manifest URLs are injected at load time rather than stored in Settings, so a baked-in plugin always loads and cannot be removed by a user; they are deduplicated by plugin id against any user/project plugin of the same id.
 

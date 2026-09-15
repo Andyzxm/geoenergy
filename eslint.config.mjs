@@ -20,7 +20,6 @@ export default [
       "**/node_modules/**",
       // Generated/vendored bundles (the embedded web app baked into the Python
       // wheel, the built docs site, minified assets) must never be parsed.
-      "python/**",
       "site/**",
       "**/static/**",
       "**/*.min.js",

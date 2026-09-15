@@ -27,7 +27,7 @@ flowchart LR
 | `@geolibre/processing` | Client-side algorithm registry                                                                 |
 | `@geolibre/plugins`    | Plugin interface and built-in plugins                                                          |
 | `@geolibre/embed`      | Typed, dependency-free client for the iframe embed API, published to npm                       |
-| `geolibre-desktop`     | Shell layout, Tauri I/O, composition                                                           |
+| `geoenergy`     | Shell layout, Tauri I/O, composition                                                           |
 
 ## State flow
 
@@ -100,7 +100,7 @@ The sidecar has since grown past conversion: `raster.py` runs the Raster toolbox
 
 ## Offline support (PWA)
 
-The standalone web build is an installable Progressive Web App. `vite-plugin-pwa` (configured in `apps/geolibre-desktop/vite.config.ts`) emits a web manifest plus a Workbox service worker, and `src/main.tsx` registers it next to `installStaleChunkReload` so the two coordinate. The service worker is built only for the web build; it is disabled for the Tauri desktop build (already offline via bundled assets) and the embedded Jupyter wheel (`GEOLIBRE_EMBED=1`), where `registerSW` resolves to a no-op.
+The standalone web build is an installable Progressive Web App. `vite-plugin-pwa` (configured in `apps/geoenergy/vite.config.ts`) emits a web manifest plus a Workbox service worker, and `src/main.tsx` registers it next to `installStaleChunkReload` so the two coordinate. The service worker is built only for the web build; it is disabled for the Tauri desktop build (already offline via bundled assets) and the embedded Jupyter wheel (`GEOLIBRE_EMBED=1`), where `registerSW` resolves to a no-op.
 
 Caching is split to keep the first visit light:
 
@@ -123,7 +123,7 @@ A new deploy is picked up via `registerType: "autoUpdate"`: the new service work
 
 ## Container image
 
-The root Dockerfile packages the browser version of the app. It uses a Node build stage to run the workspace build for `geolibre-desktop`, then copies `apps/geolibre-desktop/dist` into an nginx runtime image. The nginx config serves static assets and falls back to `index.html` for browser-entry URLs.
+The root Dockerfile packages the browser version of the app. It uses a Node build stage to run the workspace build for `geoenergy`, then copies `apps/geoenergy/dist` into an nginx runtime image. The nginx config serves static assets and falls back to `index.html` for browser-entry URLs.
 
 The `Publish Container Image` GitHub Actions workflow builds the image for pull requests and publishes it to GitHub Container Registry for pushes to `main`, version tags, and manual runs. The upstream image name is `ghcr.io/opengeos/geolibre`.
 

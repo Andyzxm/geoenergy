@@ -1,1 +1,0 @@
-"""GeoLibre Python processing sidecar."""
