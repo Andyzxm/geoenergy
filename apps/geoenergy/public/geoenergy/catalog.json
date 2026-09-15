@@ -112,9 +112,75 @@
       "accent": "hsl(280 55% 55%)",
       "datasets": [
         {
+          "id": "im3-data-centers",
+          "title": "Data Centers",
+          "description": "1,382 operating U.S. data centers with operator, county, and floor area, from PNNL's IM3 Open Source Data Center Atlas.",
+          "kind": "geojson",
+          "url": "https://raw.githubusercontent.com/IMMM-SFA/datacenter-atlas/main/static/im3_datacenter_centroids.geojson",
+          "source": "PNNL IM3",
+          "infoUrl": "https://immm-sfa.github.io/datacenter-atlas/",
+          "tags": [
+            "data center",
+            "demand",
+            "load growth",
+            "hyperscale",
+            "points"
+          ],
+          "bounds": [
+            -125.0,
+            24.0,
+            -66.0,
+            50.0
+          ]
+        },
+        {
+          "id": "im3-data-center-footprints",
+          "title": "Data Center Footprints",
+          "description": "Building footprints for the same sites, for anything that needs area rather than a point.",
+          "kind": "geojson",
+          "url": "https://raw.githubusercontent.com/IMMM-SFA/datacenter-atlas/main/static/im3_datacenter_footprints.geojson",
+          "source": "PNNL IM3",
+          "infoUrl": "https://immm-sfa.github.io/datacenter-atlas/",
+          "tags": [
+            "data center",
+            "footprint",
+            "polygons",
+            "demand"
+          ],
+          "bounds": [
+            -125.0,
+            24.0,
+            -66.0,
+            50.0
+          ]
+        },
+        {
+          "id": "im3-projected-growth-moderate",
+          "title": "Projected Growth (moderate scenario)",
+          "description": "Where IM3's market-gravity model places new data center capacity under a moderate growth scenario. Modeled, not observed.",
+          "kind": "geojson",
+          "url": "https://raw.githubusercontent.com/IMMM-SFA/datacenter-atlas/main/static/projected/moderate_growth_50_market_gravity_epsg4326_centroids.geojson",
+          "source": "PNNL IM3",
+          "infoUrl": "https://immm-sfa.github.io/datacenter-atlas/",
+          "vintage": "modeled",
+          "tags": [
+            "data center",
+            "projection",
+            "load growth",
+            "scenario",
+            "points"
+          ],
+          "bounds": [
+            -125.0,
+            24.0,
+            -66.0,
+            50.0
+          ]
+        },
+        {
           "id": "osm-data-centers",
-          "title": "Data Centers (in view)",
-          "description": "Data centers mapped in OpenStreetMap, queried live for the visible map. Zoom to a metro area first: the query is bounded to the view.",
+          "title": "Data Centers (OpenStreetMap, live)",
+          "description": "A live OpenStreetMap query for the visible map, useful for sites newer than the IM3 atlas. Zoom to a metro area first, and expect the public query servers to be busy at times.",
           "kind": "overpass",
           "url": "https://overpass-api.de/api/interpreter",
           "query": "nwr[\"telecom\"=\"data_center\"]({{bbox}});nwr[\"building\"=\"data_center\"]({{bbox}});nwr[\"man_made\"=\"data_center\"]({{bbox}});",
@@ -212,6 +278,7 @@
   ],
   "defaultLayers": [
     "eia-power-plants",
-    "eia-transmission-lines"
+    "eia-transmission-lines",
+    "im3-data-centers"
   ]
 }

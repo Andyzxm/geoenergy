@@ -26,11 +26,11 @@ or save the whole workspace as a project file.
 | --- | --- |
 | Generation | Power plants (points and hexbins), coal mines |
 | Transmission and delivery | Transmission lines, substations |
-| Demand | Data centers |
+| Demand and load growth | Data centers, their footprints, and modeled growth scenarios |
 | Fuels and pipelines | Natural gas, crude oil, petroleum products |
 | Reliability and vulnerability | County outage summaries (EAGLE-I) |
 
-Sources are EIA, HIFLD, and ORNL. Every entry links back to its publisher, and
+Sources are EIA, HIFLD, ORNL, and PNNL's IM3 Open Source Data Center Atlas. Every entry links back to its publisher, and
 `npm run check:catalog:net` probes each service so a layer that has moved shows
 up before a demo does.
 
